@@ -288,7 +288,7 @@ const planData = {
         tier: "BASIC",
         name: "Presença Online",
         featured: false,
-        setup: "R$ 900 – R$ 1.900",
+        setup: "R$ 900 – R$ 1.500",
         mensalidade: "R$ 159 – R$ 399 /mês",
         server: "Render Starter ($7)",
         items: [
@@ -302,7 +302,7 @@ const planData = {
         tier: "PRO",
         name: "Empresa Profissional",
         featured: true,
-        setup: "R$ 2.500 – R$ 4.500",
+        setup: "R$ 1.800 – R$ 2.999",
         mensalidade: "R$ 599 – R$ 699 /mês",
         server: "Render Standard ($25) (ou Starter se for estático)",
         items: [
