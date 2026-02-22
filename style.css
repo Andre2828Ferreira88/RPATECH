@@ -107,7 +107,7 @@ a{ color:inherit; text-decoration:none; }
   position: sticky;
   top:0;
   z-index: 50;
-  background: rgba(255,255,255,.78);
+  background: trans;
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
@@ -148,6 +148,7 @@ a{ color:inherit; text-decoration:none; }
   gap: 12px;
   font-weight: 800;
   color: rgba(11,18,32,.72);
+
 }
 
 .nav a{
@@ -281,6 +282,7 @@ h1{
   font-size: clamp(36px, 4.2vw, 58px);
   line-height: 1.05;
   letter-spacing: -0.05em;
+  color: #fff;
 }
 .accent{ color: var(--brand); }
 
@@ -289,6 +291,7 @@ h1{
   line-height: 1.68;
   color: var(--muted);
   max-width: 60ch;
+  color: #080606;
 }
 
 .cta{
@@ -1045,4 +1048,840 @@ textarea{ resize: vertical; }
   color: rgba(11,18,32,.58);
   font-weight: 850;
   font-size: 12px;
+}
+.hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 86vh; /* ajuste */
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  z-index: 0;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(80% 60% at 20% 20%, rgba(0,0,0,.35), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.25), rgba(0,0,0,.65));
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+}.hero{
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* overlay mais leve (não apaga o conteúdo) */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.55)
+  );
+  pointer-events: none;
+}
+
+/* GARANTE que o conteúdo fica por cima */
+.hero .container,
+.hero-content{
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   RPAWorks Chatbot — Quick Replies Only (Pro / Animado)
+========================================================= */
+:root{
+  --rpaw-bg: #0b0f14;
+  --rpaw-surface: rgba(16, 22, 30, .82);
+  --rpaw-stroke: rgba(255,255,255,.10);
+  --rpaw-text: rgba(255,255,255,.92);
+  --rpaw-muted: rgba(255,255,255,.62);
+
+  /* Ajuste para sua marca (laranja/branco) */
+  --rpaw-accent: #ff6a00;
+  --rpaw-accent-2: #ff8a3d;
+
+  --rpaw-radius: 18px;
+  --rpaw-shadow: 0 22px 60px rgba(0,0,0,.45);
+  --rpaw-blur: blur(14px);
+}
+
+.rpaw-chat{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.rpaw-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.38);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+}
+
+.rpaw-fab{
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  background: radial-gradient(120% 120% at 20% 20%, rgba(255,255,255,.22), transparent 60%),
+              linear-gradient(135deg, var(--rpaw-accent), var(--rpaw-accent-2));
+  box-shadow: 0 18px 45px rgba(255,106,0,.25), 0 18px 45px rgba(0,0,0,.35);
+  transform: translateZ(0);
+  transition: transform .16s ease, filter .16s ease;
+}
+
+.rpaw-fab:hover{ transform: translateY(-2px); filter: saturate(1.05); }
+.rpaw-fab:active{ transform: translateY(0); }
+
+.rpaw-fab-ring{
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,106,0,.22), transparent 62%);
+  filter: blur(2px);
+  opacity: .85;
+  animation: rpawPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes rpawPulse{
+  0%,100%{ transform: scale(.92); opacity: .75; }
+  50%{ transform: scale(1.03); opacity: 1; }
+}
+
+.rpaw-fab-ico{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.95);
+  mask: radial-gradient(circle at 30% 35%, transparent 0 6px, #000 7px) ,
+        linear-gradient(#000 0 0);
+  -webkit-mask: radial-gradient(circle at 30% 35%, transparent 0 6px, #000 7px),
+                linear-gradient(#000 0 0);
+}
+
+/* Panel */
+.rpaw-panel{
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+  width: 360px;
+  max-width: calc(100vw - 24px);
+  height: 520px;
+  max-height: calc(100vh - 120px);
+  border-radius: var(--rpaw-radius);
+  border: 1px solid var(--rpaw-stroke);
+  background: linear-gradient(180deg, rgba(16,22,30,.92), rgba(10,14,18,.86));
+  backdrop-filter: var(--rpaw-blur);
+  box-shadow: var(--rpaw-shadow);
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(12px) scale(.985);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s cubic-bezier(.2,.9,.2,1);
+}
+
+.rpaw-panel.is-open{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.rpaw-head{
+  padding: 14px 14px 10px 14px;
+  border-bottom: 1px solid var(--rpaw-stroke);
+  background: radial-gradient(120% 120% at 20% 0%, rgba(255,106,0,.22), transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+}
+
+.rpaw-brand{ display:flex; gap: 12px; align-items: center; }
+.rpaw-mark{
+  width: 38px; height: 38px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--rpaw-accent), var(--rpaw-accent-2));
+  box-shadow: 0 14px 30px rgba(255,106,0,.22);
+}
+
+.rpaw-brand-txt h3{
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .2px;
+  color: var(--rpaw-text);
+}
+.rpaw-sub{
+  margin: 3px 0 0 0;
+  font-size: 12px;
+  color: var(--rpaw-muted);
+}
+
+.rpaw-head-actions{
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  display:flex;
+  gap: 8px;
+}
+
+.rpaw-iconbtn{
+  width: 34px; height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color: var(--rpaw-text);
+  cursor: pointer;
+  transition: transform .14s ease, background .14s ease;
+}
+.rpaw-iconbtn:hover{ background: rgba(255,255,255,.08); transform: translateY(-1px); }
+
+.rpaw-body{
+  padding: 14px;
+  height: calc(100% - 132px);
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.rpaw-thread{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rpaw-msg{
+  max-width: 86%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color: var(--rpaw-text);
+  font-size: 13px;
+  line-height: 1.35;
+  animation: rpawIn .18s ease-out both;
+}
+
+@keyframes rpawIn{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+.rpaw-msg.bot{
+  align-self: flex-start;
+  border-top-left-radius: 10px;
+}
+
+.rpaw-msg.user{
+  align-self: flex-end;
+  background: linear-gradient(135deg, rgba(255,106,0,.28), rgba(255,138,61,.18));
+  border-color: rgba(255,106,0,.25);
+  border-top-right-radius: 10px;
+}
+
+.rpaw-foot{
+  padding: 12px 12px 10px 12px;
+  border-top: 1px solid var(--rpaw-stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+
+.rpaw-choices{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.rpaw-chip{
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: var(--rpaw-text);
+  font-size: 12px;
+  padding: 9px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .14s ease, background .14s ease, border-color .14s ease;
+  white-space: nowrap;
+}
+
+.rpaw-chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,106,0,.28);
+}
+
+.rpaw-chip:active{ transform: translateY(0); }
+
+.rpaw-cta{
+  display:flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rpaw-cta-btn{
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--rpaw-accent), var(--rpaw-accent-2));
+  color: #0b0f14;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(255,106,0,.18);
+  transition: transform .14s ease, filter .14s ease;
+}
+.rpaw-cta-btn:hover{ transform: translateY(-1px); filter: saturate(1.05); }
+
+.rpaw-cta-link{
+  color: var(--rpaw-muted);
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  padding-bottom: 2px;
+}
+.rpaw-cta-link:hover{ color: var(--rpaw-text); }
+
+.rpaw-meta{
+  display:flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 11px;
+  color: rgba(255,255,255,.55);
+}
+.rpaw-dot{
+  width: 4px; height: 4px; border-radius: 999px;
+  background: rgba(255,255,255,.35);
+}
+
+/* Open state (backdrop) */
+.rpaw-chat.is-open .rpaw-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 480px){
+  .rpaw-panel{
+    width: min(420px, calc(100vw - 16px));
+    height: min(560px, calc(100vh - 110px));
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .rpaw-panel,
+  .rpaw-msg,
+  .rpaw-fab-ring,
+  .rpaw-chip,
+  .rpaw-cta-btn{
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* FIX: backdrop não pode ficar acima do painel */
+.rpaw-chat { z-index: 9999; }
+
+.rpaw-backdrop{
+  z-index: 0;           /* fica atrás */
+}
+
+.rpaw-panel{
+  z-index: 2;           /* fica acima do backdrop */
+}
+
+.rpaw-fab{
+  position: relative;
+  z-index: 3;           /* botão sempre acima */
+} 
+/* === FIX layout do chatbot: opções não somem quando tem muitas === */
+.rpaw-panel{
+  display: flex;
+  flex-direction: column;
+}
+
+.rpaw-head{ flex: 0 0 auto; }
+
+.rpaw-body{
+  flex: 1 1 auto;
+  height: auto !important;     /* remove o calc antigo */
+  overflow: auto;
+}
+
+/* footer pode crescer, mas sem quebrar o painel */
+.rpaw-foot{
+  flex: 0 0 auto;
+  max-height: 190px;           /* ajuste se quiser */
+  overflow: auto;
+}
+
+/* a lista de opções pode rolar */
+.rpaw-choices{
+  max-height: 120px;           /* ajuste se quiser */
+  overflow: auto;
+  padding-bottom: 6px;
+}
+
+/* ===========================
+   LOADER — SaaS Premium (US)
+=========================== */
+.loader{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #070a12;
+  transform: translateZ(0);
+}
+
+/* Animated mesh (profissional, sem exagero) */
+.loader::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background:
+    radial-gradient(900px 560px at 15% 10%, rgba(255,106,0,.20), transparent 60%),
+    radial-gradient(820px 520px at 85% 0%, rgba(255,138,61,.12), transparent 60%),
+    radial-gradient(720px 520px at 55% 95%, rgba(255,255,255,.06), transparent 62%),
+    linear-gradient(120deg, rgba(255,255,255,.03), rgba(255,255,255,0) 40%);
+  filter: blur(26px) saturate(1.05);
+  animation: loaderMesh 9s ease-in-out infinite alternate;
+  opacity: .95;
+}
+
+@keyframes loaderMesh{
+  0%   { transform: translate3d(-1.5%, -1%, 0) scale(1.02); }
+  50%  { transform: translate3d(1.2%, 1.4%, 0) scale(1.03); }
+  100% { transform: translate3d(0.6%, -0.8%, 0) scale(1.01); }
+}
+
+/* Grid ultra-sutil (tech “clean”) */
+.loader::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px) 0 0/80px 80px,
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px) 0 0/80px 80px;
+  opacity:.12;
+  mask-image: radial-gradient(circle at 30% 20%, #000 20%, transparent 62%);
+}
+
+/* Card premium */
+.loader__card{
+  width: min(540px, calc(100vw - 40px));
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(16, 20, 30, .64);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.62),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  padding: 22px 22px 18px;
+  display: grid;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ===== Loader layout (menos espaço vazio) ===== */
+.loader__top{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__txt{ gap: 4px; }
+
+.loader__card{
+  width: min(620px, calc(100vw - 40px));
+  padding: 22px 22px 18px;
+}
+
+/* Logo (sem quadrado) */
+.loader__mark{
+  width: 170px !important;
+  height: auto;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.loader__mark img{
+  width: 100% !important;
+  height: auto;
+  object-fit: contain;
+  transform-origin: left center;
+  filter: drop-shadow(0 18px 60px rgba(255,106,0,.25));
+  animation: loaderLogoFloat 2.6s ease-in-out infinite;
+}
+
+@keyframes loaderLogoFloat{
+  0%,100%{ transform: translateY(0) scale(1); }
+  50%{ transform: translateY(-4px) scale(1.01); }
+}
+
+/* Barra + porcentagem */
+.loader__barRow{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__bar{ flex: 1 1 auto; }
+
+.loader__pct{
+  min-width: 46px;
+  text-align: right;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,.82);
+  font-size: 12px;
+}
+
+/* Meta + dots animados */
+.loader__metaRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__dots{
+  display:flex;
+  gap: 6px;
+  opacity: .75;
+}
+
+.loader__dots span{
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.22);
+  animation: loaderDot 1.05s ease-in-out infinite;
+}
+
+.loader__dots span:nth-child(2){ animation-delay: .12s; background: rgba(255,255,255,.30); }
+.loader__dots span:nth-child(3){ animation-delay: .24s; background: rgba(255,106,0,.55); }
+
+@keyframes loaderDot{
+  0%,100%{ transform: translateY(0); opacity: .55; }
+  50%{ transform: translateY(-4px); opacity: 1; }
+}
+
+/* FX layers dentro do card (já usados no HTML) */
+.loader__fx{
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255,106,0,.18), transparent 55%),
+    radial-gradient(circle at 75% 30%, rgba(255,138,61,.10), transparent 52%),
+    radial-gradient(circle at 60% 75%, rgba(255,255,255,.06), transparent 58%);
+  filter: blur(14px);
+  opacity:.9;
+  animation: loaderFxFloat 6.2s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes loaderFxFloat{
+  from { transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  to   { transform: translate3d( 2%,  1%, 0) scale(1.04); }
+}
+
+.loader__spark{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 15% 40%, rgba(255,255,255,.20) 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 65%, rgba(255,255,255,.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 65% 35%, rgba(255,255,255,.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 62%, rgba(255,255,255,.18) 0 1px, transparent 2px);
+  opacity:.10;
+  animation: loaderSpark 2.2s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes loaderSpark{
+  from{ transform: translateY(0); opacity:.08; }
+  to  { transform: translateY(-6px); opacity:.14; }
+}
+
+/* Responsivo */
+@media (max-width: 560px){
+  .loader__card{ width: min(520px, calc(100vw - 24px)); padding: 18px 16px 14px; }
+  .loader__top{ gap: 12px; }
+  .loader__mark{ width: 140px; }
+  .loader__title{ font-size: 16px; }
+  .loader__sub{ font-size: 12px; }
+}
+
+/* borda luminosa “muito SaaS” */
+.loader__card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: 22px;
+  background: linear-gradient(120deg,
+    rgba(255,106,0,.55),
+    rgba(255,255,255,.10),
+    rgba(255,138,61,.40)
+  );
+  opacity:.18;
+  filter: blur(10px);
+  pointer-events:none;
+}
+
+/* noise (textura premium, bem leve) */
+.loader__card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+  opacity:.10;
+  mix-blend-mode: overlay;
+  pointer-events:none;
+}
+
+/* Top row (logo + spinner) */
+.loader__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__mark{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6a00, #ff8a3d);
+  box-shadow: 0 22px 55px rgba(255,106,0,.20);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__mark::after{
+  content:"";
+  position:absolute;
+  inset:-60%;
+  transform: rotate(20deg);
+  animation: loaderSweep 1.15s ease-in-out infinite;
+  opacity:.9;
+}
+
+@keyframes loaderSweep{
+  0%   { transform: translateX(-34%) rotate(20deg); opacity: 0; }
+  20%  { opacity: .9; }
+  100% { transform: translateX(34%) rotate(20deg); opacity: 0; }
+}
+
+/* spinner minimal (profissional) */
+.loader__spin{
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.14);
+  border-top-color: rgba(255,106,0,.95);
+  animation: spin 0.75s linear infinite;
+  filter: drop-shadow(0 8px 16px rgba(255,106,0,.18));
+}
+@keyframes spin{ to { transform: rotate(360deg); } }
+
+/* textos */
+.loader__txt{
+  display:grid;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__title{
+  color: rgba(255,255,255,.95);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+}
+
+.loader__sub{
+  color: rgba(255,255,255,.62);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* barra com shimmer */
+.loader__bar{
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.loader__barFill{
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff6a00, #ff8a3d);
+  box-shadow: 0 18px 42px rgba(255,106,0,.12);
+  transition: width .28s ease;
+  position: relative;
+}
+
+/* shimmer */
+.loader__barFill::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: translateX(-60%);
+  animation: shimmer 1.05s ease-in-out infinite;
+  opacity:.55;
+}
+@keyframes shimmer{
+  0%   { transform: translateX(-60%); }
+  100% { transform: translateX(60%); }
+}
+
+.loader__meta{
+  color: rgba(255,255,255,.55);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .01em;
+  position: relative;
+  z-index: 1;
+}
+
+/* cursor discreto */
+.loader__meta::after{
+  content:"";
+  display:inline-block;
+  width: 8px;
+  height: 10px;
+  margin-left: 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.22);
+  animation: blink 1s infinite;
+  vertical-align: -1px;
+}
+@keyframes blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* hide */
+.loader.is-hide{
+  opacity: 0;
+  transform: translateY(-8px) scale(.99);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .loader::before, .loader__mark::after, .loader__spin, .loader__barFill::after{
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   LOADER FIX OVERRIDES (compact + aligned + remove white matte)
+   Cola no FINAL do CSS (prioridade máxima)
+========================================================= */
+#appLoader .loader__card{ max-width: 720px; padding: 20px 22px 16px; }
+#appLoader .loader__top{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap: 14px !important;
+}
+#appLoader .loader__txt{
+  display:grid !important;
+  gap: 4px !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+#appLoader .loader__barRow{ margin-top: 10px !important; }
+#appLoader .loader__metaRow{ margin-top: 8px !important; }
+
+#appLoader .loader__mark{
+  width: 190px !important;
+  height: auto !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Remove “borrão branco” caso a imagem tenha fundo branco:
+   multiply faz o branco virar transparente no dark.
+   (se sua logo já for PNG transparente, não muda nada) */
+#appLoader .loader__card{ isolation: isolate; } /* limita blend ao card */
+#appLoader .loader__mark img{
+  display:block;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+  filter:
+    brightness(1.25)
+    contrast(1.15)
+    drop-shadow(0 18px 60px rgba(255,106,0,.22));
+}
+
+/* Em telas menores, deixa menos “vazio” */
+@media (max-width: 720px){
+  #appLoader .loader__card{ width: min(560px, calc(100vw - 28px)); }
+  #appLoader .loader__mark{ width: 160px !important; }
 }
