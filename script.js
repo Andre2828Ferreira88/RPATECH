@@ -200,7 +200,7 @@ function openPlanWhatsApp(plan, lead) {
     `- Servidor sugerido: ${plan.server}\n\n` +
     `Pode me passar os próximos passos e prazo?`;
 
-  openWhatsApp(msg);
+  openWhatsAppTracked(msg);
 }
 
 // =========================================================
@@ -597,7 +597,7 @@ if (contactForm) {
       `- Necessidade: ${lead.need}\n\n` +
       `Pode me chamar para alinharmos escopo e orçamento?`;
 
-    openWhatsApp(msg);
+    openWhatsAppTracked(msg);
   });
 }
 
@@ -652,7 +652,14 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   // Links
   const PORTFOLIO_URL = "https://www.rpaworks.com.br/";
   const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-  if (ctaPrimary) ctaPrimary.href = waLink("Olá. Quero um orçamento com a RPAWorks.");
+  if (ctaPrimary) {
+    ctaPrimary.setAttribute("href", "#");
+    ctaPrimary.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openWhatsAppTracked("Olá. Quero um orçamento com a RPAWorks.");
+    }, { passive: false });
+  }
   if (ctaSecondary) ctaSecondary.href = PORTFOLIO_URL;
 
   // Flow
@@ -1380,7 +1387,7 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
             `Objetivo:\n` +
             `Prazo desejado:\n` +
             `Orçamento estimado (se houver):`;
-          openWhatsApp(msg);
+          openWhatsAppTracked(msg);
           return;
         }
 
@@ -1619,4 +1626,5 @@ window.addEventListener("load", () => {
   }
 
 })
+
 
