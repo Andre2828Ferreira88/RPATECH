@@ -1885,3 +1885,13 @@ textarea{ resize: vertical; }
   #appLoader .loader__card{ width: min(560px, calc(100vw - 28px)); }
   #appLoader .loader__mark{ width: 160px !important; }
 }
+main, .lead_hero{
+  color: #ffffff;
+}
+
+main, .stat{
+  color: #000;
+}
+.c , .lead{
+  color: #000;
+}
