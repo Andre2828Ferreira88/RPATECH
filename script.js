@@ -24,6 +24,23 @@ function openWhatsApp(message) {
   return true;
 }
 
+function openWhatsAppTracked(message) {
+  if (!isWhatsappConfigured()) return false;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  // Dispara conversão do Google Ads e redireciona pro WhatsApp
+  if (typeof window.gtag_report_conversion === "function") {
+    window.gtag_report_conversion(url);
+    return true;
+  }
+
+  // fallback se a função não existir
+  const w = window.open(url, "_blank", "noopener,noreferrer");
+  if (!w) window.location.href = url;
+  return true;
+}
+
 // =========================================================
 // Lead (dados do cliente) — salva no navegador
 // =========================================================
@@ -1602,3 +1619,4 @@ window.addEventListener("load", () => {
   }
 
 })
+
