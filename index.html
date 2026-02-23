@@ -44,6 +44,26 @@
     gtag('config', 'AW-17970541017');
   </script>
 
+  <!-- Event snippet for Enviar formulário de lead (1) conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17970541017/luboCLnQm_0bENnjgvlC',
+        'value': 1.0,
+        'currency': 'BRL',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -479,4 +499,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
