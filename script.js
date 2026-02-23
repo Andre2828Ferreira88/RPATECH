@@ -305,15 +305,15 @@ const planData = {
     subtitle: "Presença, conversão e evolução para sistema.",
     plans: [
       {
-        tier: "BASIC",
+        tier: "BASIC lux",
         name: "Presença Online",
         featured: false,
-        setup: "R$ 900 – R$ 1.500",
+        setup: "R$ 859 – R$ 1.100",
         mensalidade: "R$ 159 – R$ 399 /mês",
         server: "Render Starter ($7)",
         items: [
           "1 página (ou até 3 se for bem leve)",
-          "Responsivo + WhatsApp + SEO básico",
+          "Responsivo + WhatsApp + SEO básico + Local de vendas + Bot de duvidas + Simulação",
           "1 alteração pequena/mês (texto/contato/horário)",
         ],
         cta: "Quero o BASIC",
@@ -328,7 +328,7 @@ const planData = {
         items: [
           "Até 5 páginas",
           "Formulário (e-mail/WhatsApp)",
-          "SEO melhorado + performance",
+          "SEO melhorado + performance + Responsivo + Local de vendas + Bot de duvidas + Simulação",
           "2 alterações/mês",
         ],
         cta: "Quero o PRO",
@@ -1626,5 +1626,6 @@ window.addEventListener("load", () => {
   }
 
 })
+
 
 
