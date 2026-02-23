@@ -1895,3 +1895,86 @@ main, .stat{
 .c , .lead{
   color: #000;
 }
+
+
+/* Instagram Floating Button - bottom-left */
+.ig-float{
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  color: #fff;
+
+  /* fundo com cara “premium” */
+  background: radial-gradient(120% 120% at 30% 20%, #ffdc80 0%, #f56040 35%, #fd1d1d 55%, #c13584 75%, #5851db 100%);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  backdrop-filter: blur(8px);
+
+  transform: translateY(0);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.ig-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 38px rgba(0,0,0,.32);
+  filter: saturate(1.1);
+}
+
+.ig-float:active{
+  transform: translateY(0px) scale(.98);
+}
+
+.ig-float__icon{
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.ig-float__label{
+  font-weight: 700;
+  letter-spacing: .2px;
+  font-size: 14px;
+  line-height: 1;
+  opacity: .95;
+}
+
+/* Mobile: vira “bolinha” pra não ocupar espaço */
+@media (max-width: 520px){
+  .ig-float{
+    padding: 12px;
+    gap: 0;
+  }
+  .ig-float__label{
+    display: none;
+  }
+  .ig-float__icon{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.ig-float::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:999px;
+  background: radial-gradient(circle, rgba(255,255,255,.25), transparent 60%);
+  opacity:.0;
+  transform: scale(.95);
+  transition: .25s ease;
+}
+
+.ig-float:hover::after{
+  opacity:.9;
+  transform: scale(1);
+}
