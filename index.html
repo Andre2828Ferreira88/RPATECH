@@ -44,8 +44,6 @@
     gtag('config', 'AW-17970541017');
   </script>
 
-  <!-- Event snippet for Enviar formulário de lead (1) conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
   <script>
   function gtag_report_conversion(url) {
     var callback = function () {
@@ -71,16 +69,16 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       })(window, document, "clarity", "script", "vm0yrwne22");
   </script>
 
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="promo.css" />
+
 </head>
 
 <body>
-  <!-- Background blobs -->
   <div class="bg">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -124,65 +122,133 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <!-- Hero -->
   <main>
     <section class="hero" id="hero">
-      <video class="hero-video"
-             autoplay
-             muted
-             loop
-             playsinline
-             preload="metadata"
-             poster="img/hero.jpg">
-        <source src="videos/hero.webm" type="video/webm">
-        <source src="videos/hero.mp4" type="video/mp4">
-      </video>
-
+      <!-- BG leve (sem vídeo) -->
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="container hero__inner">
+
+        <!-- Copy principal -->
         <div class="hero__copy reveal">
+
+          <!-- pill -->
           <div class="pill">
             <span class="dot"></span>
             <span>Sites • RPA • Dashboards</span>
           </div>
 
-          <h1>Seu negócio com cara de <span class="accent">2026</span>.</h1>
+          <!-- TÍTULO: promessa concreta + número âncora -->
+          <h1>Automatize, impressione<br>e venda mais —<br>em <span class="accent">48h</span>.</h1>
+
+          <!-- SUBTÍTULO: dor real em 1 linha -->
           <p class="lead_hero">
-            Criamos <strong>sites rápidos</strong>, <strong>robôs (RPA)</strong> e <strong>dashboards interativos</strong>
-            com visual minimalista e desempenho de alto nível. Você envia a planilha, a gente entrega o sistema.
+            Seu concorrente já parece maior do que é.<br>
+            <strong>A gente faz o mesmo por você — sem precisar de equipe de TI.</strong>
           </p>
 
+          <!-- CTAs com micro-copy de confiança -->
           <div class="cta">
-            <a class="btn btn--primary" href="#planos">Ver planos</a>
-            <a class="btn btn--ghost" href="#portfolio">Ver projetos</a>
+            <div class="cta__group">
+              <a class="btn btn--primary" href="#planos">Ver planos e preços</a>
+              <span class="cta__trust">⚡ Resposta em até 1h</span>
+            </div>
           </div>
 
+          <!-- PROVA SOCIAL: avatares + frase -->
+          <div class="hero__social-proof">
+            <div class="hero__avatars" aria-hidden="true">
+              <span class="hero__avatar" style="background: linear-gradient(135deg,#ff6a00,#ff8a2a);">M</span>
+              <span class="hero__avatar" style="background: linear-gradient(135deg,#6a11cb,#2575fc);">J</span>
+              <span class="hero__avatar" style="background: linear-gradient(135deg,#11998e,#38ef7d);">R</span>
+              <span class="hero__avatar" style="background: linear-gradient(135deg,#f7971e,#ffd200);">A</span>
+            </div>
+            <p class="hero__social-text">
+              <strong>+12 empresas</strong> já saíram na frente com a RPAWorks
+            </p>
+          </div>
+
+          <!-- STATS -->
           <div class="hero__stats">
             <div class="stat">
               <strong data-counter="48">0</strong>
               <span>h pra protótipo</span>
             </div>
             <div class="stat">
-              <strong data-counter="99">0</strong>
-              <span>score de performance*</span>
+              <strong data-counter="12">0</strong>
+              <span>projetos entregues</span>
             </div>
             <div class="stat">
               <strong data-counter="24">0</strong>
-              <span>h para suporte/atualizações</span>
+              <span>h suporte/atualizações</span>
             </div>
           </div>
 
-          <small class="note">*meta realista: depende do conteúdo e hospedagem.</small>
-        </div>
-      </div>
-    </section>
+          <!-- GARANTIA micro-badge -->
+          <div class="hero__guarantee">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Sem taxa de surpresa · Você aprova antes de pagar os 70% do projeto final</span>
+          </div>
 
-    <!-- Trust -->
-    <section class="trust">
-      <div class="container trust__inner reveal">
-        <div class="trust__item">Entrega rápida</div>
-        <div class="trust__item">Design premium</div>
-        <div class="trust__item">Código limpo</div>
-        <div class="trust__item">Automação real</div>
-        <div class="trust__item">Dashboards vivos</div>
+        </div>
+        <!-- ═══════════════════════════════════════
+             CARD DE DESCONTO – 10% no 1º site
+        ════════════════════════════════════════════ -->
+        <div class="promo-card reveal" role="complementary" aria-label="Oferta especial: 10% de desconto no primeiro site">
+
+          <!-- canto decorativo -->
+          <div class="promo-ribbon" aria-hidden="true"></div>
+
+          <!-- topo: live dot + badge -->
+          <div class="promo-card__top">
+            <p class="promo-live">
+              <span class="promo-live__dot"></span>
+              Oferta ativa agora
+            </p>
+            <div class="promo-badge" aria-label="10% de desconto">
+              <span class="promo-badge__pct">10%</span>
+              <span class="promo-badge__off">off</span>
+            </div>
+          </div>
+
+          <!-- título -->
+          <h2 class="promo-card__title">
+            Primeiro site:<br>
+            <em>10% mais barato</em> pra você.
+          </h2>
+
+          <!-- subtítulo -->
+          <p class="promo-card__sub">
+            Desconto exclusivo no seu <strong>primeiro projeto de site</strong>.
+            Protótipo em até <strong>48h</strong> — sem enrolação.
+          </p>
+
+          <!-- timer de urgência -->
+          <div class="promo-timer" aria-label="Tempo restante da oferta">
+            <span class="promo-timer__icon" aria-hidden="true">⏳</span>
+            <div class="promo-timer__info">
+              <p class="promo-timer__text">Oferta expira em</p>
+              <div class="promo-bar" role="progressbar" aria-label="Progresso da oferta">
+                <div class="promo-bar__fill" id="promoBarFill"></div>
+              </div>
+            </div>
+            <span class="promo-timer__count" id="promoCountdown" aria-live="polite">23:59:59</span>
+          </div>
+
+        <a class="promo-card__cta"
+            href="https://wa.me/5511961219986?text=Quero%20um%20site%20com%2010%25%20de%20desconto"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Garantir 10% de desconto agora via WhatsApp">
+            Garantir meu desconto agora
+          </a>
+
+        </div>
+        <!-- ═══ FIM DO CARD DE DESCONTO ═══ -->
+
       </div>
     </section>
 
@@ -191,13 +257,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <div class="container">
         <div class="section__head reveal">
           <h2>Serviços focados em resultado</h2>
-          <p class="lead">Do “site bonito” ao “processo automático”: tudo com clareza e performance.</p>
+          <p class="lead">Do "site bonito" ao "processo automático": tudo com clareza e performance.</p>
         </div>
 
         <div class="cards">
           <article class="card reveal">
             <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M4 5h16v10H4V5Z" stroke="currentColor" stroke-width="2" />
                 <path d="M8 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
@@ -213,7 +279,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
           <article class="card reveal">
             <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M7 8V6a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="2"/>
                 <path d="M6 8h12v12H6V8Z" stroke="currentColor" stroke-width="2"/>
                 <path d="M9 13h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -230,7 +296,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
           <article class="card reveal">
             <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <path d="M7 15l3-4 3 2 4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -265,16 +331,16 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
           <div class="mode">
             <span class="mode__label">Ver preço:</span>
-            <button class="seg is-active" data-mode="mensalidade">Mensalidade</button>
-            <button class="seg" data-mode="setup">Venda unica</button>
+            <button class="seg is-active" data-mode="mensalidade" type="button">Mensalidade</button>
+            <button class="seg" data-mode="setup" type="button">Venda única</button>
           </div>
         </div>
 
-        <div class="plans" id="plansGrid"></div>
+        <div class="plans" id="plansGrid" aria-live="polite"></div>
 
         <div class="fineprint reveal">
           <span>💡 O servidor (Render) é parte da estrutura do projeto — indicamos o plano ideal e deixamos tudo rodando.</span>
-          <span>🔧 As “alterações/mês” cobrem ajustes pequenos (texto, contato, horário, etc.).</span>
+          <span>🔧 As "alterações/mês" cobrem ajustes pequenos (texto, contato, horário, etc.).</span>
         </div>
 
         <div class="callout reveal">
@@ -323,33 +389,110 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- Portfólio -->
     <section class="section section--alt" id="portfolio">
       <div class="container">
+
         <div class="section__head reveal">
           <h2>Portfólio</h2>
-          <p class="lead">Alguns formatos de entrega: landing pages, painéis e automações.</p>
+          <p class="lead">Projetos reais entregues — do briefing ao deploy.</p>
         </div>
 
-        <div class="portfolio">
-          <a class="shot reveal" href="#contato" style="--shot:url('assets/img/landing.jpg')">
-            <div class="shot__cap">
-              <strong>Landing Pro</strong>
-              <span>Conversão + animações</span>
+        <!-- grade assimétrica: 1 card grande + 2 pequenos -->
+        <div class="pf-grid">
+
+          <!-- CARD 1 — destaque (ocupa 2 linhas) -->
+          <a class="pf-shot pf-shot--featured reveal" href="#contato"
+             style="--shot:url('assets/img/tes.png')"
+             aria-label="Ver projeto Landing Pro">
+            <div class="pf-shot__bg"></div>
+            <div class="pf-shot__overlay"></div>
+
+            <div class="pf-shot__tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Sites & Landing Pages
+            </div>
+
+            <div class="pf-shot__body">
+              <span class="pf-shot__num">01</span>
+              <h3 class="pf-shot__title">Landing Pro</h3>
+              <p class="pf-shot__desc">Alta conversão, animações suaves e CTA direto pro WhatsApp.</p>
+
+              <div class="pf-shot__metrics">
+                <div class="pf-metric">
+                  <span class="pf-metric__label">Performance</span>
+                  <div class="pf-metric__bar">
+                    <div class="pf-metric__fill" style="--w:99%"></div>
+                  </div>
+                  <span class="pf-metric__val">99</span>
+                </div>
+                <div class="pf-metric">
+                  <span class="pf-metric__label">Conversão</span>
+                  <div class="pf-metric__bar">
+                    <div class="pf-metric__fill" style="--w:87%"></div>
+                  </div>
+                  <span class="pf-metric__val">↑87%</span>
+                </div>
+              </div>
+
+              <div class="pf-shot__cta">
+                Ver projeto
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
           </a>
 
-          <a class="shot reveal" href="#contato" style="--shot:url('assets/img/ashboard.jpg')">
-            <div class="shot__cap">
-              <strong>Dashboard</strong>
-              <span>Filtros + KPIs</span>
+          <!-- CARD 2 — dashboard -->
+          <a class="pf-shot reveal" href="#contato"
+             style="--shot:url('assets/img/ashboard.jpg')"
+             aria-label="Ver projeto Dashboard">
+            <div class="pf-shot__bg"></div>
+            <div class="pf-shot__overlay"></div>
+
+            <div class="pf-shot__tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 19h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M7 15l3-4 3 2 4-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Dashboards
+            </div>
+
+            <div class="pf-shot__body">
+              <span class="pf-shot__num">02</span>
+              <h3 class="pf-shot__title">Dashboard BI</h3>
+              <p class="pf-shot__desc">Filtros, KPIs e export PDF/Excel em tempo real.</p>
+              <div class="pf-shot__cta">
+                Ver projeto
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
           </a>
 
-          <a class="shot reveal" href="#contato" style="--shot:url('assets/img/rpa.jpg')">
-            <div class="shot__cap">
-              <strong>RPA</strong>
-              <span>Planilha → Sistema</span>
+          <!-- CARD 3 — RPA -->
+          <a class="pf-shot reveal" href="#contato"
+             style="--shot:url('assets/img/rpa.jpg')"
+             aria-label="Ver projeto RPA">
+            <div class="pf-shot__bg"></div>
+            <div class="pf-shot__overlay"></div>
+
+            <div class="pf-shot__tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2Z" stroke="currentColor" stroke-width="2.2"/><path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              RPA & Automação
+            </div>
+
+            <div class="pf-shot__body">
+              <span class="pf-shot__num">03</span>
+              <h3 class="pf-shot__title">Robô de Processos</h3>
+              <p class="pf-shot__desc">Planilha → sistema automático com logs e alertas.</p>
+              <div class="pf-shot__cta">
+                Ver projeto
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
           </a>
+
         </div>
+
+        <!-- rodapé do portfólio -->
+        <div class="pf-footer reveal">
+          <p>Quer ver mais? <strong>Cada projeto é único</strong> — conte o seu e montamos juntos.</p>
+          <a class="btn btn--primary" href="#contato">Quero um projeto assim</a>
+        </div>
+
       </div>
     </section>
 
@@ -366,13 +509,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <summary>Vocês entregam com domínio e hospedagem?</summary>
             <p>Sim. Podemos orientar e configurar (Render/Vercel + domínio). Você fica com tudo no seu controle.</p>
           </details>
+
           <details class="reveal">
             <summary>Dá para eu atualizar textos e imagens depois?</summary>
             <p>Sim. Entregamos um painel simples ou instruções rápidas, dependendo do tipo do projeto.</p>
           </details>
+
           <details class="reveal">
             <summary>RPA pode rodar em servidor?</summary>
-            <p>Sim, dependendo do portal e do fluxo. Também fazemos versão “só alertas/sinais” quando necessário.</p>
+            <p>Sim, dependendo do portal e do fluxo. Também fazemos versão "só alertas/sinais" quando necessário.</p>
           </details>
         </div>
       </div>
@@ -385,6 +530,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <div>
             <h2>Vamos tirar sua ideia do papel?</h2>
             <p class="lead">Me chame e mande: objetivo, exemplo, prazo e se tem planilha/processo.</p>
+
             <div class="contact__chips">
               <span>📩 Orçamento</span>
               <span>⚡ Entrega rápida</span>
@@ -396,16 +542,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <form class="form" id="leadForm">
             <label>
               Nome
-              <input id="leadName" type="text"  placeholder="Seu nome" />
+              <input id="leadName" type="text" placeholder="Seu nome" autocomplete="name" />
             </label>
+
             <label>
               WhatsApp
-              <input id="leadPhone" type="tel" placeholder="(11) 9xxxx-xxxx" />
+              <input id="leadPhone" type="tel" placeholder="(11) 9xxxx-xxxx" autocomplete="tel" />
             </label>
+
             <label>
               O que você precisa?
               <textarea id="leadNeed" rows="4" placeholder="Site, RPA, dashboard..."></textarea>
             </label>
+
             <button class="btn btn--primary" type="submit">Enviar no WhatsApp</button>
             <p class="mini">Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta.</p>
           </form>
@@ -425,9 +574,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </footer>
   </main>
 
-  <!-- =========================
-       RPAWorks - Chatbot (Quick Replies Only)
-  ========================== -->
+  <!-- Chatbot -->
   <div class="rpaw-chat" id="rpawChat" aria-live="polite">
     <button class="rpaw-fab" id="rpawFab" type="button" aria-label="Abrir assistente RPAWorks">
       <span class="rpaw-fab-ring" aria-hidden="true"></span>
@@ -459,7 +606,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <div class="rpaw-cta">
           <a class="rpaw-cta-btn" id="rpawCtaPrimary" href="#" target="_blank" rel="noopener">Solicitar orçamento</a>
-          
         </div>
 
         <div class="rpaw-meta">
@@ -473,39 +619,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <div class="rpaw-backdrop" id="rpawBackdrop" aria-hidden="true"></div>
   </div>
 
-  <!-- LOADING SCREEN -->
-<div id="appLoader" class="loader" aria-hidden="false">
-  <div class="loader__card">
-    <div class="loader__fx" aria-hidden="true"></div>
-    <div class="loader__spark" aria-hidden="true"></div>
-
-    <div class="loader__top">
-      <div class="loader__mark" aria-hidden="false">
-        <!-- ajuste o caminho se necessário -->
-        <img src="assets/img/logoB.png" alt="RPAWorks">
-      </div>
-
-      <div class="loader__txt">
-        <div class="loader__title">RPAWorks</div>
-        <div class="loader__sub">Carregando experiência…</div>
-      </div>
-    </div>
-
-    <div class="loader__barRow" aria-hidden="true">
-      <div class="loader__bar">
-        <div class="loader__barFill" id="loaderBar"></div>
-      </div>
-      <div class="loader__pct" id="loaderPct">0%</div>
-    </div>
-
-    <div class="loader__metaRow">
-      <div class="loader__meta" id="loaderMeta">Preparando recursos</div>
-      <div class="loader__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-</div>
-
-<!-- Instagram Floating Button (bottom-left) -->
+  <!-- Instagram Floating Button -->
   <a
     class="ig-float"
     href="https://www.instagram.com/rpaworks_/"
@@ -514,20 +628,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     aria-label="Abrir Instagram da RPAWORKS"
     title="Instagram"
   >
-    <!-- Ícone Instagram (SVG) -->
     <svg class="ig-float__icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.75-2.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
     </svg>
-
     <span class="ig-float__label">Instagram</span>
   </a>
-  
+
+  <!-- Anima barras de métrica do portfólio -->
+  <script>
+  (function(){
+    var featured = document.querySelector('.pf-shot--featured');
+    if(!featured) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('pf-metrics-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    io.observe(featured);
+  })();
+  </script>
+
   <script src="script.js"></script>
+  <!-- Contador do card de desconto -->
+  <script src="promo.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
