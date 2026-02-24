@@ -248,7 +248,7 @@ a{ color:inherit; text-decoration:none; }
    Hero
    ========================================================= */
 .hero{
-  padding: 68px 0 30px;
+  padding: 5px 0 30px;
 }
 
 .hero__inner{
@@ -1977,4 +1977,1255 @@ main, .stat{
 .ig-float:hover::after{
   opacity:.9;
   transform: scale(1);
+}
+
+/* ===========================
+   HERO BG (sem vídeo) — leve e premium
+=========================== */
+.hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 86vh; /* você já usa algo assim */
+}
+
+.hero-bg{
+  position:absolute;
+  inset:-20%;
+  z-index:0;
+  pointer-events:none;
+
+  /* “mesh gradient” + brilho tech */
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(255,106,0,.30), transparent 60%),
+    radial-gradient(820px 520px at 85% 10%, rgba(255,138,42,.22), transparent 62%),
+    radial-gradient(720px 520px at 55% 92%, rgba(11,18,32,.16), transparent 62%),
+    linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,0) 45%);
+
+  filter: blur(18px) saturate(1.08);
+  transform: translate3d(0,0,0);
+  animation: heroMesh 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroMesh{
+  0%   { transform: translate3d(-1.2%, -0.8%, 0) scale(1.02); }
+  50%  { transform: translate3d( 1.0%,  1.2%, 0) scale(1.03); }
+  100% { transform: translate3d( 0.6%, -0.7%, 0) scale(1.01); }
+}
+
+/* grid sutil por cima do mesh */
+.hero-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.10) 1px, transparent 1px) 0 0/84px 84px,
+    linear-gradient(to bottom, rgba(255,255,255,.10) 1px, transparent 1px) 0 0/84px 84px;
+  opacity: .10;
+  mask-image: radial-gradient(circle at 28% 20%, #000 22%, transparent 62%);
+}
+
+/* overlay mantém legibilidade do texto */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(80% 60% at 20% 20%, rgba(0,0,0,.28), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.52), rgba(0,0,0,.22), rgba(0,0,0,.60));
+}
+
+/* garante o conteúdo acima */
+.hero .container,
+.hero__inner,
+.hero__copy{
+  position: relative;
+  z-index: 2;
+}
+
+/* ===========================
+   Partículas (bem leves)
+=========================== */
+.hero-particles{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.hero-particles i{
+  position:absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.20);
+  box-shadow:
+    0 0 0 6px rgba(255,106,0,.08),
+    0 18px 60px rgba(255,106,0,.12);
+  opacity: .65;
+  transform: translate3d(0,0,0);
+  animation: floatUp linear infinite;
+}
+
+.hero-particles i:nth-child(3n){
+  width: 4px; height: 4px;
+  background: rgba(255,255,255,.16);
+  box-shadow: 0 0 0 5px rgba(255,138,42,.08);
+  opacity:.55;
+}
+
+@keyframes floatUp{
+  from { transform: translate3d(0, 22px, 0); }
+  to   { transform: translate3d(0,-120vh,0); }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-bg{ animation: none !important; }
+  .hero-particles i{ animation: none !important; }
+}
+
+/* =========================================================
+   HERO 2026 — UPGRADE VISUAL (cola no FINAL do CSS)
+   ========================================================= */
+
+/* 1) Base mais premium + melhor alinhamento */
+.hero{
+  min-height: 92vh;
+  padding: 86px 0 42px;
+  background: #070a12;            /* garante que nunca fica “cinza morto” */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__inner{
+  display: grid;
+  grid-template-columns: 1fr;     /* você não tem imagem do lado, então 1 coluna */
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.hero__copy{
+  max-width: 780px;
+}
+
+/* 2) Fundo com “orbs” + mesh tech (mais vivo) */
+.hero-bg{
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(900px 560px at 18% 22%, rgba(255,106,0,.34), transparent 60%),
+    radial-gradient(760px 520px at 82% 18%, rgba(255,138,42,.22), transparent 62%),
+    radial-gradient(820px 560px at 65% 88%, rgba(82, 95, 255, .16), transparent 64%),
+    radial-gradient(680px 520px at 12% 88%, rgba(255,255,255,.06), transparent 62%),
+    linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,0) 45%);
+
+  filter: blur(16px) saturate(1.18);
+  animation: heroMeshPro 9.5s ease-in-out infinite alternate;
+  transform: translate3d(0,0,0);
+}
+
+@keyframes heroMeshPro{
+  0%   { transform: translate3d(-1.6%, -1.0%, 0) scale(1.02); }
+  50%  { transform: translate3d( 1.2%,  1.4%, 0) scale(1.04); }
+  100% { transform: translate3d( 0.8%, -0.9%, 0) scale(1.02); }
+}
+
+/* 3) Grid mais “tech” (sutil) */
+.hero-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px) 0 0/92px 92px,
+    linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px) 0 0/92px 92px;
+  opacity: .13;
+  mask-image: radial-gradient(circle at 26% 20%, #000 18%, transparent 60%);
+}
+
+/* 4) Overlay que NÃO “lava” tudo */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(1200px 720px at 25% 20%, rgba(0,0,0,.18), rgba(0,0,0,.72) 65%),
+    radial-gradient(900px 520px at 80% 60%, rgba(0,0,0,.35), rgba(0,0,0,.82) 70%),
+    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.78));
+}
+
+/* 5) “Grain” (ruído) pra ficar caro */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* 6) Tipografia e destaque do 2026 (mais premium) */
+.hero h1{
+  color:#fff;
+  text-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+.hero .accent{
+  background: linear-gradient(90deg, #ff6a00, #ff8a2a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+/* underline animado no 2026 */
+.hero .accent::after{
+  content:"";
+  position:absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -10px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,106,0,.0), rgba(255,106,0,.95), rgba(255,138,42,.0));
+  filter: blur(.2px);
+  opacity: .85;
+  transform: scaleX(.65);
+  transform-origin: center;
+  animation: accentLine 1.9s ease-in-out infinite alternate;
+}
+
+@keyframes accentLine{
+  from{ transform: scaleX(.58); opacity:.72; }
+  to  { transform: scaleX(.92); opacity:1; }
+}
+
+.hero .lead_hero{
+  color: rgba(255,255,255,.80);
+  max-width: 62ch;
+}
+
+/* 7) Pill mais “glass” e com glow */
+.pill{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+.dot{
+  background: #ff6a00;
+  box-shadow: 0 0 0 6px rgba(255,106,0,.18), 0 18px 60px rgba(255,106,0,.22);
+}
+
+/* 8) Botões com mais presença */
+.hero .btn--ghost{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.18);
+  color: rgba(255,255,255,.92);
+}
+.hero .btn--ghost:hover{
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.22);
+}
+
+/* 9) Stats viram “cards glass” mais bonitos */
+.hero__stats{
+  gap: 12px;
+}
+
+.stat{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  backdrop-filter: blur(12px);
+}
+
+.stat strong{ color: rgba(255,255,255,.95); }
+.stat span{ color: rgba(255,255,255,.72); }
+
+.note{ color: rgba(255,255,255,.60); }
+
+/* 10) Partículas um pouco mais “neon” */
+.hero-particles i{
+  background: rgba(255,255,255,.22);
+  box-shadow:
+    0 0 0 7px rgba(255,106,0,.10),
+    0 26px 80px rgba(255,106,0,.16);
+}
+
+/* Responsivo */
+@media (max-width: 720px){
+  .hero{ padding: 72px 0 34px; }
+  .hero__copy{ max-width: 100%; }
+  .stat{ min-width: 140px; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-bg{ animation: none !important; }
+  .hero .accent::after{ animation: none !important; }
+}
+/* =========================================================
+   HERO — VOLTAR PRO BRANCO + ANIMAÇÕES VISÍVEIS (cola no FINAL)
+   ========================================================= */
+
+.hero{
+  background: #fff !important;
+  min-height: 92vh;
+  padding: 86px 0 42px;
+}
+
+/* Fundo animado claro (mesh premium) */
+.hero-bg{
+  position:absolute;
+  inset:-22%;
+  z-index:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(980px 560px at 18% 22%, rgba(255,106,0,.26), transparent 62%),
+    radial-gradient(820px 520px at 82% 18%, rgba(255,138,42,.18), transparent 64%),
+    radial-gradient(840px 560px at 62% 88%, rgba(60,120,255,.12), transparent 66%),
+    radial-gradient(720px 520px at 12% 92%, rgba(11,18,32,.10), transparent 66%),
+    linear-gradient(120deg, rgba(255,255,255,.75), rgba(255,255,255,0) 55%);
+
+  filter: blur(16px) saturate(1.1);
+  animation: heroMeshLight 10.5s ease-in-out infinite alternate;
+  transform: translate3d(0,0,0);
+}
+
+@keyframes heroMeshLight{
+  0%   { transform: translate3d(-1.4%, -0.9%, 0) scale(1.02); }
+  50%  { transform: translate3d( 1.1%,  1.3%, 0) scale(1.04); }
+  100% { transform: translate3d( 0.8%, -0.7%, 0) scale(1.02); }
+}
+
+/* Grid sutil (tech) */
+.hero-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(11,18,32,.07) 1px, transparent 1px) 0 0/92px 92px,
+    linear-gradient(to bottom, rgba(11,18,32,.07) 1px, transparent 1px) 0 0/92px 92px;
+  opacity: .18;
+  mask-image: radial-gradient(circle at 26% 20%, #000 18%, transparent 64%);
+}
+
+/* Overlay claro (para legibilidade SEM escurecer tudo) */
+.hero-overlay{
+  background:
+    radial-gradient(1200px 720px at 25% 20%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,.85));
+  z-index:1;
+}
+
+/* “Light sweep” animado (dá vida sem vídeo) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  z-index:2;
+  pointer-events:none;
+  background: linear-gradient(120deg,
+    transparent 35%,
+    rgba(255,106,0,.10) 45%,
+    rgba(255,255,255,.16) 50%,
+    rgba(255,138,42,.08) 55%,
+    transparent 65%
+  );
+  transform: translateX(-18%) rotate(8deg);
+  animation: heroSweep 5.8s ease-in-out infinite;
+  opacity:.75;
+  filter: blur(2px);
+}
+
+@keyframes heroSweep{
+  0%   { transform: translateX(-22%) rotate(8deg); opacity:.55; }
+  50%  { transform: translateX(6%)   rotate(8deg); opacity:.85; }
+  100% { transform: translateX(-22%) rotate(8deg); opacity:.55; }
+}
+
+/* Conteúdo acima de tudo */
+.hero__inner, .hero__copy{ position:relative; z-index:3; }
+
+/* Texto volta pro “dark premium” */
+.hero h1{
+  color: #0b1220 !important;
+  text-shadow: none !important;
+}
+
+.hero .lead_hero{
+  color: rgba(11,18,32,.70) !important;
+}
+
+/* Accent 2026 com gradient (bem visível no branco) */
+.hero .accent{
+  background: linear-gradient(90deg, #ff6a00, #ff8a2a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Pill glass claro */
+.pill{
+  background: rgba(255,255,255,.70) !important;
+  border: 1px solid rgba(11,18,32,.10) !important;
+  box-shadow: 0 14px 40px rgba(11,18,32,.10) !important;
+  color: rgba(11,18,32,.75) !important;
+}
+
+.dot{
+  background: #ff6a00;
+  box-shadow: 0 0 0 6px rgba(255,106,0,.14), 0 18px 60px rgba(255,106,0,.16);
+}
+
+/* Botões no branco */
+.hero .btn--ghost{
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(11,18,32,.14) !important;
+  color: rgba(11,18,32,.90) !important;
+}
+
+/* Stats “glass” claro */
+.stat{
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid rgba(11,18,32,.10) !important;
+  box-shadow: 0 14px 40px rgba(11,18,32,.10) !important;
+}
+.stat strong{ color: rgba(11,18,32,.92) !important; }
+.stat span{ color: rgba(11,18,32,.62) !important; }
+
+.note{ color: rgba(11,18,32,.52) !important; }
+
+/* Partículas visíveis no branco (dark + glow laranja leve) */
+.hero-particles{ z-index:2; }
+
+.hero-particles i{
+  background: rgba(11,18,32,.14) !important;
+  box-shadow:
+    0 0 0 7px rgba(255,106,0,.08),
+    0 22px 70px rgba(255,106,0,.10) !important;
+  opacity: .55 !important;
+}
+
+/* Responsivo */
+@media (max-width: 720px){
+  .hero{ padding: 72px 0 34px; }
+}
+
+/* ============================================================
+   promo.css — Card de Desconto 10% · RPAWorks
+   Importe APÓS style.css no <head>:
+   <link rel="stylesheet" href="promo.css" />
+   ============================================================ */
+
+/* ── KEYFRAMES ─────────────────────────────────────────────── */
+
+@keyframes promo-floatCard {
+  0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+  50%       { transform: translateY(-12px) rotate(-1.5deg); }
+}
+
+@keyframes promo-pulseBadge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 210, 80, .55),
+                0 0 28px rgba(255, 210, 80, .35);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 0 0 16px rgba(255, 210, 80, 0),
+                0 0 40px rgba(255, 210, 80, .5);
+  }
+}
+
+@keyframes promo-shimmer {
+  0%   { left: -120%; }
+  100% { left: 160%; }
+}
+
+@keyframes promo-popIn {
+  0%   { opacity: 0; transform: scale(.72) rotate(-1.5deg); }
+  65%  { transform: scale(1.04) rotate(-1.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-1.5deg); }
+}
+
+@keyframes promo-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+
+@keyframes promo-ctaShimmer {
+  0%   { left: -100%; }
+  100% { left: 160%; }
+}
+
+@keyframes promo-borderGlow {
+  0%, 100% { border-color: rgba(255, 210, 80, .25); }
+  50%       { border-color: rgba(255, 210, 80, .55); }
+}
+
+
+/* ── CARD WRAPPER ───────────────────────────────────────────── */
+
+.promo-card {
+  position: relative;
+  width: 340px;          /* era 300px — mais presença */
+  flex-shrink: 0;
+  align-self: center;    /* centralizado verticalmente no hero */
+  margin-left: auto;     /* empurra para a direita */
+
+  border-radius: 24px;
+  padding: 32px 28px 24px;
+
+  background: #ffffff;
+  border: 1.5px solid rgba(255, 120, 0, .18);
+  box-shadow:
+    0 20px 60px rgba(255, 106, 0, .12),
+    0 4px 16px rgba(0, 0, 0, .06);
+
+  overflow: hidden;
+  isolation: isolate;
+  cursor: default;
+
+  animation:
+    promo-popIn      .75s cubic-bezier(.34, 1.56, .64, 1) .3s both,
+    promo-floatCard  5.5s ease-in-out 1.2s infinite,
+    promo-borderGlow 3s ease-in-out 1.5s infinite;
+}
+
+/* linha de topo gradiente — elemento premium */
+.promo-card__topline {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6a00, #ff8a2a, #ffd250);
+  border-radius: 24px 24px 0 0;
+  z-index: 3;
+}
+
+/* glow de fundo */
+.promo-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    circle at 65% 20%,
+    rgba(255, 140, 0, .08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* shimmer no hover */
+.promo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    108deg,
+    transparent 20%,
+    rgba(255, 255, 255, .55) 50%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.promo-card:hover::after {
+  animation: promo-shimmer .7s ease forwards;
+}
+
+.promo-card > * { position: relative; z-index: 2; }
+
+
+/* ── TOPO ────────────────────────────────────────────────────── */
+
+.promo-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.promo-card__top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* live dot */
+.promo-live {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(11, 18, 32, .5);
+  font-family: 'Courier New', monospace;
+}
+
+.promo-live__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: promo-blink 1.5s ease-in-out infinite;
+}
+
+/* vagas restantes — escassez */
+.promo-slots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: rgba(11, 18, 32, .55);
+  margin: 0;
+}
+.promo-slots svg { color: #ff6a00; flex-shrink: 0; }
+.promo-slots strong {
+  color: #ff6a00;
+  font-weight: 800;
+}
+
+/* badge circular */
+.promo-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a00 0%, #ff8a2a 100%);
+  color: #fff;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 6px rgba(255, 106, 0, .12),
+    0 8px 24px rgba(255, 106, 0, .35);
+  animation: promo-pulseBadge 2.4s ease-in-out infinite;
+}
+
+.promo-badge__pct {
+  font-size: 30px;
+  letter-spacing: -.03em;
+}
+
+.promo-badge__off {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: 1px;
+  opacity: .9;
+}
+
+
+/* ── TÍTULO ─────────────────────────────────────────────────── */
+
+.promo-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b1220;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  margin-bottom: 14px;
+}
+
+.promo-card__title em {
+  font-style: normal;
+  background: linear-gradient(90deg, #ff6a00 0%, #ff8a2a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ── BENEFÍCIOS ─────────────────────────────────────────────── */
+
+.promo-card__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.promo-card__benefits li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(11, 18, 32, .7);
+  line-height: 1.4;
+}
+
+.promo-card__benefits li svg {
+  color: #ff6a00;
+  flex-shrink: 0;
+}
+
+.promo-card__benefits li strong {
+  color: #0b1220;
+  font-weight: 700;
+}
+
+
+/* ── TIMER DE URGÊNCIA ──────────────────────────────────────── */
+
+.promo-timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 11px 14px;
+  background: rgba(255, 106, 0, .05);
+  border: 1px solid rgba(255, 106, 0, .14);
+  border-radius: 12px;
+}
+
+.promo-timer__icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.promo-timer__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.promo-timer__text {
+  font-size: 11px;
+  color: rgba(11, 18, 32, .45);
+  margin-bottom: 5px;
+}
+
+/* barra de progresso */
+.promo-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(11, 18, 32, .08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.promo-bar__fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff6a00, #ff8a2a);
+  border-radius: 99px;
+  transition: width .9s linear;
+}
+
+.promo-timer__count {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ff6a00;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+
+/* ── CTA ────────────────────────────────────────────────────── */
+
+.promo-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 15px 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6a00 0%, #ff8a2a 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: .01em;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow:
+    0 6px 24px rgba(255, 106, 0, .35),
+    0 2px 6px rgba(255, 106, 0, .2);
+}
+
+.promo-card__cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 36px rgba(255, 106, 0, .45),
+    0 4px 10px rgba(255, 106, 0, .25);
+}
+
+.promo-card__cta:active {
+  transform: translateY(0);
+}
+
+/* shimmer contínuo no botão */
+.promo-card__cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    108deg,
+    transparent 20%,
+    rgba(255, 255, 255, .3) 50%,
+    transparent 80%
+  );
+  animation: promo-ctaShimmer 2.6s ease infinite;
+  pointer-events: none;
+}
+
+.promo-card__cta svg { flex-shrink: 0; fill: #fff; }
+
+
+/* ── TRUST COPY ─────────────────────────────────────────────── */
+
+.promo-card__trust {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(11, 18, 32, .4);
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+/* ── INTEGRAÇÃO COM hero__inner ─────────────────────────────── */
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+
+/* ── RESPONSIVO ─────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .promo-card {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 0;
+    animation:
+      promo-popIn      .75s cubic-bezier(.34, 1.56, .64, 1) .3s both,
+      promo-borderGlow 3s ease-in-out 1.5s infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-card {
+    padding: 24px 20px 20px;
+  }
+
+  .promo-badge {
+    width: 72px;
+    height: 72px;
+  }
+
+  .promo-badge__pct { font-size: 26px; }
+  .promo-card__title { font-size: 18px; }
+}
+
+ /* ── HERO MELHORIAS ─────────────────────────── */
+
+    /* CTA group com micro-copy */
+    .cta__group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cta__trust {
+      font-size: 11.5px;
+      color: var(--brand);
+      font-weight: 600;
+      letter-spacing: .03em;
+      padding-left: 4px;
+    }
+
+    /* Prova social */
+    .hero__social-proof {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 12px 16px;
+      background: rgba(255,106,0,.06);
+      border: 1px solid rgba(255,106,0,.14);
+      border-radius: 14px;
+      width: fit-content;
+    }
+    .hero__avatars {
+      display: flex;
+    }
+    .hero__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      margin-left: -8px;
+      flex-shrink: 0;
+    }
+    .hero__avatars .hero__avatar:first-child { margin-left: 0; }
+    .hero__social-text {
+      font-size: 13px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.3;
+    }
+    .hero__social-text strong { color: var(--brand); }
+
+    /* Garantia micro-badge */
+    .hero__guarantee {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .hero__guarantee svg {
+      color: var(--brand);
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+   Portfolio — grade assimétrica premium
+   ========================================================= */
+
+/* Keyframes para as barras de métrica */
+@keyframes pf-barGrow {
+  from { width: 0; }
+  to   { width: var(--w); }
+}
+
+/* Grid: coluna esquerda larga (featured) + coluna direita com 2 cards */
+.pf-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+
+/* Card base */
+.pf-shot {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.86);
+  box-shadow: var(--shadow2);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  cursor: pointer;
+  transition: transform .28s cubic-bezier(.2,.9,.2,1),
+              box-shadow .28s,
+              border-color .2s;
+}
+
+.pf-shot:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,106,0,.25);
+  box-shadow: 0 24px 60px rgba(11,18,32,.13), 0 0 0 1px rgba(255,106,0,.1);
+}
+
+/* Card destaque: ocupa 2 linhas */
+.pf-shot--featured {
+  grid-row: 1 / 3;
+  min-height: 500px;
+}
+
+/* Imagem de fundo */
+.pf-shot__bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--shot);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform .55s cubic-bezier(.2,.9,.2,1), filter .45s;
+  filter: saturate(1.05) contrast(1.02) brightness(.88);
+}
+
+.pf-shot:hover .pf-shot__bg {
+  transform: scale(1.1);
+  filter: saturate(1.15) contrast(1.04) brightness(.92);
+}
+
+/* Overlay gradiente */
+.pf-shot__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(255,255,255,.04) 0%,
+    rgba(11,18,32,.72) 100%
+  );
+  transition: opacity .3s;
+}
+
+.pf-shot--featured .pf-shot__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(11,18,32,.05) 0%,
+    rgba(11,18,32,.85) 100%
+  );
+}
+
+/* Tag de categoria — topo esquerdo */
+.pf-shot__tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.5);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: .03em;
+  box-shadow: 0 4px 14px rgba(11,18,32,.12);
+}
+
+.pf-shot__tag svg { color: var(--brand); flex-shrink: 0; }
+
+/* Corpo do card — rodapé */
+.pf-shot__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 20px 20px 22px;
+}
+
+/* número decorativo */
+.pf-shot__num {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.pf-shot__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+.pf-shot--featured .pf-shot__title { font-size: 28px; }
+
+.pf-shot__desc {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  margin: 0 0 16px;
+  line-height: 1.5;
+  max-width: 38ch;
+}
+
+/* Métricas (só no card featured) */
+.pf-shot__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.pf-metric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pf-metric__label {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.55);
+  width: 72px;
+  flex-shrink: 0;
+  letter-spacing: .03em;
+}
+
+.pf-metric__bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,.15);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.pf-metric__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  border-radius: 99px;
+}
+
+.pf-shot.pf-metrics-visible .pf-metric__fill {
+  animation: pf-barGrow .9s cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+.pf-metric__val {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand2);
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+  font-family: 'Courier New', monospace;
+}
+
+/* CTA inline */
+.pf-shot__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(8px);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .02em;
+  transition: background .2s, transform .2s;
+}
+
+.pf-shot:hover .pf-shot__cta {
+  background: var(--brand);
+  border-color: var(--brand);
+  transform: translateX(3px);
+}
+
+/* Rodapé do portfólio */
+.pf-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 22px 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.pf-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pf-footer p strong { color: var(--ink); }
+
+/* Responsive */
+@media (max-width: 760px) {
+  .pf-grid {
+    grid-template-columns: 1fr;
+  }
+  .pf-shot--featured {
+    grid-row: auto;
+    min-height: 320px;
+  }
+  .pf-shot { min-height: 220px; }
+  .pf-footer { flex-direction: column; align-items: flex-start; }
+}
+/* =========================================================
+   Scrollbar premium — RPAWorks
+   ========================================================= */
+
+/* ── WEBKIT (Chrome, Edge, Safari) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+
+    #ff8a2a 50%,
+    #ffd250 100%
+  );
+  border-radius: 99px;
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  animation: scrollbar-flow 3s ease-in-out infinite;
+  transition: opacity .2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: .85;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* gradiente que sobe e desce no thumb */
+@keyframes scrollbar-flow {
+  0%   { background-position: 0% 0%;   }
+  50%  { background-position: 0% 100%; }
+  100% { background-position: 0% 0%;   }
+}
+
+/* ── FIREFOX ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff6a00 transparent;
 }
