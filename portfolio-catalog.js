@@ -61,7 +61,7 @@ const CAT_PROJECTS = [
     desc: "Site para um tatuador com portifolio online, galeria de resultados.",
     category: "site",
     url: "https://nick-tatto.netlify.app/",
-    img: "assets/img/portfolio/Nicktatto.jpg",
+    img: "assets/img/portfolio/NickTatto.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   {
