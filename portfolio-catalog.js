@@ -54,6 +54,16 @@ const CAT_PROJECTS = [
     img: "assets/img/portfolio/dashboard-vendas-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/6366f1/ffffff?text=Dashboard+Vendas"
   },
+
+    {
+    id: 7,
+    title: "Nick tatto",
+    desc: "Site para um tatuador com portifolio online, galeria de resultados.",
+    category: "site",
+    url: "https://nick-tatto.netlify.app/",
+    img: "assets/img/portfolio/Nicktatto.jpg",
+    imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
+  },
   {
     id: 6,
     title: "Automação Folha de Pagamento",
@@ -62,7 +72,46 @@ const CAT_PROJECTS = [
     url: "#",
     img: "assets/img/portfolio/rpa-folha-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/059669/ffffff?text=RPA+Folha"
-  }
+  },
+
+     {
+    id: 8,
+    title: "Nosferatos Corretor",
+    desc: "Site para Corretores com portifolio online, galeria de resultados e bot.",
+    category: "site",
+    url: "https://nosferatos.netlify.app/",
+    img: "assets/img/portfolio/Nosferatos.png",
+    imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
+  },
+       {
+    id: 9,
+    title: "Style clin",
+    desc: "Site para Corretores com portifolio online, galeria de resultados e bot.",
+    category: "site",
+    url: "https://styleclin-barueri.netlify.app/",
+    img: "assets/img/portfolio/Estetica.png",
+    imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
+  },
+
+         {
+    id: 10,
+    title: "YURI JUANNINI",
+    desc: "Site para Barbeiros com portifolio online, galeria de resultados e preços.",
+    category: "site",
+    url: "https://barbeariayurijuannini.onrender.com/",
+    img: "assets/img/portfolio/Yuri.jpg",
+    imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
+  },
+           {
+    id: 11,
+    title: "Milena Esperandio",
+    desc: "Site para Advogados com ChatBot online, galeria de resultados e Contatos.",
+    category: "site",
+    url: "https://milena-prot2.onrender.com/",
+    img: "assets/img/portfolio/Milena.png",
+    imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
+  },
+  
 ];
 
 // ── Labels e cores por categoria ───────────────────────────
