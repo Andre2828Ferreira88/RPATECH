@@ -86,7 +86,7 @@ const CAT_PROJECTS = [
        {
     id: 9,
     title: "Style clin",
-    desc: "Site para Corretores com portifolio online, galeria de resultados e bot.",
+    desc: "Site para Clinicas com portifolio online, galeria de resultados e bot.",
     category: "site",
     url: "https://styleclin-barueri.netlify.app/",
     img: "assets/img/portfolio/Estetica.png",
