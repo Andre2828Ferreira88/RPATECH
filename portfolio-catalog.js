@@ -28,6 +28,15 @@ const CAT_PROJECTS = [
     imgFallback: "https://placehold.co/800x450/3b82f6/ffffff?text=Dashboard+BI"
   },
   {
+    id: 12,
+    title: "DesingPersonalizze",
+    desc: "Site para Desing's — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
+    category: "site",
+    url: "https://desingpersonalizze.netlify.app/",
+    img: "assets/img/portfolio/Desing.png",
+    imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
+  },
+  {
     id: 3,
     title: "Robô de Processos — NF-e",
     desc: "Automação de leitura de notas fiscais, preenchimento de ERP e geração de relatório diário via e-mail.",
@@ -61,7 +70,7 @@ const CAT_PROJECTS = [
     desc: "Site para um tatuador com portifolio online, galeria de resultados.",
     category: "site",
     url: "https://nick-tatto.netlify.app/",
-    img: "assets/img/portfolio/NickTatto.jpg",
+    img: "assets/img/portfolio/Nicktatto.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   {
