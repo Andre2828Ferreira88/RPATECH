@@ -23,7 +23,7 @@ const CAT_PROJECTS = [
     title: "Dashboard BI Financeiro",
     desc: "Painel interativo com KPIs em tempo real, filtros dinâmicos e export PDF/Excel. Desenvolvido em Python + Plotly.",
     category: "dashboard",
-    url: "#",
+    url: "https://portdashone.netlify.app/",
     img: "assets/img/portfolio/dashboard-bi-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/3b82f6/ffffff?text=Dashboard+BI"
   },
@@ -34,6 +34,36 @@ const CAT_PROJECTS = [
     category: "site",
     url: "https://desingpersonalizze.netlify.app/",
     img: "assets/img/portfolio/Desing.png",
+    imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
+  },
+
+    {
+    id: 13,
+    title: "rafahacessorios",
+    desc: "Site para Vendedor — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
+    category: "site",
+    url: "https://rafahacessorios.netlify.app/",
+    img: "assets/img/portfolio/Rafa.png",
+    imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
+  },
+
+      {
+    id: 14,
+    title: "ARTIC INK",
+    desc: "Site para Tatuador — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
+    category: "site",
+    url: "https://tattoport.netlify.app/",
+    img: "assets/img/portfolio/Artic.png",
+    imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
+  },
+
+        {
+    id: 15,
+    title: "Lex Consultoria!",
+    desc: "Site para Consultoria — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
+    category: "site",
+    url: "https://consultoriojuri.netlify.app/",
+    img: "assets/img/portfolio/lex.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
   {
@@ -70,7 +100,7 @@ const CAT_PROJECTS = [
     desc: "Site para um tatuador com portifolio online, galeria de resultados.",
     category: "site",
     url: "https://nick-tatto.netlify.app/",
-    img: "assets/img/portfolio/NickTatto.jpg",
+    img: "assets/img/portfolio/Nicktatto.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   {
