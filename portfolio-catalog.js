@@ -63,7 +63,7 @@ const CAT_PROJECTS = [
     desc: "Site para Consultoria — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://consultoriojuri.netlify.app/",
-    img: "assets/img/portfolio/lex.png",
+    img: "assets/img/portfolio/Lex.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
   {
