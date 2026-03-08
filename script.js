@@ -308,7 +308,7 @@ const planData = {
         tier: "BASIC lux",
         name: "Presença Online",
         featured: false,
-        setup: "R$ 859 – R$ 1.100",
+        setup: "R$ 600 – R$ 959",
         mensalidade: "R$ 159 – R$ 399 /mês",
         server: "Render Starter ($7)",
         items: [
@@ -1626,6 +1626,7 @@ window.addEventListener("load", () => {
   }
 
 })
+
 
 
 
