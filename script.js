@@ -297,258 +297,1015 @@ const counterIO = new IntersectionObserver(
 counters.forEach((c) => counterIO.observe(c));
 
 // =========================================================
-// Plans (dados)
+// PLANOS — Sistema de Cards Animados + Modal
 // =========================================================
+
+// ---- Dados dos planos ----
 const planData = {
   sites: {
     title: "Sites",
-    subtitle: "Presença, conversão e evolução para sistema.",
+    subtitle: "Presença digital que converte visitantes em clientes.",
+    icon: "🌐",
+    color: "#ff6a00",
     plans: [
       {
-        tier: "BASIC lux",
-        name: "Presença Online",
+        num: 1,
+        tier: "À VISTA",
+        name: "Projeto Completo",
+        badge: null,
         featured: false,
-        setup: "R$ 600 – R$ 959",
-        mensalidade: "R$ 159 – R$ 399 /mês",
-        server: "Render Starter ($7)",
+        priceLabel: "Pagamento único",
+        price: "R$ 950,00",
+        highlight: "Tudo incluso, site no ar para sempre.",
         items: [
-          "1 página (ou até 3 se for bem leve)",
-          "Responsivo + WhatsApp + SEO básico + Local de vendas + Bot de duvidas + Simulação",
-          "1 alteração pequena/mês (texto/contato/horário)",
+          "Landing page profissional focada em conversão",
+          "Domínio e hospedagem configurados e incluídos",
+          "Chatbot integrado para atendimento inicial",
+          "Botão WhatsApp e/ou formulário de contato",
+          "Monitoramento de visitas, cliques e conversões",
+          "Suporte 24h para ajustes e problemas",
         ],
-        cta: "Quero o BASIC",
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no Plano Sites À Vista (R$ 950,00). Pode me passar os próximos passos?",
       },
       {
-        tier: "PRO",
-        name: "Empresa Profissional",
+        num: 2,
+        tier: "MENSAL",
+        name: "Plano Contínuo",
+        badge: "Mais popular",
         featured: true,
-        setup: "R$ 1.800 – R$ 2.999",
-        mensalidade: "R$ 599 – R$ 699 /mês",
-        server: "Render Standard ($25) (ou Starter se for estático)",
+        priceLabel: "Por mês",
+        price: "R$ 450,00",
+        highlight: "Alguém olhando pro seu site todo mês.",
         items: [
-          "Até 5 páginas",
-          "Formulário (e-mail/WhatsApp)",
-          "SEO melhorado + performance + Responsivo + Local de vendas + Bot de duvidas + Simulação",
-          "2 alterações/mês",
+          "Criação e manutenção da landing page",
+          "Chatbot configurado e ajustado quando necessário",
+          "Otimizações mensais (textos, imagens, ofertas)",
+          "Acompanhamento de resultados (visitas, cliques)",
+          "Suporte 24h para qualquer necessidade",
+          "Acompanhamento PRO de resultados / Suporte para ajudar no engajamento de Anuncios (Google ADS)"
         ],
-        cta: "Quero o PRO",
-        badge: "Mais vendido",
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no Plano Sites Mensal (R$ 400/mês). Pode me passar os próximos passos?",
       },
       {
-        tier: "PREMIUM",
-        name: "Site com Sistema",
+        num: 3,
+        tier: "POR RESULTADO",
+        name: "Entrada + Lead",
+        badge: "Menor risco",
         featured: false,
-        setup: "R$ 4.900 – R$ 8.900",
-        mensalidade: "R$ 799 – R$ 999 /mês",
-        server: "Render Standard (ou Pro se pesado)",
+        priceLabel: "Entrada + R$ 8/lead qualificado",
+        price: "R$ 650,00",
+        highlight: "Pague conforme o site gera oportunidades.",
         items: [
-          "Área administrativa / painel simples",
-          "Integrações (Google Sheets, e-mail, etc.)",
-          "4 alterações/mês + suporte prioritário",
+          "Landing page completa focada em gerar contatos",
+          "chatbot incluso",
+          "WhatsApp/formulário configurados para facilitar contato",
+          "Métricas: visitas e cliques no botão de contato",
+          "Suporte 24h para ajustes e problemas",
+          "Lead qualificado = cliente com interesse real no serviço",
         ],
-        cta: "Quero o PREMIUM",
+        note: "Acompanhamos juntos via relatórios do Google. A cada lead qualificado gerado, R$ 8,00. Spam, engano e fornecedores não contam.",
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no Plano Sites Por Resultado (R$ 650 + R$ 8/lead). Pode me passar os próximos passos?",
       },
     ],
   },
 
   dashboards: {
-    title: "Dashboards Interativos (Python)",
-    subtitle: "KPIs, filtros, upload e performance com visual “empresa”.",
+    title: "Dashboards",
+    subtitle: "KPIs, filtros, upload e performance com visual profissional.",
+    icon: "📊",
+    color: "#ff8a2a",
     plans: [
       {
+        num: 1,
         tier: "BASIC",
         name: "Painel Essencial",
+        badge: null,
         featured: false,
-        setup: "R$ 1.900 – R$ 3.500",
-        mensalidade: "R$ 249 – R$ 449 /mês",
-        server: "Render Standard ($25)",
+        priceLabel: "Setup",
+        price: "R$ 1.900 – R$ 3.500",
+        priceExtra: "R$ 249 – R$ 449 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Primeiro painel com dados reais.",
         items: [
           "1 dashboard + até 6 KPIs",
           "Upload de planilha ou fonte simples",
           "Ajustes leves mensais",
+          "Servidor: Render Standard ($25)",
         ],
         cta: "Quero o BASIC",
+        ctaMsg: "Olá! Tenho interesse no Dashboard BASIC. Pode me passar os próximos passos?",
       },
       {
+        num: 2,
         tier: "PRO",
         name: "Painel de Gestão",
+        badge: "Equilíbrio perfeito",
         featured: true,
-        setup: "R$ 3.900 – R$ 6.900",
-        mensalidade: "R$ 449 – R$ 899 /mês",
-        server: "Render Standard (ou Pro se crescer)",
+        priceLabel: "Setup",
+        price: "R$ 3.900 – R$ 6.900",
+        priceExtra: "R$ 449 – R$ 899 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Gestão visual completa para sua empresa.",
         items: [
           "Até 3 páginas de dashboard",
           "Filtros avançados + exportação",
-          "Melhor organização/UX (layout mais “empresa”)",
+          "Layout profissional com UX de empresa",
+          "Servidor: Render Standard (ou Pro se crescer)",
         ],
         cta: "Quero o PRO",
-        badge: "Equilíbrio perfeito",
+        ctaMsg: "Olá! Tenho interesse no Dashboard PRO. Pode me passar os próximos passos?",
       },
       {
+        num: 3,
         tier: "PREMIUM",
         name: "BI Sob Medida",
+        badge: null,
         featured: false,
-        setup: "R$ 6.900 – R$ 12.900",
-        mensalidade: "R$ 899 – R$ 1.990 /mês",
-        server: "Render Pro ($85)",
+        priceLabel: "Setup",
+        price: "R$ 6.900 – R$ 12.900",
+        priceExtra: "R$ 899 – R$ 1.990 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Inteligência de negócios sob medida.",
         items: [
           "Multi-fontes (planilha + banco + API)",
-          "Login/perfis",
-          "Monitoramento + otimizações",
+          "Login/perfis por usuário",
+          "Monitoramento contínuo + otimizações",
+          "Servidor: Render Pro ($85)",
         ],
         cta: "Quero o PREMIUM",
+        ctaMsg: "Olá! Tenho interesse no Dashboard PREMIUM. Pode me passar os próximos passos?",
       },
     ],
   },
 
   rpa: {
-    title: "RPA (Robô / Automação)",
-    subtitle: "Automação robusta, logs, alertas e relatórios (CSV/PDF).",
+    title: "RPA",
+    subtitle: "Automação robusta com logs, alertas e relatórios CSV/PDF.",
+    icon: "🤖",
+    color: "#ff6a00",
     plans: [
       {
+        num: 1,
         tier: "BASIC",
         name: "Automação de Tarefa",
+        badge: null,
         featured: false,
-        setup: "R$ 2.900 – R$ 5.900",
-        mensalidade: "R$ 499 – R$ 999 /mês",
-        server: "Render Standard ($25)",
-        items: ["1 processo automatizado", "Logs simples + alertas básicos", "1 ajuste/mês"],
+        priceLabel: "Setup",
+        price: "R$ 2.900 – R$ 5.900",
+        priceExtra: "R$ 499 – R$ 999 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Sua primeira automação funcionando.",
+        items: [
+          "1 processo automatizado",
+          "Logs simples + alertas básicos",
+          "1 ajuste/mês",
+          "Servidor: Render Standard ($25)",
+        ],
         cta: "Quero o BASIC",
+        ctaMsg: "Olá! Tenho interesse no RPA BASIC. Pode me passar os próximos passos?",
       },
       {
+        num: 2,
         tier: "PRO",
         name: "Operação Assistida",
-        featured: true,
-        setup: "R$ 5.900 – R$ 10.900",
-        mensalidade: "R$ 999 – R$ 2.490 /mês",
-        server: "Render Pro ($85) (se Playwright/navegador)",
-        items: ["Rotina robusta (tentativas, exceções)", "Relatório em CSV/PDF", "Suporte prioritário"],
-        cta: "Quero o PRO",
         badge: "Robustez",
+        featured: true,
+        priceLabel: "Setup",
+        price: "R$ 5.900 – R$ 10.900",
+        priceExtra: "R$ 999 – R$ 2.490 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Automação com resiliência e relatórios.",
+        items: [
+          "Rotina robusta (tentativas, exceções)",
+          "Relatório em CSV/PDF",
+          "Suporte prioritário",
+          "Servidor: Render Pro ($85) se Playwright",
+        ],
+        cta: "Quero o PRO",
+        ctaMsg: "Olá! Tenho interesse no RPA PRO. Pode me passar os próximos passos?",
       },
       {
+        num: 3,
         tier: "PREMIUM",
         name: "RPA Empresarial",
+        badge: null,
         featured: false,
-        setup: "R$ 10.900 – R$ 24.900",
-        mensalidade: "R$ 2.490 – R$ 5.900 /mês",
-        server: "Render Pro / Pro Plus conforme carga",
-        items: ["2 a 4 fluxos automatizados", "Monitoramento contínuo + correções rápidas", "SLA e evolução planejada"],
+        priceLabel: "Setup",
+        price: "R$ 10.900 – R$ 24.900",
+        priceExtra: "R$ 2.490 – R$ 5.900 /mês",
+        priceExtraLabel: "Mensalidade",
+        highlight: "Múltiplos fluxos com SLA e evolução planejada.",
+        items: [
+          "2 a 4 fluxos automatizados",
+          "Monitoramento contínuo + correções rápidas",
+          "SLA e evolução planejada",
+          "Servidor: Render Pro/Pro Plus conforme carga",
+        ],
         cta: "Quero o PREMIUM",
+        ctaMsg: "Olá! Tenho interesse no RPA PREMIUM. Pode me passar os próximos passos?",
       },
     ],
   },
 };
 
-let currentCat = "sites";
-let currentMode = "mensalidade";
+// =========================================================
+// Injeta CSS dos cards + modal dinamicamente
+// =========================================================
+function injectPlansStyles() {
+  if (document.getElementById("plansStyleSheet")) return;
+  const style = document.createElement("style");
+  style.id = "plansStyleSheet";
+  style.textContent = `
+    /* ===================================================
+       RPAWorks – Plans Cards & Modal
+       Paleta: branco + laranja (#ff6a00 / #ff8a2a)
+       =================================================== */
 
-const plansGrid = document.getElementById("plansGrid");
+    /* ---- Seção de category cards ---- */
+    .svc-cards-section {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 2.5rem 0 3.5rem;
+    }
 
-function renderPlans() {
-  if (!plansGrid) return;
+    .svc-card {
+      position: relative;
+      width: 280px;
+      min-height: 310px;
+      border-radius: 24px;
+      cursor: pointer;
+      overflow: hidden;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(11,18,32,0.10);
+      box-shadow: 0 12px 36px rgba(11,18,32,0.08);
+      transition: transform 0.4s cubic-bezier(.2,.8,.2,1),
+                  box-shadow 0.4s ease,
+                  border-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.75rem 2rem;
+      text-align: center;
+      animation: catCardIn 0.7s cubic-bezier(.2,.8,.2,1) both;
+      user-select: none;
+    }
 
-  const cat = planData[currentCat];
-  plansGrid.innerHTML = "";
+    .svc-card:nth-child(1) { animation-delay: 0.1s; }
+    .svc-card:nth-child(2) { animation-delay: 0.25s; }
+    .svc-card:nth-child(3) { animation-delay: 0.40s; }
 
-  cat.plans.forEach((p) => {
-    const div = document.createElement("article");
-    div.className = "plan reveal" + (p.featured ? " featured" : "");
+    @keyframes catCardIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.92); }
+      to   { opacity: 1; transform: translateY(0)   scale(1);    }
+    }
 
-    const badge = p.badge ? `<div class="badge">${p.badge}</div>` : "";
-    const modePrice = currentMode === "mensalidade" ? p.mensalidade : p.setup;
-    const modeLabel = currentMode === "mensalidade" ? "Mensalidade" : "Setup";
+    /* Glow overlay on hover */
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(ellipse at 50% 0%,
+        rgba(255,106,0,0.12) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+    .svc-card:hover::before { opacity: 1; }
 
-    div.innerHTML = `
-      ${badge}
-      <div class="tier">${p.tier}</div>
-      <h3>${p.name}</h3>
-      <p class="sub">${cat.subtitle}</p>
+    .svc-card:hover {
+      transform: translateY(-10px) scale(1.025);
+      border-color: rgba(255,106,0,0.35);
+      box-shadow:
+        0 24px 60px rgba(255,106,0,0.18),
+        0 8px 24px rgba(11,18,32,0.10);
+    }
 
-      <div class="priceRow">
-        <span class="k">${modeLabel}</span>
-        <span class="v">${modePrice}</span>
-      </div>
+    /* Particles canvas */
+    .svc-card__particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: inherit;
+      width: 100% !important;
+      height: 100% !important;
+    }
 
-      <div class="meta">
-        <span class="chip">Servidor: ${p.server}</span>
-      </div>
+    /* Floating icon */
+    .svc-card__icon {
+      position: relative;
+      z-index: 2;
+      font-size: 3.6rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 14px rgba(255,106,0,0.35));
+      animation: iconFloat 3s ease-in-out infinite;
+      transition: filter 0.4s;
+    }
+    .svc-card:hover .svc-card__icon {
+      filter: drop-shadow(0 0 28px rgba(255,106,0,0.55))
+              drop-shadow(0 0 52px rgba(255,138,42,0.28));
+    }
 
-      <ul>${p.items.map((i) => `<li>${i}</li>`).join("")}</ul>
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0px)   rotate(-2deg); }
+      50%       { transform: translateY(-10px) rotate( 2deg); }
+    }
 
-      <a
-        class="btn ${p.featured ? "btn--primary" : "btn--ghost"}"
-        href="#contato"
-        data-plan-cta="1"
-        data-cat="${currentCat}"
-        data-tier="${p.tier}"
-        data-name="${p.name}"
-        data-mode="${modeLabel}"
-        data-price="${modePrice}"
-        data-server="${p.server}"
-      >${p.cta}</a>
-    `;
+    .svc-card__title {
+      position: relative;
+      z-index: 2;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #0b1220;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .svc-card:hover .svc-card__title { color: #ff6a00; }
 
-    plansGrid.appendChild(div);
-    observeReveal(div);
-  });
+    .svc-card__sub {
+      position: relative;
+      z-index: 2;
+      font-size: 0.82rem;
+      color: rgba(11,18,32,0.58);
+      line-height: 1.55;
+      margin-bottom: 1.6rem;
+      font-weight: 500;
+    }
 
-  plansGrid.querySelectorAll(".reveal").forEach(observeReveal);
+    .svc-card__cta {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,106,0,0.35);
+      color: #ff6a00;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(255,106,0,0.06);
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .svc-card:hover .svc-card__cta {
+      background: linear-gradient(135deg, #ff6a00, #ff8a2a);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 24px rgba(255,106,0,0.35);
+    }
+
+    /* Pulse rings */
+    .svc-card__ring {
+      position: absolute;
+      z-index: 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,106,0,0.25);
+      opacity: 0;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -58%) scale(0.6);
+      animation: ringPulse 2.8s ease-out infinite;
+    }
+    .svc-card__ring:nth-of-type(2) { animation-delay: 0.9s; }
+    .svc-card__ring:nth-of-type(3) { animation-delay: 1.8s; }
+
+    @keyframes ringPulse {
+      0%   { opacity: 0.55; transform: translate(-50%,-58%) scale(0.60); }
+      100% { opacity: 0;    transform: translate(-50%,-58%) scale(1.90); }
+    }
+
+    /* ---- Plans Modal ---- */
+    .plans-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(11,18,32,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .plans-modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .plans-modal {
+      position: relative;
+      width: 100%;
+      max-width: 1060px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 28px;
+      border: 1px solid rgba(11,18,32,0.10);
+      box-shadow: 0 32px 80px rgba(11,18,32,0.18);
+      padding: 2.5rem 2rem 2rem;
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,106,0,0.25) transparent;
+    }
+    .plans-modal-overlay.is-open .plans-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .plans-modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(11,18,32,0.08);
+    }
+
+    .plans-modal__title-wrap { display: flex; align-items: center; gap: 1rem; }
+
+    .plans-modal__icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      background: rgba(255,106,0,0.10);
+      border: 1px solid rgba(255,106,0,0.18);
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    .plans-modal__title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #0b1220;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .plans-modal__subtitle {
+      font-size: 0.85rem;
+      color: rgba(11,18,32,0.52);
+      margin: 0.2rem 0 0;
+      font-weight: 500;
+    }
+
+    .plans-modal__close {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(11,18,32,0.12);
+      background: rgba(11,18,32,0.03);
+      color: rgba(11,18,32,0.55);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .plans-modal__close:hover {
+      background: rgba(255,106,0,0.08);
+      color: #ff6a00;
+      border-color: rgba(255,106,0,0.25);
+    }
+
+    /* Plan cards grid */
+    .plans-modal__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .plan-card {
+      position: relative;
+      border-radius: 22px;
+      padding: 2rem 1.75rem 1.75rem;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(11,18,32,0.09);
+      box-shadow: 0 8px 28px rgba(11,18,32,0.07);
+      transition: transform 0.35s cubic-bezier(.2,.8,.2,1),
+                  box-shadow 0.35s ease,
+                  border-color 0.35s;
+      animation: planCardIn 0.5s cubic-bezier(.2,.8,.2,1) both;
+      overflow: hidden;
+    }
+    .plan-card:nth-child(1) { animation-delay: 0.05s; }
+    .plan-card:nth-child(2) { animation-delay: 0.15s; }
+    .plan-card:nth-child(3) { animation-delay: 0.25s; }
+
+    @keyframes planCardIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* Radial glow behind each card (same as .plan::before) */
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(520px 240px at 20% 0%, rgba(255,106,0,0.09), transparent 58%),
+        radial-gradient(520px 240px at 85% 10%, rgba(11,18,32,0.04), transparent 58%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .plan-card > * { position: relative; z-index: 1; }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,106,0,0.30);
+      box-shadow: 0 20px 52px rgba(255,106,0,0.14), 0 4px 16px rgba(11,18,32,0.08);
+    }
+
+    /* Featured card */
+    .plan-card--featured {
+      border-color: rgba(255,106,0,0.42) !important;
+      background: linear-gradient(180deg, rgba(255,106,0,0.08), rgba(255,255,255,0.96)) !important;
+      box-shadow: 0 18px 52px rgba(255,106,0,0.16), 0 4px 16px rgba(11,18,32,0.08) !important;
+    }
+
+    /* Top accent line on featured */
+    .plan-card--featured::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 2.5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff6a00, #ff8a2a);
+      box-shadow: 0 0 18px rgba(255,106,0,0.55), 0 0 36px rgba(255,106,0,0.25);
+    }
+
+    .plan-card__badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.28);
+      color: #ff6a00;
+      margin-bottom: 1rem;
+      animation: badgePop 0.4s cubic-bezier(.2,.8,.2,1) 0.3s both;
+    }
+    @keyframes badgePop {
+      from { transform: scale(0.7); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .plan-card__num {
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(11,18,32,0.35);
+      margin-bottom: 0.2rem;
+    }
+
+    .plan-card__tier {
+      font-size: 0.70rem;
+      font-weight: 900;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #ff6a00;
+      margin-bottom: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .plan-card__tier::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #ff6a00;
+      display: inline-block;
+      box-shadow: 0 0 8px rgba(255,106,0,0.7);
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+
+    .plan-card__name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0b1220;
+      margin: 0 0 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .plan-card__highlight {
+      font-size: 0.82rem;
+      color: rgba(11,18,32,0.50);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .plan-card__price-wrap {
+      margin-bottom: 1.4rem;
+      padding: 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(11,18,32,0.09);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .plan-card__price-label {
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(11,18,32,0.48);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .plan-card__price {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #0b1220;
+      letter-spacing: -0.03em;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .plan-card__price-extra {
+      font-size: 0.82rem;
+      color: #ff6a00;
+      font-weight: 700;
+      margin-top: 0.35rem;
+      display: block;
+    }
+
+    .plan-card__divider {
+      height: 1px;
+      background: rgba(11,18,32,0.07);
+      margin: 1.2rem 0;
+    }
+
+    .plan-card__items {
+      list-style: none;
+      padding: 0; margin: 0 0 1.5rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+
+    .plan-card__items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.84rem;
+      color: rgba(11,18,32,0.74);
+      line-height: 1.45;
+      font-weight: 550;
+    }
+
+    .plan-card__items li::before {
+      content: '';
+      width: 6px; height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6a00, #ff8a2a);
+      margin-top: 0.38em;
+      box-shadow: 0 0 8px rgba(255,106,0,0.5);
+      animation: dotPulse 2.4s ease-in-out infinite;
+    }
+    .plan-card__items li:nth-child(2)::before { animation-delay: 0.4s; }
+    .plan-card__items li:nth-child(3)::before { animation-delay: 0.8s; }
+    .plan-card__items li:nth-child(4)::before { animation-delay: 1.2s; }
+    .plan-card__items li:nth-child(5)::before { animation-delay: 1.6s; }
+    .plan-card__items li:nth-child(6)::before { animation-delay: 2.0s; }
+
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1);   box-shadow: 0 0 8px  rgba(255,106,0,0.5); }
+      50%       { transform: scale(1.7); box-shadow: 0 0 14px rgba(255,106,0,0.8); }
+    }
+
+    .plan-card__note {
+      font-size: 0.78rem;
+      color: rgba(11,18,32,0.50);
+      line-height: 1.55;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,106,0,0.04);
+      border: 1px solid rgba(255,106,0,0.12);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    /* Buttons */
+    .plan-card__btn {
+      display: block;
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s;
+      text-decoration: none;
+    }
+
+    .plan-card__btn--primary {
+      background: linear-gradient(135deg, #ff6a00, #ff8a2a);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(255,106,0,0.32);
+      animation: btnGlow 2.2s ease-in-out infinite;
+    }
+    @keyframes btnGlow {
+      0%, 100% { box-shadow: 0 8px 24px rgba(255,106,0,0.32); }
+      50%       { box-shadow: 0 8px 40px rgba(255,106,0,0.55); }
+    }
+    .plan-card__btn--primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.08);
+    }
+
+    .plan-card__btn--ghost {
+      background: rgba(255,106,0,0.06);
+      color: #ff6a00;
+      border: 1.5px solid rgba(255,106,0,0.28);
+    }
+    .plan-card__btn--ghost:hover {
+      background: rgba(255,106,0,0.12);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,106,0,0.15);
+    }
+
+    /* Scan lines on featured (very subtle) */
+    .plan-card--featured .plan-card__scan {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 4px,
+        rgba(255,106,0,0.012) 4px,
+        rgba(255,106,0,0.012) 5px
+      );
+      z-index: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .svc-cards-section { gap: 1.75rem; }
+    }
+    @media (max-width: 768px) {
+      .svc-cards-section { gap: 1.25rem; }
+      .svc-card { width: 100%; max-width: 360px; min-height: 230px; padding: 2rem 1.25rem; }
+      .plans-modal { padding: 1.5rem 1rem 1rem; border-radius: 22px; }
+      .plans-modal__grid { grid-template-columns: 1fr; }
+    }
+  `;
+  document.head.appendChild(style);
 }
 
-renderPlans();
+// =========================================================
+// Injeta a seção de cards na página
+// =========================================================
+function injectCatCards() {
+  if (document.getElementById("svcCardsSection")) return;
 
-// Tabs category
-document.querySelectorAll("[data-cat]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    currentCat = btn.getAttribute("data-cat");
+  const anchor =
+    document.getElementById("plansGrid") ||
+    document.getElementById("planosSection") ||
+    document.querySelector("[data-plans-section]");
 
-    document.querySelectorAll("[data-cat]").forEach((b) => {
-      b.classList.remove("is-active");
-      b.setAttribute("aria-selected", "false");
+  if (!anchor) return;
+
+  const originalWrap =
+    anchor.closest(".plans__wrap") ||
+    anchor.closest("[data-plans-wrap]") ||
+    anchor.parentElement;
+
+  const section = document.createElement("div");
+  section.id = "svcCardsSection";
+  section.className = "svc-cards-section";
+
+  const cats = [
+    { key: "sites",      label: "Sites",      icon: "🌐", color: "#ff6a00", rgb: "255,106,0"  },
+    { key: "dashboards", label: "Dashboards", icon: "📊", color: "#ff8a2a", rgb: "255,138,42" },
+    { key: "rpa",        label: "RPA",        icon: "🤖", color: "#ff6a00", rgb: "255,106,0"  },
+  ];
+
+  cats.forEach((c) => {
+    const data = planData[c.key];
+    const card = document.createElement("div");
+    card.className = "svc-card";
+    card.style.setProperty("--card-color", c.color);
+    card.style.setProperty("--card-color-rgb", c.rgb);
+    card.style.setProperty("--card-gradient", `radial-gradient(ellipse at 50% 0%, rgba(${c.rgb},0.15) 0%, transparent 70%)`);
+    card.style.setProperty("--card-glow", `0 0 60px rgba(${c.rgb},0.4), 0 0 120px rgba(${c.rgb},0.15)`);
+
+    card.innerHTML =
+      '<div class="svc-card__ring"></div>' +
+      '<div class="svc-card__ring"></div>' +
+      '<div class="svc-card__ring"></div>' +
+      '<canvas class="svc-card__particles"></canvas>' +
+      '<div class="svc-card__icon">' + c.icon + '</div>' +
+      '<div class="svc-card__title">' + c.label + '</div>' +
+      '<p class="svc-card__sub">' + data.subtitle + '</p>' +
+      '<div class="svc-card__cta">Ver planos <span>→</span></div>';
+
+    card.addEventListener("click", () => openPlansModal(c.key));
+    section.appendChild(card);
+
+    setTimeout(() => initParticles(card.querySelector(".svc-card__particles"), c.color, c.rgb), 120);
+  });
+
+  if (originalWrap && originalWrap !== document.body) {
+    originalWrap.style.display = "none";
+    originalWrap.parentNode.insertBefore(section, originalWrap);
+  } else {
+    anchor.style.display = "none";
+    anchor.parentNode.insertBefore(section, anchor);
+  }
+}
+
+// =========================================================
+// Partículas flutuantes
+// =========================================================
+function initParticles(canvas, color, rgb) {
+  if (!canvas) return;
+  const parent = canvas.parentElement;
+  if (!parent) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  function resize() {
+    canvas.width  = parent.offsetWidth  || 260;
+    canvas.height = parent.offsetHeight || 300;
+  }
+  resize();
+
+  const rgb3 = rgb.split(",").map(Number);
+  const r = rgb3[0], g = rgb3[1], b = rgb3[2];
+
+  const particles = Array.from({ length: 30 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.8 + 0.4,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: -(Math.random() * 0.35 + 0.1),
+    alpha: Math.random() * 0.5 + 0.1,
+    phase: Math.random() * Math.PI * 2,
+  }));
+
+  let running = true;
+  let frame = 0;
+
+  (function tick() {
+    if (!running || !document.body.contains(canvas)) { running = false; return; }
+    frame++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha = 0.1 + 0.4 * (0.5 + 0.5 * Math.sin(frame * 0.035 + p.phase));
+
+      if (p.y < -8)               { p.y = canvas.height + 5; p.x = Math.random() * canvas.width; }
+      if (p.x < -8)               { p.x = canvas.width + 5; }
+      if (p.x > canvas.width + 8) { p.x = -5; }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = "rgba(" + r + "," + g + "," + b + ",0.8)";
+      ctx.fillStyle   = "rgba(" + r + "," + g + "," + b + "," + p.alpha + ")";
+      ctx.fill();
     });
 
-    btn.classList.add("is-active");
-    btn.setAttribute("aria-selected", "true");
-
-    renderPlans();
-  });
-});
-
-// Mode setup/mensalidade
-document.querySelectorAll("[data-mode]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    currentMode = btn.getAttribute("data-mode");
-    document.querySelectorAll("[data-mode]").forEach((b) => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
-    renderPlans();
-  });
-});
+    requestAnimationFrame(tick);
+  })();
+}
 
 // =========================================================
-// Clique no plano -> WhatsApp com PLANO + CLIENTE
+// Abre o modal de planos
 // =========================================================
-const plansGridEl = document.getElementById("plansGrid");
+function openPlansModal(catKey) {
+  injectPlansStyles();
+  const cat = planData[catKey];
+  if (!cat) return;
 
-if (plansGridEl) {
-  plansGridEl.addEventListener("click", (e) => {
-    const a = e.target.closest('a[data-plan-cta="1"]');
-    if (!a) return;
+  const colorMap = {
+    sites:      { color: "#ff6a00", rgb: "255,106,0"  },
+    dashboards: { color: "#ff8a2a", rgb: "255,138,42" },
+    rpa:        { color: "#ff6a00", rgb: "255,106,0"  },
+  };
+  const cm = colorMap[catKey];
+
+  const existing = document.getElementById("plansModalOverlay");
+  if (existing) existing.remove();
+
+  const overlay = document.createElement("div");
+  overlay.className = "plans-modal-overlay";
+  overlay.id = "plansModalOverlay";
+  overlay.style.setProperty("--modal-color",     cm.color);
+  overlay.style.setProperty("--modal-color-rgb", cm.rgb);
+
+  const plansHtml = cat.plans.map((p) => {
+    const isFeatured = p.featured ? " plan-card--featured" : "";
+    const badge = p.badge ? '<div class="plan-card__badge">' + p.badge + '</div>' : "";
+    const priceExtra = p.priceExtra
+      ? '<span class="plan-card__price-extra">' + p.priceExtraLabel + ': ' + p.priceExtra + '</span>'
+      : "";
+    const note = p.note ? '<p class="plan-card__note">' + p.note + '</p>' : "";
+    const scan = p.featured ? '<div class="plan-card__scan"></div>' : "";
+    const btnCls = p.featured ? "plan-card__btn--primary" : "plan-card__btn--ghost";
+    const encodedMsg = encodeURIComponent(p.ctaMsg || "");
+
+    return (
+      '<div class="plan-card' + isFeatured + '">' +
+        scan +
+        badge +
+        '<div class="plan-card__num">Plano ' + p.num + '</div>' +
+        '<div class="plan-card__tier">' + p.tier + '</div>' +
+        '<h3 class="plan-card__name">' + p.name + '</h3>' +
+        '<p class="plan-card__highlight">' + p.highlight + '</p>' +
+        '<div class="plan-card__price-wrap">' +
+          '<span class="plan-card__price-label">' + p.priceLabel + '</span>' +
+          '<span class="plan-card__price">' + p.price + '</span>' +
+          priceExtra +
+        '</div>' +
+        '<div class="plan-card__divider"></div>' +
+        '<ul class="plan-card__items">' +
+          p.items.map((item) => '<li>' + item + '</li>').join("") +
+        '</ul>' +
+        note +
+        '<button class="plan-card__btn ' + btnCls + '" ' +
+          'data-plan-modal-cta="1" ' +
+          'data-cat="' + catKey + '" ' +
+          'data-tier="' + p.tier + '" ' +
+          'data-name="' + p.name + '" ' +
+          'data-price="' + p.price + '" ' +
+          'data-msg="' + encodedMsg + '">' +
+          p.cta +
+        '</button>' +
+      '</div>'
+    );
+  }).join("");
+
+  overlay.innerHTML =
+    '<div class="plans-modal" role="dialog" aria-modal="true">' +
+      '<div class="plans-modal__header">' +
+        '<div class="plans-modal__title-wrap">' +
+          '<div class="plans-modal__icon-wrap">' + cat.icon + '</div>' +
+          '<div>' +
+            '<h2 class="plans-modal__title">' + cat.title + '</h2>' +
+            '<p class="plans-modal__subtitle">' + cat.subtitle + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<button class="plans-modal__close" id="plansModalClose" aria-label="Fechar">\u2715</button>' +
+      '</div>' +
+      '<div class="plans-modal__grid">' + plansHtml + '</div>' +
+    '</div>';
+
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add("is-open")));
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closePlansModal();
+  });
+  document.getElementById("plansModalClose").addEventListener("click", closePlansModal);
+  window.addEventListener("keydown", plansModalKeydown);
+
+  overlay.addEventListener("click", (e) => {
+    const btn = e.target.closest('[data-plan-modal-cta="1"]');
+    if (!btn) return;
 
     if (!isWhatsappConfigured()) {
       alert("Configure o número do WhatsApp no script.js (WHATSAPP_NUMBER).");
       return;
     }
 
-    e.preventDefault();
-
     const planPayload = {
-      cat: a.dataset.cat,
-      tier: a.dataset.tier,
-      name: a.dataset.name,
-      mode: a.dataset.mode,
-      price: a.dataset.price,
-      server: a.dataset.server,
+      cat:    btn.dataset.cat,
+      tier:   btn.dataset.tier,
+      name:   btn.dataset.name,
+      mode:   "Ver plano",
+      price:  btn.dataset.price,
+      server: "",
     };
 
     const leadSaved = getLead();
@@ -567,6 +1324,32 @@ if (plansGridEl) {
     openLeadModal(planPayload);
   });
 }
+
+function closePlansModal() {
+  const overlay = document.getElementById("plansModalOverlay");
+  if (!overlay) return;
+  overlay.classList.remove("is-open");
+  window.removeEventListener("keydown", plansModalKeydown);
+  setTimeout(() => overlay.remove(), 400);
+}
+
+function plansModalKeydown(e) {
+  if (e.key === "Escape") closePlansModal();
+}
+
+// =========================================================
+// Init
+// =========================================================
+injectPlansStyles();
+
+document.addEventListener("DOMContentLoaded", () => {
+  injectCatCards();
+});
+
+if (document.readyState !== "loading") {
+  injectCatCards();
+}
+
 
 // =========================================================
 // Formulário final -> WhatsApp + salva lead (SEM emojis)
@@ -1626,7 +2409,3 @@ window.addEventListener("load", () => {
   }
 
 })
-
-
-
-
