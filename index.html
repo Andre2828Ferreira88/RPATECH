@@ -74,7 +74,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="promo.css" />
   <link rel="stylesheet" href="portfolio-catalog.css" />
 
 </head>
@@ -195,60 +194,70 @@
           </div>
 
         </div>
-        <!-- ═══════════════════════════════════════
-             CARD DE DESCONTO – 10% no 1º site
-        ════════════════════════════════════════════ -->
-        <div class="promo-card reveal" role="complementary" aria-label="Oferta especial: 10% de desconto no primeiro site">
+        <!-- ═══ HERO VISUAL — ORBITAL ═══ -->
+        <div class="hero-visual reveal" aria-hidden="true">
 
-          <!-- canto decorativo -->
-          <div class="promo-ribbon" aria-hidden="true"></div>
+          <!-- Rings -->
+          <div class="hv-ring hv-ring--1"></div>
+          <div class="hv-ring hv-ring--2"></div>
+          <div class="hv-ring hv-ring--3"></div>
 
-          <!-- topo: live dot + badge -->
-          <div class="promo-card__top">
-            <p class="promo-live">
-              <span class="promo-live__dot"></span>
-              Oferta ativa agora
-            </p>
-            <div class="promo-badge" aria-label="10% de desconto">
-              <span class="promo-badge__pct">10%</span>
-              <span class="promo-badge__off">off</span>
+          <!-- Hub central -->
+          <div class="hv-hub">
+            <div class="hv-hub__glow"></div>
+            <div class="hv-hub__inner">
+              <svg class="hv-hub__icon" width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12l10 5 10-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="hv-hub__label">RPAWorks</span>
             </div>
           </div>
 
-          <!-- título -->
-          <h2 class="promo-card__title">
-            Primeiro site:<br>
-            <em>10% mais barato</em> pra você.
-          </h2>
-
-          <!-- subtítulo -->
-          <p class="promo-card__sub">
-            Desconto exclusivo no seu <strong>primeiro projeto de site</strong>.
-            Protótipo em até <strong>48h</strong> — sem enrolação.
-          </p>
-
-          <!-- timer de urgência -->
-          <div class="promo-timer" aria-label="Tempo restante da oferta">
-            <span class="promo-timer__icon" aria-hidden="true">⏳</span>
-            <div class="promo-timer__info">
-              <p class="promo-timer__text">Oferta expira em</p>
-              <div class="promo-bar" role="progressbar" aria-label="Progresso da oferta">
-                <div class="promo-bar__fill" id="promoBarFill"></div>
-              </div>
+          <!-- Órbita 1 — Sites -->
+          <div class="hv-orbit hv-orbit--1">
+            <div class="hv-node hv-node--sites">
+              <span class="hv-node__icon">🌐</span>
+              <span class="hv-node__label">Sites</span>
             </div>
-            <span class="promo-timer__count" id="promoCountdown" aria-live="polite">23:59:59</span>
           </div>
 
-        <a class="promo-card__cta"
-            href="https://wa.me/5511961219986?text=Quero%20um%20site%20com%2010%25%20de%20desconto"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Garantir 10% de desconto agora via WhatsApp">
-            Garantir meu desconto agora
-          </a>
+          <!-- Órbita 2 — Dashboards -->
+          <div class="hv-orbit hv-orbit--2">
+            <div class="hv-node hv-node--dash">
+              <span class="hv-node__icon">📊</span>
+              <span class="hv-node__label">Dashboards</span>
+            </div>
+          </div>
+
+          <!-- Órbita 3 — RPA -->
+          <div class="hv-orbit hv-orbit--3">
+            <div class="hv-node hv-node--rpa">
+              <span class="hv-node__icon">🤖</span>
+              <span class="hv-node__label">RPA</span>
+            </div>
+          </div>
+
+          <!-- Chips métricas flutuantes -->
+          <div class="hv-chip hv-chip--1">
+            <span class="hv-chip__dot"></span>
+            <strong>48h</strong>&nbsp;pra protótipo
+          </div>
+          <div class="hv-chip hv-chip--2">
+            <span class="hv-chip__dot"></span>
+            <strong>+12</strong>&nbsp;projetos entregues
+          </div>
+          <div class="hv-chip hv-chip--3">
+            <span class="hv-chip__dot"></span>
+            Suporte&nbsp;<strong>24h</strong>
+          </div>
+
+          <!-- Grid tech -->
+          <div class="hv-grid"></div>
 
         </div>
-        <!-- ═══ FIM DO CARD DE DESCONTO ═══ -->
+        <!-- ═══ FIM HERO VISUAL ═══ -->
 
       </div>
     </section>
@@ -270,10 +279,9 @@
         <!-- Bento grid -->
         <div class="sv-bento">
 
-          <!-- ── Card 1: Sites (large, left) ── -->
-          <article class="sv-card sv-card--sites reveal" data-delay="0">
+          <!-- Card Sites (coluna esquerda, altura dupla) -->
+          <article class="sv-card sv-card--sites reveal">
 
-            <!-- Animated browser mockup -->
             <div class="sv-card__visual sv-card__visual--browser" aria-hidden="true">
               <div class="svb-bar">
                 <span class="svb-dot svb-dot--r"></span>
@@ -281,7 +289,7 @@
                 <span class="svb-dot svb-dot--g"></span>
                 <div class="svb-url">
                   <span class="svb-url__lock">🔒</span>
-                  <span class="svb-url__text" id="svUrlText">rpaworks.com.br</span>
+                  <span class="svb-url__text">rpaworks.com.br</span>
                 </div>
               </div>
               <div class="svb-content">
@@ -300,12 +308,8 @@
               <div class="sv-card__visual-glow"></div>
             </div>
 
-            <!-- Content -->
             <div class="sv-card__body">
-              <div class="sv-card__tag">
-                <span class="sv-card__tag-dot"></span>
-                Sites & Landing Pages
-              </div>
+              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Sites & Landing Pages</div>
               <h3 class="sv-card__title">Presença que<br>vende de verdade</h3>
               <p class="sv-card__desc">Design 2026 minimalista, SEO, animações e conversão. Do conceito ao deploy em 48h.</p>
               <div class="sv-card__chips">
@@ -314,51 +318,42 @@
                 <span class="sv-chip">WhatsApp / Forms</span>
                 <span class="sv-chip">Deploy incluso</span>
               </div>
-              <a class="sv-card__cta" href="#planos">
-                Ver planos
+              <a class="sv-card__cta" href="#planos">Ver planos
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- ── Card 2: RPA (top-right) ── -->
-          <article class="sv-card sv-card--rpa reveal" data-delay="100">
+          <!-- Card RPA (cima direita) -->
+          <article class="sv-card sv-card--rpa reveal">
 
             <div class="sv-card__visual sv-card__visual--rpa" aria-hidden="true">
-              <!-- Animated data flow nodes -->
               <div class="rpa-flow">
-                <div class="rpa-node rpa-node--src">
+                <div class="rpa-node">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2"/></svg>
                   <span>Excel</span>
                 </div>
-                <div class="rpa-pipe rpa-pipe--1">
-                  <div class="rpa-packet rpa-packet--1"></div>
-                </div>
+                <div class="rpa-pipe"><div class="rpa-packet rpa-packet--1"></div></div>
                 <div class="rpa-node rpa-node--bot">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                   <span>Robô</span>
                 </div>
-                <div class="rpa-pipe rpa-pipe--2">
-                  <div class="rpa-packet rpa-packet--2"></div>
-                </div>
-                <div class="rpa-node rpa-node--out">
+                <div class="rpa-pipe"><div class="rpa-packet rpa-packet--2"></div></div>
+                <div class="rpa-node">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
                   <span>Relatório</span>
                 </div>
               </div>
               <div class="rpa-log">
                 <div class="rpa-log__line"><span class="rpa-log__ok">✓</span> Planilha lida — 1.240 linhas</div>
-                <div class="rpa-log__line"><span class="rpa-log__ok">✓</span> Portal acessado</div>
+                <div class="rpa-log__line"><span class="rpa-log__ok">✓</span> Portal acessado com sucesso</div>
                 <div class="rpa-log__line rpa-log__line--active"><span class="rpa-log__spin">◌</span> Gerando PDF...</div>
               </div>
               <div class="sv-card__visual-glow"></div>
             </div>
 
             <div class="sv-card__body">
-              <div class="sv-card__tag">
-                <span class="sv-card__tag-dot"></span>
-                RPA & Automação
-              </div>
+              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>RPA & Automação</div>
               <h3 class="sv-card__title">Robôs que<br>trabalham por você</h3>
               <p class="sv-card__desc">Planilhas, portais, PDFs e e-mails automatizados com logs, alertas e relatórios.</p>
               <div class="sv-card__chips">
@@ -366,18 +361,16 @@
                 <span class="sv-chip">Selenium</span>
                 <span class="sv-chip">Logs & alertas</span>
               </div>
-              <a class="sv-card__cta" href="#planos">
-                Ver planos
+              <a class="sv-card__cta" href="#planos">Ver planos
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- ── Card 3: Dashboards (bottom-right) ── -->
-          <article class="sv-card sv-card--dash reveal" data-delay="200">
+          <!-- Card Dashboards (baixo direita) -->
+          <article class="sv-card sv-card--dash reveal">
 
             <div class="sv-card__visual sv-card__visual--dash" aria-hidden="true">
-              <!-- Animated chart -->
               <div class="dash-chart">
                 <div class="dash-bars">
                   <div class="dash-bar" style="--h:55%"><div class="dash-bar__fill"></div></div>
@@ -415,10 +408,7 @@
             </div>
 
             <div class="sv-card__body">
-              <div class="sv-card__tag">
-                <span class="sv-card__tag-dot"></span>
-                Dashboards Interativos
-              </div>
+              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Dashboards Interativos</div>
               <h3 class="sv-card__title">Dados que<br>viram decisão</h3>
               <p class="sv-card__desc">KPIs, filtros e gráficos em Python. Clareza total em segundos — do upload ao export.</p>
               <div class="sv-card__chips">
@@ -426,8 +416,7 @@
                 <span class="sv-chip">Plotly</span>
                 <span class="sv-chip">Export PDF/Excel</span>
               </div>
-              <a class="sv-card__cta" href="#planos">
-                Ver planos
+              <a class="sv-card__cta" href="#planos">Ver planos
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -668,7 +657,6 @@
 
   <script src="script.js"></script>
   <!-- Contador do card de desconto -->
-  <script src="promo.js" defer></script>
   <script src="portfolio-catalog.js"></script>
 </body>
 </html>
