@@ -30,7 +30,7 @@
     "url": "https://www.rpaworks.com.br/",
     "logo": "https://www.rpaworks.com.br/assets/img/logo.png",
     "sameAs": [
-      "https://www.instagram.com/SEUUSER"
+      "https://www.instagram.com/rpaworks_/"
     ]
   }
   </script>
@@ -101,7 +101,7 @@
         <a href="#processo">Processo</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn--sm btn--ghost" href="#contato">Fale conosco</a>
+        <a class="btn btn--sm btn--ghost" href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Fale conosco</a>
       </nav>
 
       <button class="hamb" aria-label="Abrir menu" aria-expanded="false" data-hamb>
@@ -115,7 +115,7 @@
       <a href="#processo">Processo</a>
       <a href="#portfolio">Portfólio</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn--sm btn--primary" href="#contato">Fale conosco</a>
+      <a class="btn btn--sm btn--primary" href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Fale conosco</a>
     </div>
   </header>
 
@@ -150,7 +150,7 @@
           <!-- CTAs com micro-copy de confiança -->
           <div class="cta">
             <div class="cta__group">
-              <a class="btn btn--primary" href="#planos">Ver planos e preços</a>
+              <a class="btn btn--primary" href="https://wa.me/5511961219986?text=Olá!%20Vi%20o%20site%20da%20RPAWorks%20e%20quero%20ver%20os%20planos%20e%20preços.%20Pode%20me%20ajudar?" target="_blank" rel="noopener">Ver planos e preços</a>
               <span class="cta__trust">⚡ Resposta em até 1h</span>
             </div>
           </div>
@@ -312,13 +312,100 @@
               <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Sites & Landing Pages</div>
               <h3 class="sv-card__title">Presença que<br>vende de verdade</h3>
               <p class="sv-card__desc">Design 2026 minimalista, SEO, animações e conversão. Do conceito ao deploy em 48h.</p>
+
+              <!-- ── Portfolio Carousel ── -->
+              <div class="pf-carousel" id="pfCarousel" aria-label="Portfólio de sites">
+
+                <!-- Track -->
+                <div class="pf-carousel__track" id="pfTrack">
+
+                  <!-- Slide 1 — coloque src="sua-imagem.jpg" -->
+                  <div class="pf-slide" data-index="0">
+                    <div class="pf-slide__img-wrap">
+                      <img class="pf-slide__img" src="./assets/img/portfolio/clinica-thumb.jpg" alt="Site 1" data-placeholder="1"/>
+                      <div class="pf-slide__shimmer"></div>
+                    </div>
+                    <div class="pf-slide__info">
+                      <span class="pf-slide__name">Site 1</span>
+                      <span class="pf-slide__tag">Landing Page</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="pf-slide" data-index="1">
+                    <div class="pf-slide__img-wrap">
+                      <img class="pf-slide__img" src="./assets/img/portfolio/Artic.png" alt="Site 2" data-placeholder="2"/>
+                      <div class="pf-slide__shimmer"></div>
+                    </div>
+                    <div class="pf-slide__info">
+                      <span class="pf-slide__name">Site 2</span>
+                      <span class="pf-slide__tag">Institucional</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3 -->
+                  <div class="pf-slide" data-index="2">
+                    <div class="pf-slide__img-wrap">
+                      <img class="pf-slide__img" src="./assets/img/portfolio/Nosferatos.png" alt="Site 3" data-placeholder="3"/>
+                      <div class="pf-slide__shimmer"></div>
+                    </div>
+                    <div class="pf-slide__info">
+                      <span class="pf-slide__name">Site 3</span>
+                      <span class="pf-slide__tag">E-commerce</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4 -->
+                  <div class="pf-slide" data-index="3">
+                    <div class="pf-slide__img-wrap">
+                      <img class="pf-slide__img" src="./assets/img/portfolio/Desing.png" alt="Site 4" data-placeholder="4"/>
+                      <div class="pf-slide__shimmer"></div>
+                    </div>
+                    <div class="pf-slide__info">
+                      <span class="pf-slide__name">Site 4</span>
+                      <span class="pf-slide__tag">Landing Page</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 5 -->
+                  <div class="pf-slide" data-index="4">
+                    <div class="pf-slide__img-wrap">
+                      <img class="pf-slide__img" src="./assets/img/portfolio/Yuri.jpg" alt="Site 5" data-placeholder="5"/>
+                      <div class="pf-slide__shimmer"></div>
+                    </div>
+                    <div class="pf-slide__info">
+                      <span class="pf-slide__name">Site 5</span>
+                      <span class="pf-slide__tag">Institucional</span>
+                    </div>
+                  </div>
+
+                </div><!-- /track -->
+
+                <!-- Controls -->
+                <div class="pf-carousel__controls">
+                  <button class="pf-btn pf-btn--prev" id="pfPrev" aria-label="Anterior">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="pf-dots" id="pfDots" role="tablist"></div>
+                  <button class="pf-btn pf-btn--next" id="pfNext" aria-label="Próximo">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
+
+                <!-- Progress bar -->
+                <div class="pf-progress" aria-hidden="true">
+                  <div class="pf-progress__fill" id="pfProgress"></div>
+                </div>
+
+              </div><!-- /pf-carousel -->
+
               <div class="sv-card__chips">
                 <span class="sv-chip">Design premium</span>
                 <span class="sv-chip">SEO on-page</span>
                 <span class="sv-chip">WhatsApp / Forms</span>
                 <span class="sv-chip">Deploy incluso</span>
               </div>
-              <a class="sv-card__cta" href="#planos">Ver planos
+              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20site/landing%20page%20com%20a%20RPAWorks.%20Pode%20me%20passar%20os%20planos?" target="_blank" rel="noopener">Quero um site
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -361,7 +448,7 @@
                 <span class="sv-chip">Selenium</span>
                 <span class="sv-chip">Logs & alertas</span>
               </div>
-              <a class="sv-card__cta" href="#planos">Ver planos
+              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20automação%20/%20RPA%20com%20a%20RPAWorks.%20Quero%20entender%20como%20funciona%20e%20ver%20os%20planos." target="_blank" rel="noopener">Quero automatizar
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -416,7 +503,7 @@
                 <span class="sv-chip">Plotly</span>
                 <span class="sv-chip">Export PDF/Excel</span>
               </div>
-              <a class="sv-card__cta" href="#planos">Ver planos
+              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20dashboard%20interativo%20com%20a%20RPAWorks.%20Pode%20me%20contar%20mais%20e%20passar%20os%20planos?" target="_blank" rel="noopener">Quero um dashboard
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -460,40 +547,200 @@
             <h3>Precisa de combo (Site + Dashboard + RPA)?</h3>
             <p>Montamos um escopo enxuto e entregamos rápido, com prioridade em performance e clareza.</p>
           </div>
-          <a class="btn btn--primary" href="#contato">Montar orçamento</a>
+          <a class="btn btn--primary" href="https://wa.me/5511961219986?text=Olá!%20Quero%20montar%20um%20combo%20personalizado%20(Site%20+%20Dashboard%20+%20RPA)%20com%20a%20RPAWorks.%20Pode%20me%20ajudar%20com%20um%20orçamento?" target="_blank" rel="noopener">Montar orçamento agora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RESULTADOS / ROI ═══ -->
+    <section class="section roi-section">
+      <div class="container">
+        <div class="roi-head reveal">
+          <div class="proc-eyebrow"><span class="proc-dot"></span>Impacto real</div>
+          <h2 class="roi-title">Números que <em>fecham venda</em></h2>
+        </div>
+        <div class="roi-grid">
+          <div class="roi-card reveal">
+            <div class="roi-card__icon"></div>
+            <div class="roi-card__num" data-counter="8">0</div>
+            <div class="roi-card__unit">horas/semana</div>
+            <p class="roi-card__desc">economizadas em média com automação de planilhas e portais</p>
+          </div>
+          <div class="roi-card reveal">
+            <div class="roi-card__icon"></div>
+            <div class="roi-card__num" data-counter="34">0</div>
+            <div class="roi-card__unit">% mais leads</div>
+            <p class="roi-card__desc">em landing pages com SEO, CTA otimizado e chatbot integrado</p>
+          </div>
+          <div class="roi-card reveal">
+            <div class="roi-card__icon"></div>
+            <div class="roi-card__num" data-counter="48">0</div>
+            <div class="roi-card__unit">h pra protótipo</div>
+            <p class="roi-card__desc">do briefing ao layout aprovável — mais rápido que qualquer agência</p>
+          </div>
+          <div class="roi-card reveal">
+            <div class="roi-card__icon"></div>
+            <div class="roi-card__num" data-counter="12">0</div>
+            <div class="roi-card__unit">k+ economizados</div>
+            <p class="roi-card__desc">em custo operacional anual eliminado com RPA em processos repetitivos</p>
+          </div>
+        </div>
+        <div class="roi-cta reveal">
+          <a class="btn btn--primary" href="https://wa.me/5511961219986?text=Olá!%20Vi%20os%20resultados%20da%20RPAWorks%20e%20quero%20entender%20quanto%20posso%20economizar/ganhar%20no%20meu%20negócio." target="_blank" rel="noopener">Calcular meu potencial →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DEPOIMENTOS ═══ -->
+    <section class="section tst-section">
+      <div class="container">
+        <div class="tst-head reveal">
+          <div class="proc-eyebrow"><span class="proc-dot"></span>Clientes</div>
+          <h2 class="tst-title">O que dizem <em>quem já fez</em></h2>
+        </div>
+        <div class="tst-grid">
+
+          <div class="tst-card reveal">
+            <div class="tst-card__stars">★★★★★</div>
+            <p class="tst-card__quote">"Tinham 3 pessoas atualizando planilhas todo dia. Depois do robô da RPAWorks, zero. Liberamos a equipe para o que importa e o erro humano acabou."</p>
+            <div class="tst-card__author">
+              <div class="tst-card__avatar" style="background:linear-gradient(135deg,#ff6a00,#ff8a2a)">M</div>
+              <div>
+                <strong>Marcos A.</strong>
+                <span>Diretor de Operações · Logística</span>
+              </div>
+            </div>
+            <div class="tst-card__result">📉 8h/dia economizadas</div>
+          </div>
+
+          <div class="tst-card tst-card--featured reveal">
+            <div class="tst-card__stars">★★★★★</div>
+            <p class="tst-card__quote">"Nosso site novo gerou mais contatos em 2 semanas do que o antigo em 6 meses. O chatbot já qualifica o lead antes de chegar em mim — chegou pronto pra fechar."</p>
+            <div class="tst-card__author">
+              <div class="tst-card__avatar" style="background:linear-gradient(135deg,#6a11cb,#2575fc)">J</div>
+              <div>
+                <strong>Juliana R.</strong>
+                <span>Proprietária · Clínica Estética</span>
+              </div>
+            </div>
+            <div class="tst-card__result">📈 +43% de leads qualificados</div>
+          </div>
+
+          <div class="tst-card reveal">
+            <div class="tst-card__stars">★★★★★</div>
+            <p class="tst-card__quote">"O dashboard virou nossa reunião de segunda de manhã. Em 30 segundos vejo faturamento, meta e ticket médio por produto. Antes eu precisava de 2h pra montar isso no Excel."</p>
+            <div class="tst-card__author">
+              <div class="tst-card__avatar" style="background:linear-gradient(135deg,#11998e,#38ef7d)">R</div>
+              <div>
+                <strong>Ricardo F.</strong>
+                <span>CEO · E-commerce de Moda</span>
+              </div>
+            </div>
+            <div class="tst-card__result">⏱️ 2h de reunião → 30 segundos</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STACK / FERRAMENTAS ═══ -->
+    <section class="stack-section">
+      <div class="container">
+        <div class="stack-head reveal">
+          <span class="stack-label">Tecnologias que usamos</span>
+        </div>
+        <div class="stack-track-wrap">
+          <div class="stack-track">
+            <div class="stack-item">Python</div>
+            <div class="stack-item">Playwright</div>
+            <div class="stack-item">Selenium</div>
+            <div class="stack-item">Streamlit</div>
+            <div class="stack-item">Plotly</div>
+            <div class="stack-item">Vercel</div>
+            <div class="stack-item">Render</div>
+            <div class="stack-item">WhatsApp API</div>
+            <div class="stack-item">Google Analytics</div>
+            <div class="stack-item">Figma</div>
+            <div class="stack-item">Google Sheets</div>
+            <div class="stack-item">Pandas</div>
+            <!-- duplicates for infinite scroll -->
+            <div class="stack-item" aria-hidden="true">Python</div>
+            <div class="stack-item" aria-hidden="true">Playwright</div>
+            <div class="stack-item" aria-hidden="true">Selenium</div>
+            <div class="stack-item" aria-hidden="true">Streamlit</div>
+            <div class="stack-item" aria-hidden="true">Plotly</div>
+            <div class="stack-item" aria-hidden="true">Vercel</div>
+            <div class="stack-item" aria-hidden="true">Render</div>
+            <div class="stack-item" aria-hidden="true">WhatsApp API</div>
+            <div class="stack-item" aria-hidden="true">Google Analytics</div>
+            <div class="stack-item" aria-hidden="true">Figma</div>
+            <div class="stack-item" aria-hidden="true">Google Sheets</div>
+            <div class="stack-item" aria-hidden="true">Pandas</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Processo -->
-    <section class="section" id="processo">
+    <section class="section proc-section" id="processo">
       <div class="container">
-        <div class="section__head reveal">
-          <h2>Como conduzimos o projeto</h2>
-          <p class="lead">Método simples, prazos claros e entregas que você consegue acompanhar.</p>
+        <div class="proc-head reveal">
+          <div class="proc-eyebrow"><span class="proc-dot"></span>Método</div>
+          <h2 class="proc-title">Do briefing ao ar<br>em <em>dias, não meses</em></h2>
+          <p class="proc-sub">Processo claro, prazos reais, você aprova antes de pagar.</p>
         </div>
 
-        <div class="steps">
-          <div class="step reveal">
-            <span class="step__n">1</span>
-            <h3>Diagnóstico rápido</h3>
-            <p>Objetivo, público, referências e o que precisa automatizar/medir.</p>
+        <div class="proc-grid">
+          <div class="proc-step reveal">
+            <div class="proc-step__num">01</div>
+            <div class="proc-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Diagnóstico</h3>
+            <p>Alinhamos objetivo, público, referências e escopo em uma conversa rápida — geralmente 30 min.</p>
+            <div class="proc-step__tag">Grátis · Sem compromisso</div>
           </div>
-          <div class="step reveal">
-            <span class="step__n">2</span>
-            <h3>Protótipo + aprovação</h3>
-            <p>Layout e fluxo (Figma/preview). Ajustes rápidos até ficar certo.</p>
+          <div class="proc-connector" aria-hidden="true"><div class="proc-connector__line"></div><div class="proc-connector__dot"></div></div>
+
+          <div class="proc-step reveal">
+            <div class="proc-step__num">02</div>
+            <div class="proc-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Protótipo</h3>
+            <p>Layout visual completo (Figma / preview ao vivo). Você aprova cada detalhe antes de avançar.</p>
+            <div class="proc-step__tag">48h · Revisões ilimitadas</div>
           </div>
-          <div class="step reveal">
-            <span class="step__n">3</span>
-            <h3>Build & Integrações</h3>
-            <p>Implementação, formulários, WhatsApp, deploy e monitoramento.</p>
+          <div class="proc-connector" aria-hidden="true"><div class="proc-connector__line"></div><div class="proc-connector__dot"></div></div>
+
+          <div class="proc-step reveal">
+            <div class="proc-step__num">03</div>
+            <div class="proc-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Build & Deploy</h3>
+            <p>Desenvolvimento, integrações (WhatsApp, Forms, APIs), deploy, testes e domínio configurado.</p>
+            <div class="proc-step__tag">5–10 dias úteis</div>
           </div>
-          <div class="step reveal">
-            <span class="step__n">4</span>
-            <h3>Entrega & evolução</h3>
-            <p>Treinamento curto + manutenção opcional para evoluir o produto.</p>
+          <div class="proc-connector" aria-hidden="true"><div class="proc-connector__line"></div><div class="proc-connector__dot"></div></div>
+
+          <div class="proc-step reveal">
+            <div class="proc-step__num">04</div>
+            <div class="proc-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Entrega & Evolução</h3>
+            <p>Treinamento rápido, manutenção contínua opcional e suporte 24h para qualquer ajuste.</p>
+            <div class="proc-step__tag">Suporte 24h incluído</div>
           </div>
+        </div>
+
+        <div class="proc-cta reveal">
+          <a class="btn btn--primary proc-cta__btn" href="https://wa.me/5511961219986?text=Olá!%20Quero%20começar%20um%20diagnóstico%20gratuito%20com%20a%20RPAWorks.%20Pode%20me%20ajudar?" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Iniciar diagnóstico gratuito
+          </a>
+          <span class="proc-cta__sub">⚡ Resposta em até 1h · Sem compromisso</span>
         </div>
       </div>
     </section>
@@ -511,17 +758,43 @@
         <div class="faq">
           <details class="reveal">
             <summary>Vocês entregam com domínio e hospedagem?</summary>
-            <p>Sim. Podemos orientar e configurar (Render/Vercel + domínio). Você fica com tudo no seu controle.</p>
+            <p>Sim. Configuramos domínio e hospedagem (Render/Vercel + domínio .com.br ou .com) e você fica com acesso e controle total. Indicamos o plano ideal de servidor para o seu tipo de projeto.</p>
           </details>
-
+          <details class="reveal">
+            <summary>Em quanto tempo fica pronto?</summary>
+            <p>Um site ou landing page simples fica com protótipo em 48h e entrega final entre 5 e 10 dias úteis. Projetos maiores (RPA, Dashboard, combos) têm prazo alinhado no diagnóstico. Trabalhamos com datas firmes, não com "em breve".</p>
+          </details>
+          <details class="reveal">
+            <summary>Como funciona o pagamento?</summary>
+            <p>50% na aprovação do escopo e 50% na entrega final — você nunca paga o total antes de ver o produto funcionando. Aceitamos Pix, transferência e cartão.</p>
+          </details>
           <details class="reveal">
             <summary>Dá para eu atualizar textos e imagens depois?</summary>
-            <p>Sim. Entregamos um painel simples ou instruções rápidas, dependendo do tipo do projeto.</p>
+            <p>Sim. Entregamos painel administrativo simples ou instruções rápidas para você editar sem depender de ninguém. Alterações maiores cobrem nosso plano de manutenção mensal.</p>
           </details>
-
           <details class="reveal">
-            <summary>RPA pode rodar em servidor?</summary>
-            <p>Sim, dependendo do portal e do fluxo. Também fazemos versão "só alertas/sinais" quando necessário.</p>
+            <summary>O que é um lead qualificado no plano Por Resultado?</summary>
+            <p>É todo contato que chega pelo site demonstrando interesse real: pede preço, orçamento, informação ou agendamento. Mensagem de fornecedor, spam ou engano não conta. Monitoramos juntos via Google Analytics e WhatsApp.</p>
+          </details>
+          <details class="reveal">
+            <summary>RPA pode rodar em servidor 24/7?</summary>
+            <p>Sim, dependendo do portal e do fluxo. Configuramos no Render com agendamento, logs de execução e alertas por e-mail/WhatsApp se algo der errado. Para portais com captcha ou MFA, adaptamos a estratégia.</p>
+          </details>
+          <details class="reveal">
+            <summary>Vocês atendem empresas de qualquer segmento?</summary>
+            <p>Sim. Já entregamos projetos para clínicas, e-commerces, consultorias, lojas físicas, estúdios de design e empresas de logística. O que importa é o problema a resolver — adaptamos a tecnologia ao seu contexto.</p>
+          </details>
+          <details class="reveal">
+            <summary>Posso ter Site + Dashboard + RPA no mesmo projeto?</summary>
+            <p>Sim, e é exatamente onde entregamos mais valor. Um combo integrado (site que captura lead → dashboard que mostra resultado → robô que executa a operação) custa menos e funciona melhor do que três fornecedores separados.</p>
+          </details>
+          <details class="reveal">
+            <summary>E se eu não gostar do resultado?</summary>
+            <p>Você aprova o protótipo antes de pagar a segunda parcela. Se não estiver certo, ajustamos até ficar. Trabalhamos com revisões ilimitadas na fase de design e duas rodadas de ajuste na fase de desenvolvimento.</p>
+          </details>
+          <details class="reveal">
+            <summary>Como posso começar?</summary>
+            <p>É só mandar uma mensagem no WhatsApp com: o que você precisa, seu segmento e, se tiver, uma referência de site ou processo que você quer automatizar. Respondemos em até 1h em horário comercial. <a href="https://wa.me/5511961219986?text=Olá!%20Quero%20começar%20um%20projeto%20com%20a%20RPAWorks.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" style="color:#ff6a00;font-weight:700;">Falar agora →</a></p>
           </details>
         </div>
       </div>
@@ -531,16 +804,30 @@
     <section class="section section--alt" id="contato">
       <div class="container">
         <div class="contact reveal">
-          <div>
-            <h2>Vamos tirar sua ideia do papel?</h2>
-            <p class="lead">Me chame e mande: objetivo, exemplo, prazo e se tem planilha/processo.</p>
+          <div class="contact__left">
+            <div class="proc-eyebrow"><span class="proc-dot"></span>Contato</div>
+            <h2>Vamos tirar sua<br>ideia do papel?</h2>
+            <p class="lead">Resposta em até 1h. Me conta o que você precisa e já monto um escopo rápido pra você.</p>
 
-            <div class="contact__chips">
-              <span>📩 Orçamento</span>
-              <span>⚡ Entrega rápida</span>
-              <span>🧠 Automação</span>
-              <span>📊 Dashboards</span>
+            <div class="contact__trust">
+              <div class="contact__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#ff6a00" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#ff6a00" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>Sem custo até aprovar o protótipo</span>
+              </div>
+              <div class="contact__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ff6a00" stroke-width="2"/><path d="M12 8v4l2 2" stroke="#ff6a00" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>Resposta em até 1h no horário comercial</span>
+              </div>
+              <div class="contact__trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-1.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#ff6a00" stroke-width="2"/></svg>
+                <span>Atendimento direto — sem intermediário</span>
+              </div>
             </div>
+
+            <a class="contact__wa-direct" href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Falar pelo WhatsApp agora
+            </a>
           </div>
 
           <form class="form" id="leadForm">
@@ -548,31 +835,81 @@
               Nome
               <input id="leadName" type="text" placeholder="Seu nome" autocomplete="name" />
             </label>
-
             <label>
               WhatsApp
               <input id="leadPhone" type="tel" placeholder="(11) 9xxxx-xxxx" autocomplete="tel" />
             </label>
-
+            <label>
+              Tipo de projeto
+              <select id="leadType">
+                <option value="">Selecione...</option>
+                <option value="Site / Landing Page">Site / Landing Page</option>
+                <option value="RPA / Automação">RPA / Automação</option>
+                <option value="Dashboard Interativo">Dashboard Interativo</option>
+                <option value="Combo (Site + RPA/Dashboard)">Combo (Site + RPA/Dashboard)</option>
+                <option value="Não sei ainda — quero orientação">Não sei ainda — quero orientação</option>
+              </select>
+            </label>
             <label>
               O que você precisa?
-              <textarea id="leadNeed" rows="4" placeholder="Site, RPA, dashboard..."></textarea>
+              <textarea id="leadNeed" rows="3" placeholder="Descreva o objetivo, processo ou referência..."></textarea>
             </label>
-
-            <button class="btn btn--primary" type="submit">Enviar no WhatsApp</button>
-            <p class="mini">Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta.</p>
+            <button class="btn btn--primary" type="submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Enviar no WhatsApp
+            </button>
+            <p class="mini">Você será direcionado ao WhatsApp com a mensagem já preenchida. Sem spam.</p>
           </form>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer__inner">
-        <span>© <span id="year"></span> RPAWorks</span>
-        <div class="footer__links">
-          <a href="#top">Topo</a>
-          <a href="#planos">Planos</a>
-          <a href="#contato">Contato</a>
+    <footer class="footer footer--full">
+      <div class="container">
+        <div class="footer__body">
+
+          <div class="footer__brand">
+            <a class="brand" href="#top" aria-label="Topo">
+              <img src="assets/img/logo.png" alt="RPAWorks" style="height:40px;"/>
+            </a>
+            <p class="footer__tagline">Sites, RPA e Dashboards que geram resultado real — entregues em dias.</p>
+            <a class="footer__wa" href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks%20e%20quero%20fazer%20um%20orçamento." target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              (11) 9 6121-9986
+            </a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Serviços</h4>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20site/landing%20page%20com%20a%20RPAWorks.">Sites & Landing Pages</a>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20automação%20/%20RPA%20com%20a%20RPAWorks.">RPA & Automação</a>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20dashboard%20interativo%20com%20a%20RPAWorks.">Dashboards Interativos</a>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Quero%20montar%20um%20combo%20personalizado%20com%20a%20RPAWorks.">Combo Personalizado</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Empresa</h4>
+            <a href="#processo">Como trabalhamos</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#faq">Perguntas frequentes</a>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Quero%20fazer%20um%20orçamento%20com%20a%20RPAWorks." target="_blank" rel="noopener">Orçamento</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Contato</h4>
+            <a href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks." target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://www.instagram.com/rpaworks_/" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:contato@rpaworks.com.br">contato@rpaworks.com.br</a>
+            <div class="footer__badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2Z" stroke="#ff6a00" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#ff6a00" stroke-width="2" stroke-linecap="round"/></svg>
+              Resposta em até 1h
+            </div>
+          </div>
+
+        </div>
+        <div class="footer__bottom">
+          <span>© <span id="year"></span> RPAWorks · CNPJ em formação</span>
+          <span>Feito com ☕ no Brasil</span>
         </div>
       </div>
     </footer>
@@ -638,6 +975,22 @@
     <span class="ig-float__label">Instagram</span>
   </a>
 
+  <!-- WhatsApp Floating Button -->
+  <a
+    class="wa-float"
+    href="https://wa.me/5511961219986?text=Olá!%20Vim%20pelo%20site%20da%20RPAWorks%20e%20quero%20conversar%20sobre%20um%20projeto."
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar com RPAWorks no WhatsApp"
+    title="WhatsApp"
+  >
+    <span class="wa-float__pulse" aria-hidden="true"></span>
+    <svg class="wa-float__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+    <span class="wa-float__label">Falar agora</span>
+  </a>
+
   <!-- Anima barras de métrica do portfólio -->
   <script>
   (function(){
@@ -658,5 +1011,134 @@
   <script src="script.js"></script>
   <!-- Contador do card de desconto -->
   <script src="portfolio-catalog.js"></script>
+  <script>
+  // Patch form to include project type select
+  (function(){
+    var form = document.querySelector("form.form");
+    if(!form) return;
+    form.addEventListener("submit", function(e){
+      // Let script.js handle, but enrich the need field with project type
+      var sel = document.getElementById("leadType");
+      var need = document.getElementById("leadNeed");
+      if(sel && sel.value && need && !need.value.startsWith("[")) {
+        need.value = "[" + sel.value + "] " + need.value;
+      }
+    }, true); // capture phase, runs before script.js
+  })();
+  </script>
+
+  <!-- ── Portfolio Carousel JS ── -->
+  <script>
+  (function(){
+    var track    = document.getElementById('pfTrack');
+    var dotsWrap = document.getElementById('pfDots');
+    var btnPrev  = document.getElementById('pfPrev');
+    var btnNext  = document.getElementById('pfNext');
+    var progress = document.getElementById('pfProgress');
+    if(!track) return;
+
+    var slides   = Array.from(track.querySelectorAll('.pf-slide'));
+    var total    = slides.length;
+    var current  = 0;
+    var autoMs   = 3200;
+    var timer    = null;
+    var isDown   = false;
+    var startX   = 0;
+    var dragDx   = 0;
+
+    /* ── Placeholder gradient quando não há imagem ── */
+    var gradients = [
+      'linear-gradient(135deg,#ff6a00 0%,#ff8a2a 100%)',
+      'linear-gradient(135deg,#0b1220 0%,#1e293b 100%)',
+      'linear-gradient(135deg,#ff8a2a 0%,#ffd250 100%)',
+      'linear-gradient(135deg,#1e293b 0%,#334155 100%)',
+      'linear-gradient(135deg,#ff6a00 0%,#0b1220 100%)',
+    ];
+    slides.forEach(function(s,i){
+      var img = s.querySelector('.pf-slide__img');
+      if(img && !img.src || img.src === window.location.href){
+        var wrap = s.querySelector('.pf-slide__img-wrap');
+        wrap.style.background = gradients[i % gradients.length];
+        img.style.display = 'none';
+        s.querySelector('.pf-slide__shimmer').style.display = 'none';
+        /* número decorativo */
+        var num = document.createElement('span');
+        num.className = 'pf-slide__placeholder-num';
+        num.textContent = i + 1;
+        wrap.appendChild(num);
+      } else {
+        img.addEventListener('load', function(){
+          s.querySelector('.pf-slide__shimmer').style.opacity = '0';
+        });
+      }
+    });
+
+    /* ── Dots ── */
+    slides.forEach(function(_,i){
+      var d = document.createElement('button');
+      d.className = 'pf-dot' + (i===0?' pf-dot--active':'');
+      d.setAttribute('role','tab');
+      d.setAttribute('aria-label','Slide '+(i+1));
+      d.addEventListener('click', function(){ goTo(i); resetTimer(); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = Array.from(dotsWrap.querySelectorAll('.pf-dot'));
+
+    /* ── Go to slide ── */
+    function goTo(idx){
+      slides[current].classList.remove('pf-slide--active');
+      dots[current].classList.remove('pf-dot--active');
+      current = (idx + total) % total;
+      slides[current].classList.add('pf-slide--active');
+      dots[current].classList.add('pf-dot--active');
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      /* progress bar reset */
+      progress.style.transition = 'none';
+      progress.style.width = '0%';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          progress.style.transition = 'width ' + autoMs + 'ms linear';
+          progress.style.width = '100%';
+        });
+      });
+    }
+
+    /* ── Auto-play ── */
+    function resetTimer(){
+      clearInterval(timer);
+      timer = setInterval(function(){ goTo(current+1); }, autoMs);
+    }
+
+    /* ── Controls ── */
+    btnPrev.addEventListener('click',function(){ goTo(current-1); resetTimer(); });
+    btnNext.addEventListener('click',function(){ goTo(current+1); resetTimer(); });
+
+    /* ── Touch / drag ── */
+    track.addEventListener('mousedown',  function(e){ isDown=true; startX=e.clientX; dragDx=0; track.style.transition='none'; });
+    track.addEventListener('mousemove',  function(e){ if(!isDown) return; dragDx=e.clientX-startX; track.style.transform='translateX(calc(-'+(current*100)+'% + '+dragDx+'px))'; });
+    track.addEventListener('mouseup',    endDrag);
+    track.addEventListener('mouseleave', endDrag);
+    track.addEventListener('touchstart', function(e){ isDown=true; startX=e.touches[0].clientX; dragDx=0; track.style.transition='none'; },{passive:true});
+    track.addEventListener('touchmove',  function(e){ if(!isDown)return; dragDx=e.touches[0].clientX-startX; track.style.transform='translateX(calc(-'+(current*100)+'% + '+dragDx+'px))'; },{passive:true});
+    track.addEventListener('touchend',   endDrag);
+
+    function endDrag(){
+      if(!isDown) return; isDown=false;
+      track.style.transition='';
+      if(dragDx < -50)      { goTo(current+1); resetTimer(); }
+      else if(dragDx > 50)  { goTo(current-1); resetTimer(); }
+      else                  { goTo(current); }
+    }
+
+    /* ── Pause on hover ── */
+    var carousel = document.getElementById('pfCarousel');
+    carousel.addEventListener('mouseenter', function(){ clearInterval(timer); progress.style.animationPlayState='paused'; progress.style.transitionDuration='0ms'; });
+    carousel.addEventListener('mouseleave', function(){ resetTimer(); });
+
+    /* ── Init ── */
+    goTo(0);
+    resetTimer();
+  })();
+  </script>
 </body>
 </html>
