@@ -2416,49 +2416,6 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
       setTimeout(() => loader.remove(), LOADER_FADE_MS + 120);
     }, wait);
   };
-<<<<<<< HEAD
-})
-
-
-// =========================
-// HERO Particles (sem vídeo)
-// =========================
-(function heroParticles(){
-  const host = document.getElementById("heroParticles");
-  if (!host) return;
-
-  // evita duplicar
-  if (host.dataset.ready) return;
-  host.dataset.ready = "1";
-
-  // quantidade equilibrada: leve no mobile
-  const isMobile = matchMedia("(max-width: 720px)").matches;
-  const count = isMobile ? 18 : 34;
-
-  for (let k = 0; k < count; k++) {
-    const p = document.createElement("i");
-
-    // posição inicial (embaixo)
-    const left = Math.random() * 100;           // vw
-    const bottom = -10 - Math.random() * 30;    // vh negativo
-
-    // velocidade
-    const dur = 6 + Math.random() * 10;         // segundos
-    const delay = -Math.random() * dur;         // começa “no meio” (fica natural)
-
-    // tamanho/blur leve
-    const scale = 0.7 + Math.random() * 1.1;
-
-    p.style.left = left + "vw";
-    p.style.bottom = bottom + "vh";
-    p.style.animationDuration = dur + "s";
-    p.style.animationDelay = delay + "s";
-    p.style.transform = `translate3d(0,0,0) scale(${scale.toFixed(2)})`;
-
-    host.appendChild(p);
-  }
-  })();
-=======
 
   
 
@@ -2534,4 +2491,3 @@ window.addEventListener("load", () => {
   }
 
 })
->>>>>>> 87b8209 (Atualiza site)
