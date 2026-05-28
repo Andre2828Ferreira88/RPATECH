@@ -302,6 +302,72 @@ counters.forEach((c) => counterIO.observe(c));
 
 // ---- Dados dos planos ----
 const planData = {
+  design: {
+    title: "Design",
+    subtitle: "Identidade visual e materiais profissionais para sua empresa.",
+    icon: "🎨",
+    color: "#ff6a00",
+    plans: [
+      {
+        num: 1,
+        tier: "ESSENCIAL",
+        name: "Identidade Visual",
+        badge: null,
+        featured: false,
+        priceLabel: "Projeto completo",
+        price: "R$ 1.200,00",
+        highlight: "Sua marca com cara profissional.",
+        items: [
+          "Logo + variações (horizontal, vertical, ícone)",
+          "Paleta de cores + tipografia definida",
+          "Manual de marca simplificado",
+          "Arquivos em alta resolução (PNG, SVG, PDF)",
+          "Entrega em até 7 dias úteis",
+        ],
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no plano Design Essencial (Identidade Visual). Pode me passar os próximos passos?",
+      },
+      {
+        num: 2,
+        tier: "PROFISSIONAL",
+        name: "Design Completo",
+        badge: "Mais popular",
+        featured: true,
+        priceLabel: "Projeto completo",
+        price: "R$ 2.400,00",
+        highlight: "Marca + materiais prontos para usar.",
+        items: [
+          "Tudo do Essencial",
+          "Posts para redes sociais (feed + stories)",
+          "Apresentação profissional (até 15 slides)",
+          "Banners e anúncios para campanhas",
+          "2 rodadas de ajustes incluídas",
+        ],
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no plano Design Profissional (R$ 2.400). Pode me passar os próximos passos?",
+      },
+      {
+        num: 3,
+        tier: "RECORRENTE",
+        name: "Design Mensal",
+        badge: null,
+        featured: false,
+        priceLabel: "Por mês",
+        price: "R$ 990,00",
+        highlight: "Designer dedicado todo mês.",
+        items: [
+          "Até 15 peças por mês (posts, stories, anúncios)",
+          "Criação de apresentações e materiais sob demanda",
+          "Adaptações e ajustes ilimitados",
+          "Entrega em até 48h por peça",
+          "Suporte via WhatsApp",
+        ],
+        cta: "Quero este plano",
+        ctaMsg: "Olá! Tenho interesse no plano Design Mensal (R$ 990/mês). Pode me passar os próximos passos?",
+      },
+    ],
+  },
+
   sites: {
     title: "Sites",
     subtitle: "Presença digital que converte visitantes em clientes.",
@@ -1101,6 +1167,7 @@ function injectCatCards() {
   section.className = "svc-cards-section";
 
   const cats = [
+    { key: "design",     label: "Design",     icon: "🎨", color: "#ff6a00", rgb: "255,106,0"  },
     { key: "sites",      label: "Sites",      icon: "🌐", color: "#ff6a00", rgb: "255,106,0"  },
     { key: "dashboards", label: "Dashboards", icon: "📊", color: "#ff8a2a", rgb: "255,138,42" },
     { key: "rpa",        label: "RPA",        icon: "🤖", color: "#ff6a00", rgb: "255,106,0"  },
@@ -1208,6 +1275,7 @@ function openPlansModal(catKey) {
   if (!cat) return;
 
   const colorMap = {
+    design:     { color: "#ff6a00", rgb: "255,106,0"  },
     sites:      { color: "#ff6a00", rgb: "255,106,0"  },
     dashboards: { color: "#ff8a2a", rgb: "255,138,42" },
     rpa:        { color: "#ff6a00", rgb: "255,106,0"  },
@@ -1456,6 +1524,7 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
       options: [
         { label: "Quero um orçamento", next: "quote_entry" },
         { label: "Serviços e o que a RPAWorks faz", next: "services" },
+        { label: "Design e identidade visual", next: "design_service" },
         { label: "Sites (institucional/portfólio)", next: "site" },
         { label: "Landing pages (vendas/captação)", next: "landing" },
         { label: "Automação / RPA", next: "rpa" },
@@ -1474,15 +1543,28 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     // =========================
     services: {
       bot: [
-        "A RPAWorks entrega soluções completas: sites e landing pages, automações (RPA), integrações e dashboards.",
+        "A RPAWorks entrega soluções completas: design e identidade visual, sites e landing pages, automações (RPA), integrações e dashboards.",
         "Selecione o que você quer entender melhor.",
       ],
       options: [
+        { label: "Design e identidade visual", next: "design_service" },
         { label: "O que é RPA e quando vale a pena?", next: "rpa_what" },
         { label: "Diferença entre site e landing page", next: "site_vs_landing" },
         { label: "Posso automatizar planilhas e relatórios?", next: "rpa_sheets" },
         { label: "Vocês fazem dashboard e BI?", next: "data_dashboards" },
         { label: "Vocês fazem integração com sistemas?", next: "integrations" },
+        { label: "Voltar ao menu", next: "start" },
+      ],
+    },
+
+    design_service: {
+      bot: [
+        "Criamos identidade visual completa: logo, paleta de cores, tipografia, manual de marca, posts para redes sociais, apresentações, banners e anúncios.",
+        "Sua empresa precisa parecer profissional antes mesmo do cliente chamar no WhatsApp.",
+      ],
+      options: [
+        { label: "Solicitar orçamento (design)", next: "cta_design", cta: "Quero design/identidade visual. Minha empresa é:" },
+        { label: "Quero saber os planos de design", next: "cta_design_plans", cta: "Quero conhecer os planos de Design da RPAWorks." },
         { label: "Voltar ao menu", next: "start" },
       ],
     },
@@ -2334,6 +2416,49 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
       setTimeout(() => loader.remove(), LOADER_FADE_MS + 120);
     }, wait);
   };
+<<<<<<< HEAD
+})
+
+
+// =========================
+// HERO Particles (sem vídeo)
+// =========================
+(function heroParticles(){
+  const host = document.getElementById("heroParticles");
+  if (!host) return;
+
+  // evita duplicar
+  if (host.dataset.ready) return;
+  host.dataset.ready = "1";
+
+  // quantidade equilibrada: leve no mobile
+  const isMobile = matchMedia("(max-width: 720px)").matches;
+  const count = isMobile ? 18 : 34;
+
+  for (let k = 0; k < count; k++) {
+    const p = document.createElement("i");
+
+    // posição inicial (embaixo)
+    const left = Math.random() * 100;           // vw
+    const bottom = -10 - Math.random() * 30;    // vh negativo
+
+    // velocidade
+    const dur = 6 + Math.random() * 10;         // segundos
+    const delay = -Math.random() * dur;         // começa “no meio” (fica natural)
+
+    // tamanho/blur leve
+    const scale = 0.7 + Math.random() * 1.1;
+
+    p.style.left = left + "vw";
+    p.style.bottom = bottom + "vh";
+    p.style.animationDuration = dur + "s";
+    p.style.animationDelay = delay + "s";
+    p.style.transform = `translate3d(0,0,0) scale(${scale.toFixed(2)})`;
+
+    host.appendChild(p);
+  }
+  })();
+=======
 
   
 
@@ -2409,3 +2534,4 @@ window.addEventListener("load", () => {
   }
 
 })
+>>>>>>> 87b8209 (Atualiza site)
