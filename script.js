@@ -251,9 +251,17 @@ const revealIO = new IntersectionObserver(
       if (entry.isIntersecting) entry.target.classList.add("is-visible");
     });
   },
-  { threshold: 0.14 }
+  { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
 );
-revealEls.forEach((r) => revealIO.observe(r));
+revealEls.forEach((r) => {
+  // Se já está na viewport (ex: hero), marcar imediatamente
+  const rect = r.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    r.classList.add("is-visible");
+  } else {
+    revealIO.observe(r);
+  }
+});
 
 // helper para observar elementos novos (plans render)
 function observeReveal(el) {
@@ -2455,39 +2463,376 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 // SaaS Entrance Animation
 // ========================================
 window.addEventListener("load", () => {
+  try {
+    const topbar = document.querySelector(".topbar");
+    const heroCopy = document.querySelector(".hero__copy");
+    const heroVisual = document.querySelector(".hero-visual");
+    const heroStats = document.querySelector(".hero__stats");
 
-  const topbar = document.querySelector(".topbar");
-  const heroCopy = document.querySelector(".hero__copy");
-  const heroStats = document.querySelector(".hero__stats");
+    if(topbar){
+      topbar.style.opacity = 0;
+      topbar.style.transform = "translateY(-10px)";
+      setTimeout(()=>{
+        topbar.style.transition = "all .6s cubic-bezier(.2,.8,.2,1)";
+        topbar.style.opacity = 1;
+        topbar.style.transform = "translateY(0)";
+      }, 200);
+    }
 
-  if(topbar){
-    topbar.style.opacity = 0;
-    topbar.style.transform = "translateY(-10px)";
-    setTimeout(()=>{
-      topbar.style.transition = "all .6s cubic-bezier(.2,.8,.2,1)";
-      topbar.style.opacity = 1;
-      topbar.style.transform = "translateY(0)";
-    }, 200);
+    if(heroCopy){
+      heroCopy.style.opacity = 0;
+      heroCopy.style.transform = "translateY(30px)";
+      setTimeout(()=>{
+        heroCopy.style.transition = "all .8s cubic-bezier(.2,.8,.2,1)";
+        heroCopy.style.opacity = 1;
+        heroCopy.style.transform = "translateY(0)";
+      }, 350);
+    }
+
+    if(heroVisual){
+      heroVisual.style.opacity = 0;
+      heroVisual.style.transform = "translateY(20px) scale(0.97)";
+      setTimeout(()=>{
+        heroVisual.style.transition = "all .9s cubic-bezier(.2,.8,.2,1)";
+        heroVisual.style.opacity = 1;
+        heroVisual.style.transform = "translateY(0) scale(1)";
+      }, 500);
+    }
+
+    if(heroStats){
+      heroStats.style.opacity = 0;
+      heroStats.style.transform = "translateY(30px)";
+      setTimeout(()=>{
+        heroStats.style.transition = "all .8s cubic-bezier(.2,.8,.2,1)";
+        heroStats.style.opacity = 1;
+        heroStats.style.transform = "translateY(0)";
+      }, 600);
+    }
+  } catch(e) {
+    // Fallback: garantir visibilidade caso animação falhe
+    document.querySelectorAll(".hero__copy, .hero-visual, .hero__stats, .topbar").forEach(el => {
+      el.style.opacity = 1;
+      el.style.transform = "none";
+    });
   }
-
-  if(heroCopy){
-    heroCopy.style.opacity = 0;
-    heroCopy.style.transform = "translateY(30px)";
-    setTimeout(()=>{
-      heroCopy.style.transition = "all .8s cubic-bezier(.2,.8,.2,1)";
-      heroCopy.style.opacity = 1;
-      heroCopy.style.transform = "translateY(0)";
-    }, 400);
-  }
-
-  if(heroStats){
-    heroStats.style.opacity = 0;
-    heroStats.style.transform = "translateY(30px)";
-    setTimeout(()=>{
-      heroStats.style.transition = "all .8s cubic-bezier(.2,.8,.2,1)";
-      heroStats.style.opacity = 1;
-      heroStats.style.transform = "translateY(0)";
-    }, 650);
-  }
-
 })
+
+// =========================================================
+// SV SECTION #servicos — GSAP + ScrollTrigger
+// Animação isolada somente na section .sv-section#servicos.
+// =========================================================
+(function () {
+  function splitSvTitle(title) {
+    if (!title || title.dataset.svGsapSplit === 'true') return;
+
+    title.dataset.svGsapSplit = 'true';
+    const nodes = Array.from(title.childNodes);
+    const fragment = document.createDocumentFragment();
+    let line = document.createElement('span');
+    line.className = 'sv-gsap-title-line';
+    let inner = document.createElement('span');
+    inner.className = 'sv-gsap-title-inner';
+    line.appendChild(inner);
+
+    nodes.forEach((node) => {
+      if (node.nodeName === 'BR') {
+        fragment.appendChild(line);
+        line = document.createElement('span');
+        line.className = 'sv-gsap-title-line';
+        inner = document.createElement('span');
+        inner.className = 'sv-gsap-title-inner';
+        line.appendChild(inner);
+        return;
+      }
+      inner.appendChild(node.cloneNode(true));
+    });
+
+    fragment.appendChild(line);
+    title.innerHTML = '';
+    title.appendChild(fragment);
+  }
+
+  function initSvSectionAnimations() {
+    const section = document.querySelector('.sv-section#servicos');
+    if (!section) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+
+    const title = section.querySelector('.sv-head__title');
+    const eyebrow = section.querySelector('.sv-head__eyebrow');
+    const subtitle = section.querySelector('.sv-head__sub');
+    const cards = Array.from(section.querySelectorAll('.sv-card'));
+    const visuals = Array.from(section.querySelectorAll('.sv-card__visual'));
+
+    splitSvTitle(title);
+    const titleLines = Array.from(section.querySelectorAll('.sv-gsap-title-inner'));
+
+    if (prefersReducedMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      section.classList.add('sv-gsap-fallback');
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+    section.classList.add('sv-gsap-ready');
+
+    gsap.killTweensOf([section, eyebrow, subtitle, titleLines, cards, visuals]);
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf('sv-servicos-') === 0) {
+        trigger.kill();
+      }
+    });
+
+    gsap.set(section, { clearProps: 'opacity' });
+    gsap.set(eyebrow, { y: 18, autoAlpha: 0 });
+    gsap.set(titleLines, { yPercent: 120, autoAlpha: 0, rotateX: -22, transformOrigin: '50% 100%' });
+    gsap.set(subtitle, { y: 24, autoAlpha: 0 });
+
+    gsap.set(cards, {
+      y: isMobile ? 36 : 80,
+      x: 0,
+      autoAlpha: 0,
+      scale: isMobile ? 0.985 : 0.96,
+      rotateX: isMobile ? 0 : 5,
+      transformOrigin: '50% 70%'
+    });
+
+    gsap.set(visuals, { y: 0, scale: 1.035, transformOrigin: '50% 50%' });
+
+    const introTl = gsap.timeline({
+      defaults: { ease: 'power4.out' },
+      scrollTrigger: {
+        id: 'sv-servicos-intro',
+        trigger: section,
+        start: isMobile ? 'top 86%' : 'top 82%',
+        end: isMobile ? 'top 38%' : 'top 28%',
+        scrub: isMobile ? false : 0.85,
+        once: isMobile
+      }
+    });
+
+    introTl
+      .to(eyebrow, { y: 0, autoAlpha: 1, duration: 0.45 })
+      .to(titleLines, { yPercent: 0, autoAlpha: 1, rotateX: 0, duration: 0.9, stagger: 0.09 }, '-=0.20')
+      .to(subtitle, { y: 0, autoAlpha: 1, duration: 0.65 }, '-=0.35');
+
+    const cardsTl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      scrollTrigger: {
+        id: 'sv-servicos-cards',
+        trigger: section.querySelector('.sv-bento') || section,
+        start: isMobile ? 'top 88%' : 'top 78%',
+        end: isMobile ? 'bottom 80%' : 'bottom 48%',
+        scrub: isMobile ? false : 0.95,
+        once: isMobile
+      }
+    });
+
+    cards.forEach((card, index) => {
+      const fromX = isMobile ? 0 : (index % 2 === 0 ? -46 : 46);
+      const innerItems = card.querySelectorAll('.sv-card__tag, .sv-card__title, .sv-card__desc, .sv-chip, .sv-card__cta');
+
+      gsap.set(card, { x: fromX });
+      gsap.set(innerItems, { y: 16, autoAlpha: 0 });
+
+      cardsTl
+        .to(card, {
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          scale: 1,
+          rotateX: 0,
+          filter: 'blur(0px)',
+          duration: 0.72
+        }, index === 0 ? 0 : `-=${isMobile ? 0.05 : 0.38}`)
+        .to(innerItems, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.42,
+          stagger: 0.025
+        }, '<0.08');
+    });
+
+    if (!isMobile) {
+      cards.forEach((card, index) => {
+        const visual = card.querySelector('.sv-card__visual');
+        if (!visual) return;
+        gsap.to(visual, {
+          y: index % 2 === 0 ? -18 : 18,
+          scale: 1.075,
+          ease: 'none',
+          scrollTrigger: {
+            id: `sv-servicos-parallax-${index}`,
+            trigger: card,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.15
+          }
+        });
+      });
+
+      gsap.to(section, {
+        '--sv-scroll-progress': 1,
+        ease: 'none',
+        scrollTrigger: {
+          id: 'sv-servicos-depth',
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    }
+
+    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSvSectionAnimations, { once: true });
+  } else {
+    initSvSectionAnimations();
+  }
+})();
+
+// =========================================================
+// RPAWORKS — FIX REAL: FIXED HERO + SCROLL OVERLAY / SEÇÃO COBRE
+// Não registra ScrollTrigger novamente. Usa o GSAP já carregado.
+// =========================================================
+(function initRpaWorksFixedHeroCover(){
+  function ready(fn){
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  ready(function(){
+    const hero = document.querySelector('#hero.hero');
+    const main = document.querySelector('main');
+    const topbar = document.querySelector('.topbar');
+
+    if (!hero || !main) return;
+    if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ST = window.ScrollTrigger;
+    const gsap = window.gsap;
+
+    function syncTopbarHeight(){
+      const h = topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 0;
+      document.documentElement.style.setProperty('--rpaw-topbar-h', `${Math.max(h, 0)}px`);
+    }
+
+    function removeOldInstances(){
+      document.querySelectorAll('.rpaw-hero-spacer').forEach((el) => el.remove());
+      hero.querySelectorAll('.rpaw-hero-cover-dim, .rpaw-hero-cover-vignette').forEach((el) => el.remove());
+      ST.getAll().forEach((trigger) => {
+        const id = trigger && trigger.vars && trigger.vars.id;
+        if (id && String(id).indexOf('rpaw-hero-cover-') === 0) trigger.kill();
+      });
+      gsap.killTweensOf(hero);
+      gsap.killTweensOf(hero.querySelectorAll('.hero-bg, .hero-overlay, .hero-particles, .hero__inner, .hero__copy, .hero-visual'));
+    }
+
+    function setup(){
+      syncTopbarHeight();
+      removeOldInstances();
+
+      hero.classList.add('rpaw-cover-hero');
+      document.body.classList.add('rpaw-hero-cover-ready');
+
+      const spacer = document.createElement('section');
+      spacer.className = 'rpaw-hero-spacer';
+      spacer.setAttribute('aria-hidden', 'true');
+      hero.insertAdjacentElement('afterend', spacer);
+
+      const dim = document.createElement('div');
+      dim.className = 'rpaw-hero-cover-dim';
+      dim.setAttribute('aria-hidden', 'true');
+
+      const vignette = document.createElement('div');
+      vignette.className = 'rpaw-hero-cover-vignette';
+      vignette.setAttribute('aria-hidden', 'true');
+
+      hero.appendChild(dim);
+      hero.appendChild(vignette);
+
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const heroInner = hero.querySelector('.hero__inner');
+      const heroCopy = hero.querySelector('.hero__copy');
+      const heroVisual = hero.querySelector('.hero-visual');
+      const heroBg = hero.querySelector('.hero-bg');
+      const heroParticles = hero.querySelector('.hero-particles');
+
+      gsap.set(hero, { clearProps: 'opacity,visibility' });
+      gsap.set([heroInner, heroCopy, heroVisual, heroBg, heroParticles], { clearProps: 'opacity,visibility' });
+      gsap.set(hero, { scale: 1, y: 0 });
+      gsap.set([dim, vignette], { autoAlpha: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'rpaw-hero-cover-main',
+          trigger: spacer,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.75,
+          invalidateOnRefresh: true
+        }
+      });
+
+      tl.to(hero, {
+        scale: isMobile ? 0.985 : 0.955,
+        y: isMobile ? -10 : -22,
+        ease: 'none'
+      }, 0)
+      .to(dim, {
+        autoAlpha: isMobile ? 0.58 : 0.72,
+        ease: 'none'
+      }, 0)
+      .to(vignette, {
+        autoAlpha: isMobile ? 0.46 : 0.62,
+        ease: 'none'
+      }, 0)
+      .to(heroInner, {
+        y: isMobile ? -18 : -34,
+        scale: isMobile ? 0.985 : 0.965,
+        autoAlpha: isMobile ? 0.72 : 0.52,
+        ease: 'none'
+      }, 0)
+      .to(heroBg, {
+        scale: 1.08,
+        autoAlpha: 0.58,
+        ease: 'none'
+      }, 0)
+      .to(heroParticles, {
+        autoAlpha: 0.30,
+        ease: 'none'
+      }, 0);
+
+      // Garante que todas as sections realmente passem por cima do hero fixo.
+      Array.from(main.children).forEach((child) => {
+        if (child !== hero && child !== spacer) {
+          child.style.position = child.style.position || 'relative';
+          child.style.zIndex = child.style.zIndex || '3';
+        }
+      });
+    }
+
+    setup();
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){
+        setup();
+        ST.refresh();
+      }, 240);
+    });
+
+    window.addEventListener('load', function(){
+      syncTopbarHeight();
+      ST.refresh();
+    }, { once: true });
+  });
+})();

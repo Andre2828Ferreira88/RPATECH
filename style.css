@@ -4405,3 +4405,992 @@ select:focus { border-color:rgba(255,106,0,.40); box-shadow:var(--focus); }
 .cta__group{
   display:flex; gap:12px; align-items:center; flex-wrap:wrap;
 }
+/* =========================================================
+   HERO PROTECTION — garante visibilidade caso JS falhe
+   ========================================================= */
+.hero__copy,
+.hero-visual,
+.hero__stats {
+  /* Garantia: nunca fica invisível por CSS */
+  /* A animação JS controla opacity inline */
+}
+
+/* Fallback: se JS não rodar em 2s, forçar visibilidade */
+@keyframes heroFallbackShow {
+  to { opacity: 1 !important; transform: none !important; }
+}
+
+/* =========================================================
+   SV SECTION — GSAP / ScrollTrigger support CSS
+   ========================================================= */
+
+/* Máscara vertical por linha do título */
+.sv-gsap-title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* evita corte de descenders */
+}
+
+.sv-gsap-title-inner {
+  display: block;
+  /* O GSAP anima yPercent: 120 → 0 com autoAlpha */
+}
+
+/* Estado inicial antes do GSAP rodar:
+   mostra tudo normalmente (fallback seguro) */
+.sv-section:not(.sv-gsap-ready):not(.sv-gsap-fallback) .sv-head__eyebrow,
+.sv-section:not(.sv-gsap-ready):not(.sv-gsap-fallback) .sv-head__title,
+.sv-section:not(.sv-gsap-ready):not(.sv-gsap-fallback) .sv-head__sub,
+.sv-section:not(.sv-gsap-ready):not(.sv-gsap-fallback) .sv-card {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Quando GSAP está pronto: deixa ele controlar tudo */
+.sv-section.sv-gsap-ready .sv-head__eyebrow,
+.sv-section.sv-gsap-ready .sv-head__title,
+.sv-section.sv-gsap-ready .sv-head__sub {
+  /* GSAP controla via inline styles */
+}
+
+/* Fallback: sem GSAP, tudo visível normalmente */
+.sv-section.sv-gsap-fallback .sv-head__eyebrow,
+.sv-section.sv-gsap-fallback .sv-gsap-title-inner,
+.sv-section.sv-gsap-fallback .sv-head__sub,
+.sv-section.sv-gsap-fallback .sv-card {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  visibility: visible !important;
+}
+
+/* Cards: estado inicial sem GSAP = visíveis */
+.sv-section:not(.sv-gsap-ready) .sv-card.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Prefers-reduced-motion: sem animação */
+@media (prefers-reduced-motion: reduce) {
+  .sv-gsap-title-inner,
+  .sv-head__eyebrow,
+  .sv-head__sub,
+  .sv-card {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   SV SECTION — Perspective para animações 3D dos cards
+   ========================================================= */
+.sv-bento {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+.sv-card {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Garantia extra: quando GSAP termina de animar, limpa will-change */
+.sv-card.gsap-done {
+  will-change: auto;
+}
+
+/* =========================================================
+   RPAWORKS — FIX REAL: STICKY/FIXED HERO COM SEÇÃO COBRE
+   Mantém o hero preso no fundo enquanto as próximas sections
+   sobem por cima dele. Ativado pelo JS com body.rpaw-hero-cover-ready.
+   ========================================================= */
+:root{
+  --rpaw-topbar-h: 76px;
+}
+
+body.rpaw-hero-cover-ready{
+  background: #05070d;
+}
+
+body.rpaw-hero-cover-ready main{
+  position: relative;
+  isolation: isolate;
+}
+
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero{
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: var(--rpaw-topbar-h, 76px) !important;
+  width: 100% !important;
+  height: calc(100svh - var(--rpaw-topbar-h, 76px)) !important;
+  min-height: calc(100svh - var(--rpaw-topbar-h, 76px)) !important;
+  max-height: calc(100svh - var(--rpaw-topbar-h, 76px)) !important;
+  padding-top: clamp(28px, 5svh, 76px) !important;
+  padding-bottom: clamp(22px, 4svh, 48px) !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+  transform-origin: 50% 48%;
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero .hero__inner{
+  height: 100%;
+  align-items: center;
+}
+
+.rpaw-hero-spacer{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(100svh - var(--rpaw-topbar-h, 76px));
+  min-height: calc(100svh - var(--rpaw-topbar-h, 76px));
+  pointer-events: none;
+  background: transparent;
+}
+
+body.rpaw-hero-cover-ready main > section:not(#hero):not(.rpaw-hero-spacer){
+  position: relative;
+  z-index: 3;
+}
+
+body.rpaw-hero-cover-ready .topbar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.rpaw-hero-cover-dim,
+.rpaw-hero-cover-vignette{
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.rpaw-hero-cover-dim{
+  background: rgba(5, 7, 13, .74);
+}
+
+.rpaw-hero-cover-vignette{
+  background:
+    radial-gradient(circle at 50% 42%, transparent 0 34%, rgba(5,7,13,.25) 58%, rgba(5,7,13,.76) 100%),
+    linear-gradient(to bottom, rgba(5,7,13,.08), rgba(5,7,13,.42));
+  mix-blend-mode: multiply;
+}
+
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero .hero-bg,
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero .hero-overlay,
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero .hero-particles,
+body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero .hero__inner{
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px){
+  body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero{
+    top: var(--rpaw-topbar-h, 70px) !important;
+    height: calc(100svh - var(--rpaw-topbar-h, 70px)) !important;
+    min-height: calc(100svh - var(--rpaw-topbar-h, 70px)) !important;
+    max-height: calc(100svh - var(--rpaw-topbar-h, 70px)) !important;
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .rpaw-hero-spacer{
+    height: calc(100svh - var(--rpaw-topbar-h, 70px));
+    min-height: calc(100svh - var(--rpaw-topbar-h, 70px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  body.rpaw-hero-cover-ready #hero.hero.rpaw-cover-hero{
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .rpaw-hero-cover-dim,
+  .rpaw-hero-cover-vignette{
+    opacity: 0 !important;
+  }
+}
+
+/* =========================================================
+   PORTFÓLIO — Pinned Horizontal Showcase ROBUSTO
+   Técnica: CSS sticky + altura dinâmica via JS.
+   Não usa pinSpacing do ScrollTrigger, evitando a próxima section aparecer cedo.
+   ========================================================= */
+#portfolio.portfolio-section{
+  /* --portfolio-scroll-height calculado pelo JS (portfolio-horizontal-fix.js) */
+  position: relative;
+  min-height: var(--portfolio-scroll-height);
+  padding: 0 !important;
+  overflow: visible !important;
+  background: linear-gradient(180deg, #fffaf5 0%, #ffffff 48%, #f8fafc 100%);
+  isolation: isolate;
+}
+
+#portfolio.portfolio-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.48;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, .045) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+#portfolio .portfolio-pin{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(70px, 8vh, 96px) 0 clamp(30px, 4vh, 48px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+#portfolio .portfolio-shell{
+  position:relative;
+  z-index:5;
+  flex:0 0 auto;
+}
+
+#portfolio .portfolio-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  color:rgba(15,23,42,.42);
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.20em;
+  font-weight:600;
+}
+
+#portfolio .portfolio-showcase-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom: clamp(20px, 3vh, 34px);
+}
+
+#portfolio .portfolio-showcase-head h2{
+  margin:0;
+  max-width:760px;
+  font-size:clamp(2.35rem, 4.4vw, 5.35rem);
+  line-height:.88;
+  letter-spacing:-.09em;
+  color:#0f172a;
+  font-weight:900;
+}
+
+#portfolio .portfolio-showcase-head h2 em{
+  font-style:normal;
+  font-weight:900;
+  background: linear-gradient(90deg, #ff6a00, #ff8a2a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing:-.10em;
+}
+
+#portfolio .portfolio-showcase-head .lead{
+  max-width:520px;
+  margin-top:14px;
+  color:rgba(15,23,42,.55);
+  font-weight:400;
+  font-size:.95rem;
+  line-height:1.6;
+}
+
+#portfolio .portfolio-counter{
+  min-width:160px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  color:#0f172a;
+  font-weight:1000;
+}
+
+#portfolio .portfolio-counter__current{
+  font-size:clamp(2.4rem, 4.2vw, 5.2rem);
+  line-height:.9;
+  letter-spacing:-.10em;
+  color:#ff6a00;
+}
+
+#portfolio .portfolio-counter__divider{
+  width:46px;
+  height:1px;
+  background:linear-gradient(90deg, rgba(234,88,12,.85), rgba(15,23,42,.14));
+}
+
+#portfolio .portfolio-counter__total{
+  color:rgba(15,23,42,.40);
+  font-size:1.1rem;
+}
+
+#portfolio .portfolio-viewport{
+  position:relative;
+  z-index:3;
+  width:100vw;
+  max-width:100vw;
+  overflow:hidden !important;
+  flex:0 0 auto;
+}
+
+#portfolio .portfolio-track{
+  display:flex !important;
+  align-items:stretch;
+  gap:clamp(18px, 2vw, 30px);
+  width:max-content !important;
+  padding-left:max(6vw, calc((100vw - var(--max)) / 2));
+  padding-right:max(6vw, calc((100vw - var(--max)) / 2));
+  will-change:transform;
+  transform:translate3d(0,0,0);
+}
+
+#portfolio .portfolio-card{
+  position:relative;
+  width:min(68vw, 820px);
+  height:clamp(390px, 56vh, 560px);
+  flex:0 0 auto;
+  display:block;
+  overflow:hidden;
+  border-radius:32px;
+  background:#0f172a;
+  border:1px solid rgba(15,23,42,.10);
+  box-shadow:0 34px 110px rgba(15,23,42,.16), 0 1px 0 rgba(255,255,255,.9) inset;
+  text-decoration:none;
+  transform-style:preserve-3d;
+  perspective:1200px;
+  isolation:isolate;
+}
+
+#portfolio .portfolio-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(255,255,255,.34), transparent 24%);
+  mix-blend-mode:screen;
+  transition:opacity .35s ease;
+}
+
+#portfolio .portfolio-card::after{
+  content:attr(data-index);
+  position:absolute;
+  right:24px;
+  top:20px;
+  z-index:6;
+  font-size:clamp(4.8rem, 9vw, 9.5rem);
+  line-height:.8;
+  font-weight:1000;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.16);
+  pointer-events:none;
+}
+
+#portfolio .portfolio-card:hover::before{ opacity:1; }
+
+#portfolio .portfolio-card__media{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  transform:translateZ(0);
+}
+
+#portfolio .portfolio-card__media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.12);
+  will-change:transform;
+  filter:saturate(.98) contrast(1.02);
+}
+
+#portfolio .portfolio-card__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(10,10,20,.88) 0%, rgba(10,10,20,.50) 40%, rgba(10,10,20,.08) 65%, rgba(10,10,20,.18) 100%),
+    linear-gradient(0deg, rgba(10,10,20,.90) 0%, rgba(10,10,20,.50) 35%, transparent 60%);
+  z-index:1;
+}
+
+#portfolio .portfolio-card__content{
+  position:absolute;
+  left:0;
+  bottom:0;
+  z-index:5;
+  width:min(580px, 84%);
+  padding:clamp(28px, 3.2vw, 46px);
+  color:#fff;
+}
+
+#portfolio .portfolio-card__count{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  color:rgba(255,255,255,.50);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+#portfolio .portfolio-card__count::before{
+  content:"";
+  width:18px;
+  height:1px;
+  background:rgba(255,106,0,.70);
+  border-radius:0;
+  box-shadow:none;
+}
+
+#portfolio .portfolio-card__content h3{
+  margin:0;
+  font-size:clamp(2.6rem, 4.4vw, 5rem);
+  line-height:.88;
+  letter-spacing:-.07em;
+  color:#fff;
+  font-weight:900;
+}
+
+#portfolio .portfolio-card__content p{
+  max-width:480px;
+  margin:14px 0 0;
+  color:rgba(255,255,255,.62);
+  line-height:1.6;
+  font-weight:400;
+  font-size:clamp(1rem, 1.05vw, 1.1rem);
+}
+
+#portfolio .portfolio-card__footer{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+#portfolio .portfolio-card__footer span,
+#portfolio .portfolio-card__footer strong{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:0 16px;
+  border-radius:10px;
+  font-size:.74rem;
+  font-weight:700;
+}
+
+#portfolio .portfolio-card__footer span{
+  color:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  letter-spacing:.03em;
+}
+
+#portfolio .portfolio-card__footer strong{
+  color:#fff;
+  background: linear-gradient(135deg,#ff6a00,#ff8a2a);
+  box-shadow:0 8px 24px rgba(255,106,0,.30);
+  letter-spacing:.02em;
+}
+
+#portfolio .portfolio-card__footer strong::after{
+  content:"↗";
+  margin-left:8px;
+  font-size:.82rem;
+  transition:transform .22s ease;
+}
+
+#portfolio .portfolio-card:hover .portfolio-card__footer strong::after{ transform:translate(2px,-2px); }
+
+#portfolio .portfolio-card.is-active{
+  box-shadow:0 38px 130px rgba(15,23,42,.24), 0 0 0 1px rgba(234,88,12,.26);
+}
+
+#portfolio .portfolio-progress-wrap{
+  position:relative;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:clamp(16px, 3vh, 28px);
+  flex:0 0 auto;
+}
+
+#portfolio .portfolio-progress{
+  flex:1;
+  height:2px;
+  border-radius:99px;
+  background:rgba(15,23,42,.10);
+  overflow:hidden;
+}
+
+#portfolio .portfolio-progress__fill{
+  display:block;
+  width:0%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#ea580c,#fb923c);
+  box-shadow:0 0 22px rgba(234,88,12,.36);
+}
+
+#portfolio .portfolio-progress-wrap p{
+  margin:0;
+  color:rgba(15,23,42,.32);
+  font-size:.65rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+
+@media(max-width:768px){
+  #portfolio.portfolio-section{
+    min-height:auto !important;
+    height:auto !important;
+    padding:72px 0 !important;
+    overflow:hidden !important;
+  }
+
+  #portfolio .portfolio-pin{
+    position:relative !important;
+    top:auto !important;
+    height:auto !important;
+    min-height:auto !important;
+    padding:0 !important;
+    overflow:visible !important;
+    display:block !important;
+  }
+
+  #portfolio .portfolio-showcase-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+    margin-bottom:28px;
+  }
+
+  #portfolio .portfolio-showcase-head h2{
+    font-size:clamp(2.45rem, 12vw, 4rem);
+  }
+
+  #portfolio .portfolio-counter{
+    align-self:flex-start;
+    justify-content:flex-start;
+    min-width:0;
+  }
+
+  #portfolio .portfolio-counter__current{ font-size:2.7rem; }
+
+  #portfolio .portfolio-viewport{
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:8px;
+  }
+
+  #portfolio .portfolio-viewport::-webkit-scrollbar{ display:none; }
+
+  #portfolio .portfolio-track{
+    padding:0 18px;
+    gap:14px;
+  }
+
+  #portfolio .portfolio-card{
+    width:min(86vw,390px);
+    height:520px;
+    border-radius:26px;
+    scroll-snap-align:center;
+  }
+
+  #portfolio .portfolio-card::after{
+    font-size:4.6rem;
+    top:18px;
+    right:18px;
+  }
+
+  #portfolio .portfolio-card__media img{ transform:scale(1.06); }
+
+  #portfolio .portfolio-card__media::after{
+    background:linear-gradient(0deg, rgba(15,23,42,.92) 0%, rgba(15,23,42,.62) 46%, rgba(15,23,42,.18) 100%);
+  }
+
+  #portfolio .portfolio-card__content{
+    width:100%;
+    padding:26px;
+  }
+
+  #portfolio .portfolio-card__content h3{
+    font-size:clamp(2.4rem, 14vw, 4.2rem);
+  }
+
+  #portfolio .portfolio-card__content p{
+    font-size:.94rem;
+    line-height:1.55;
+  }
+
+  #portfolio .portfolio-progress-wrap{
+    margin-top:22px;
+    padding-inline:18px;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  #portfolio .portfolio-progress-wrap p{ text-align:center; }
+}
+
+
+/* =========================================================
+   FIX DEFINITIVO — PORTFÓLIO HORIZONTAL PROFISSIONAL
+   Objetivo: manter a section visível, sem branco gigante, sem próxima section invadir.
+   Técnica: CSS sticky com altura calculada pelo JS e top ajustado pela navbar.
+   ========================================================= */
+#portfolio.portfolio-section{
+  /* --portfolio-scroll-height calculado pelo JS (portfolio-horizontal-fix.js) */
+  --portfolio-sticky-top: 72px;
+  --portfolio-sticky-height: calc(100svh - var(--portfolio-sticky-top));
+  position: relative !important;
+  min-height: var(--portfolio-scroll-height) !important;
+  height: auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background:
+    radial-gradient(900px 420px at 18% 10%, rgba(255, 106, 0, .075), transparent 58%),
+    radial-gradient(860px 420px at 82% 18%, rgba(15, 23, 42, .045), transparent 56%),
+    linear-gradient(180deg, #fffaf5 0%, #ffffff 44%, #f8fafc 100%) !important;
+  isolation: isolate;
+}
+
+#portfolio.portfolio-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.42;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, .035) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+#portfolio .portfolio-pin{
+  position: sticky !important;
+  top: var(--portfolio-sticky-top) !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  height: var(--portfolio-sticky-height) !important;
+  min-height: 560px !important;
+  max-height: calc(100svh - var(--portfolio-sticky-top)) !important;
+  overflow: hidden !important;
+  padding: clamp(18px, 2.5vh, 28px) 0 clamp(18px, 2.7vh, 30px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: clamp(14px, 2vh, 22px) !important;
+  background: transparent !important;
+  transform: translateZ(0);
+}
+
+#portfolio .portfolio-shell{
+  position: relative !important;
+  z-index: 5 !important;
+  flex: 0 0 auto !important;
+}
+
+#portfolio .portfolio-kicker{
+  margin-bottom: 8px !important;
+  font-size: .70rem !important;
+  letter-spacing: .16em !important;
+}
+
+#portfolio .portfolio-showcase-head{
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: end !important;
+  gap: 22px !important;
+  margin-bottom: 0 !important;
+}
+
+#portfolio .portfolio-showcase-head h2{
+  max-width: 760px !important;
+  font-size: clamp(2rem, 3.4vw, 4.25rem) !important;
+  line-height: .9 !important;
+  letter-spacing: -.07em !important;
+}
+
+#portfolio .portfolio-showcase-head .lead{
+  max-width: 610px !important;
+  margin-top: 10px !important;
+  font-size: clamp(.92rem, .95vw, 1.02rem) !important;
+  line-height: 1.55 !important;
+}
+
+#portfolio .portfolio-counter{
+  min-width: 138px !important;
+  align-self: center !important;
+}
+
+#portfolio .portfolio-counter__current{
+  font-size: clamp(2.2rem, 3.5vw, 4.2rem) !important;
+}
+
+#portfolio .portfolio-viewport{
+  position: relative !important;
+  z-index: 3 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+  flex: 0 0 auto !important;
+}
+
+#portfolio .portfolio-track{
+  display: flex !important;
+  align-items: stretch !important;
+  gap: clamp(18px, 2vw, 28px) !important;
+  width: max-content !important;
+  padding-left: max(5vw, calc((100vw - var(--max)) / 2)) !important;
+  padding-right: max(5vw, calc((100vw - var(--max)) / 2)) !important;
+  will-change: transform !important;
+  transform: translate3d(0,0,0);
+}
+
+#portfolio .portfolio-card{
+  width: min(62vw, 760px) !important;
+  height: clamp(330px, 46vh, 440px) !important;
+  flex: 0 0 auto !important;
+  border-radius: clamp(24px, 2vw, 32px) !important;
+}
+
+#portfolio .portfolio-card__content{
+  width: min(580px, 84%) !important;
+  padding: clamp(28px, 3.2vw, 46px) !important;
+}
+
+#portfolio .portfolio-card__content h3{
+  font-size: clamp(2.6rem, 4vw, 5rem) !important;
+  line-height: .88 !important;
+}
+
+#portfolio .portfolio-card__content p{
+  max-width: 480px !important;
+  margin-top: 14px !important;
+  font-size: clamp(1rem, 1.05vw, 1.1rem) !important;
+  line-height: 1.58 !important;
+}
+
+#portfolio .portfolio-card__footer{
+  margin-top: 20px !important;
+}
+
+#portfolio .portfolio-card__footer span,
+#portfolio .portfolio-card__footer strong{
+  min-height: 40px !important;
+  padding: 0 15px !important;
+  font-size: .74rem !important;
+}
+
+#portfolio .portfolio-card::after{
+  font-size: clamp(4.2rem, 7.4vw, 8rem) !important;
+  top: 16px !important;
+  right: 20px !important;
+}
+
+#portfolio .portfolio-progress-wrap{
+  position: relative !important;
+  z-index: 5 !important;
+  margin-top: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+#portfolio .portfolio-progress-wrap .container,
+#portfolio .portfolio-progress-wrap{
+  max-width: var(--max);
+}
+
+@media (min-width: 769px) and (max-height: 780px){
+  #portfolio .portfolio-pin{
+    justify-content: flex-start !important;
+    padding-top: 18px !important;
+    gap: 12px !important;
+  }
+  #portfolio .portfolio-showcase-head h2{
+    font-size: clamp(1.8rem, 3vw, 3.3rem) !important;
+  }
+  #portfolio .portfolio-showcase-head .lead{
+    display:none !important;
+  }
+  #portfolio .portfolio-card{
+    height: clamp(300px, 43vh, 370px) !important;
+  }
+}
+
+@media(max-width: 768px){
+  #portfolio.portfolio-section{
+    min-height: auto !important;
+    height: auto !important;
+    padding: 72px 0 !important;
+    overflow: hidden !important;
+  }
+
+  #portfolio .portfolio-pin{
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  #portfolio .portfolio-showcase-head{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+    margin-bottom: 28px !important;
+  }
+
+  #portfolio .portfolio-showcase-head h2{
+    font-size: clamp(2.45rem, 12vw, 4rem) !important;
+  }
+
+  #portfolio .portfolio-showcase-head .lead{
+    display:block !important;
+  }
+
+  #portfolio .portfolio-viewport{
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #portfolio .portfolio-track{
+    padding: 0 18px !important;
+    gap: 14px !important;
+    transform: none !important;
+  }
+
+  #portfolio .portfolio-card{
+    width: min(86vw, 390px) !important;
+    height: 520px !important;
+    scroll-snap-align: center;
+  }
+}
+
+/* =========================================================
+   RPAWORKS — PORTFÓLIO HORIZONTAL REAL FIX
+   Controle final isolado via portfolio-horizontal-fix.js
+   ========================================================= */
+@media (min-width: 769px){
+  #portfolio.portfolio-section.portfolio-horizontal-ready{
+    position: relative !important;
+    height: var(--portfolio-scroll-height, 2600px) !important;
+    min-height: var(--portfolio-scroll-height, 2600px) !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #portfolio.portfolio-section.portfolio-horizontal-ready .portfolio-pin{
+    position: sticky !important;
+    top: var(--portfolio-sticky-top, 72px) !important;
+    height: var(--portfolio-sticky-height, calc(100svh - 72px)) !important;
+    max-height: var(--portfolio-sticky-height, calc(100svh - 72px)) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    z-index: 5 !important;
+  }
+
+  #portfolio.portfolio-section.portfolio-horizontal-ready .portfolio-viewport{
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  #portfolio.portfolio-section.portfolio-horizontal-ready .portfolio-track{
+    transform: translate3d(var(--portfolio-x, 0px), 0, 0) !important;
+    will-change: transform !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   PERFORMANCE OVERRIDES
+   ========================================================= */
+
+/* Garantir que animações usem compositor — sem layout recalc */
+.hero__copy,
+.hero-visual,
+.hero-bg,
+.hero-particles,
+.hero-overlay {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduced motion: desativar todas as animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-bg,
+  .hero-particles i,
+  .scroll-story,
+  .hv-orbit,
+  .hv-orbit--1,
+  .hv-orbit--2,
+  .hv-orbit--3 {
+    animation: none !important;
+  }
+}
+
+/* Mobile: desativar animações pesadas de fundo */
+@media (max-width: 768px) {
+  .hero-bg {
+    animation: none !important;
+  }
+  .hero-particles i {
+    animation: none !important;
+  }
+}

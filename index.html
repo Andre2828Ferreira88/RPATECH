@@ -75,6 +75,7 @@
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="portfolio-catalog.css" />
+  <link rel="stylesheet" href="scroll-story.css" />
 
 </head>
 
@@ -130,7 +131,7 @@
       <div class="container hero__inner">
 
         <!-- Copy principal -->
-        <div class="hero__copy reveal">
+        <div class="hero__copy">
 
           <!-- pill -->
           <div class="pill">
@@ -195,7 +196,7 @@
 
         </div>
         <!-- ═══ HERO VISUAL — ORBITAL ═══ -->
-        <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-visual" aria-hidden="true">
 
           <!-- Rings -->
           <div class="hv-ring hv-ring--1"></div>
@@ -262,277 +263,338 @@
       </div>
     </section>
 
-    <!-- ═══ SERVIÇOS ═══ -->
-    <section class="sv-section" id="servicos">
-      <div class="container">
+    <!-- ═══ SCROLL STORY ═══ -->
+    <section class="scroll-story" id="scroll-story" aria-label="Scroll Story">
+      <div class="scroll-story__pin">
 
-        <!-- Header -->
-        <div class="sv-head reveal">
-          <div class="sv-head__eyebrow">
-            <span class="sv-head__dot"></span>
-            O que fazemos
-          </div>
-          <h2 class="sv-head__title">Design, sites e automações<br>focados em <em>resultado</em></h2>
-          <p class="sv-head__sub">Tudo o que sua empresa precisa para parecer maior, vender mais e operar melhor.</p>
+        <!-- Canvas tech (substitui o vídeo) -->
+        <canvas id="storyCanvas" aria-hidden="true"></canvas>
+
+        <!-- Overlay de gradiente -->
+        <div class="story-overlay" aria-hidden="true"></div>
+
+        <!-- Frame (equivale ao video-frame) -->
+        <div class="story-frame" aria-hidden="true">
+          <div class="story-scan"></div>
         </div>
 
-        <!-- Bento grid -->
-        <div class="sv-bento sv-bento--4col">
+        <!-- Copy central (aparece e desaparece) -->
+        <div class="story-center">
+          <p class="story-eyebrow">Design · Sites · Automações</p>
+          <h2>Sua empresa transformada, scroll a scroll.</h2>
+        </div>
 
-          <!-- Card Design & Identidade Visual (NOVO — primeiro) -->
-          <article class="sv-card sv-card--design reveal">
+        <!-- ═══ PAINEL 1 — Design & Identidade Visual ═══ -->
+        <div class="story-panel story-panel--1">
+          <div class="sp-header">
+            <div class="sp-num">01</div>
+            <div class="sp-icon" aria-hidden="true">🎨</div>
+          </div>
+          <div class="sp-title">Design & Identidade Visual</div>
+          <div class="sp-desc">Antes mesmo do cliente te chamar no WhatsApp, ele já julgou sua marca. Criamos identidade visual que gera confiança e faz sua empresa parecer maior do que é.</div>
 
-            <div class="sv-card__visual sv-card__visual--design" aria-hidden="true">
-              <div class="design-preview">
-                <div class="design-preview__palette">
-                  <span class="design-swatch" style="background:#ff6a00"></span>
-                  <span class="design-swatch" style="background:#0B1220"></span>
-                  <span class="design-swatch" style="background:#fff"></span>
-                  <span class="design-swatch" style="background:#1e293b"></span>
-                </div>
-                <div class="design-preview__typo">
-                  <span class="design-typo-big">Aa</span>
-                  <span class="design-typo-name">Inter · Bold</span>
-                </div>
-                <div class="design-preview__grid">
-                  <div class="design-mockup design-mockup--card"></div>
-                  <div class="design-mockup design-mockup--post"></div>
-                  <div class="design-mockup design-mockup--banner"></div>
-                </div>
-              </div>
-              <div class="sv-card__visual-glow"></div>
+          <div class="sp-metrics">
+            <div class="sp-metric">
+              <div class="sp-metric__label">Percepção de valor</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:92%"></div></div>
+              <div class="sp-metric__val">+92%</div>
             </div>
-
-            <div class="sv-card__body">
-              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Design & Identidade Visual</div>
-              <h3 class="sv-card__title">Sua empresa precisa<br>parecer profissional</h3>
-              <p class="sv-card__desc">Antes mesmo do cliente chamar no WhatsApp. Identidade visual, posts, anúncios, banners, apresentações e design para sites.</p>
-              <div class="sv-card__chips">
-                <span class="sv-chip">Identidade Visual</span>
-                <span class="sv-chip">Social Media</span>
-                <span class="sv-chip">Apresentações</span>
-                <span class="sv-chip">Anúncios</span>
-              </div>
-              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20design%20e%20identidade%20visual%20com%20a%20RPAWorks.%20Pode%20me%20ajudar?" target="_blank" rel="noopener">Quero design profissional
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+            <div class="sp-metric">
+              <div class="sp-metric__label">Confiança do cliente</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:87%"></div></div>
+              <div class="sp-metric__val">+87%</div>
             </div>
-          </article>
+          </div>
 
-          <!-- Card Sites (mantido, adaptado) -->
-          <article class="sv-card sv-card--sites reveal">
+          <div class="sp-list">
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Logo + variações (horizontal, vertical, ícone)</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Paleta de cores + tipografia definida</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Posts, stories e banners prontos para usar</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Apresentações e materiais de venda</div>
+          </div>
 
-            <div class="sv-card__visual sv-card__visual--browser" aria-hidden="true">
-              <div class="svb-bar">
-                <span class="svb-dot svb-dot--r"></span>
-                <span class="svb-dot svb-dot--y"></span>
-                <span class="svb-dot svb-dot--g"></span>
-                <div class="svb-url">
-                  <span class="svb-url__lock">🔒</span>
-                  <span class="svb-url__text">suaempresa.com.br</span>
-                </div>
-              </div>
-              <div class="svb-content">
-                <div class="svb-hero-block">
-                  <div class="svb-line svb-line--title"></div>
-                  <div class="svb-line svb-line--sub"></div>
-                  <div class="svb-btn-fake"></div>
-                </div>
-                <div class="svb-cards-row">
-                  <div class="svb-mini-card"></div>
-                  <div class="svb-mini-card svb-mini-card--orange"></div>
-                  <div class="svb-mini-card"></div>
-                </div>
-                <div class="svb-scan-line"></div>
-              </div>
-              <div class="sv-card__visual-glow"></div>
+          <div class="sp-footer">
+            <div class="sp-chips">
+              <span class="sp-chip">Logo</span>
+              <span class="sp-chip">Social Media</span>
+              <span class="sp-chip">Apresentações</span>
+              <span class="sp-chip">Manual de marca</span>
             </div>
+            <a class="sp-cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20design%20e%20identidade%20visual%20com%20a%20RPAWorks." target="_blank" rel="noopener">
+              Quero minha marca
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
 
-            <div class="sv-card__body">
-              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Sites & Landing Pages</div>
-              <h3 class="sv-card__title">Páginas que<br>convertem visitantes</h3>
-              <p class="sv-card__desc">Páginas profissionais, rápidas e focadas em conversão para transformar visitantes em clientes.</p>
-              <div class="sv-card__chips">
-                <span class="sv-chip">Design premium</span>
-                <span class="sv-chip">SEO on-page</span>
-                <span class="sv-chip">WhatsApp / Forms</span>
-                <span class="sv-chip">Deploy incluso</span>
-              </div>
-              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20site/landing%20page%20com%20a%20RPAWorks.%20Pode%20me%20passar%20os%20planos?" target="_blank" rel="noopener">Quero um site
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+        <!-- ═══ PAINEL 2 — Sites & Landing Pages ═══ -->
+        <div class="story-panel story-panel--2">
+          <div class="sp-header">
+            <div class="sp-num">02</div>
+            <div class="sp-icon" aria-hidden="true">🌐</div>
+          </div>
+          <div class="sp-title">Sites & Landing Pages</div>
+          <div class="sp-desc">Uma página que carrega rápido, parece profissional e converte visitante em contato. Tráfego pago, SEO ou indicação — a página trabalha por você 24h.</div>
+
+          <div class="sp-metrics">
+            <div class="sp-metric">
+              <div class="sp-metric__label">Taxa de conversão</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:78%"></div></div>
+              <div class="sp-metric__val">+78%</div>
             </div>
-          </article>
-
-          <!-- Card RPA -->
-          <article class="sv-card sv-card--rpa reveal">
-
-            <div class="sv-card__visual sv-card__visual--rpa" aria-hidden="true">
-              <div class="rpa-flow">
-                <div class="rpa-node">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2"/></svg>
-                  <span>Excel</span>
-                </div>
-                <div class="rpa-pipe"><div class="rpa-packet rpa-packet--1"></div></div>
-                <div class="rpa-node rpa-node--bot">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <span>Robô</span>
-                </div>
-                <div class="rpa-pipe"><div class="rpa-packet rpa-packet--2"></div></div>
-                <div class="rpa-node">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
-                  <span>Relatório</span>
-                </div>
-              </div>
-              <div class="rpa-log">
-                <div class="rpa-log__line"><span class="rpa-log__ok">✓</span> Planilha lida — 1.240 linhas</div>
-                <div class="rpa-log__line"><span class="rpa-log__ok">✓</span> Portal acessado com sucesso</div>
-                <div class="rpa-log__line rpa-log__line--active"><span class="rpa-log__spin">◌</span> Gerando PDF...</div>
-              </div>
-              <div class="sv-card__visual-glow"></div>
+            <div class="sp-metric">
+              <div class="sp-metric__label">Velocidade de carregamento</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:95%"></div></div>
+              <div class="sp-metric__val">95/100</div>
             </div>
+          </div>
 
-            <div class="sv-card__body">
-              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>RPA & Automação</div>
-              <h3 class="sv-card__title">Robôs que<br>trabalham por você</h3>
-              <p class="sv-card__desc">Robôs para automatizar tarefas repetitivas, planilhas, portais, PDFs, e-mails e processos internos.</p>
-              <div class="sv-card__chips">
-                <span class="sv-chip">Playwright</span>
-                <span class="sv-chip">Selenium</span>
-                <span class="sv-chip">Logs & alertas</span>
-              </div>
-              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20automação%20/%20RPA%20com%20a%20RPAWorks.%20Quero%20entender%20como%20funciona%20e%20ver%20os%20planos." target="_blank" rel="noopener">Quero automatizar
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+          <div class="sp-list">
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Design premium focado em conversão</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>SEO on-page + sitemap + robots.txt</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Domínio e hospedagem configurados</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Chatbot + botão WhatsApp integrado</div>
+          </div>
+
+          <div class="sp-footer">
+            <div class="sp-chips">
+              <span class="sp-chip">SEO</span>
+              <span class="sp-chip">WhatsApp</span>
+              <span class="sp-chip">Deploy incluso</span>
+              <span class="sp-chip">Analytics</span>
             </div>
-          </article>
+            <a class="sp-cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20site%20ou%20landing%20page%20com%20a%20RPAWorks." target="_blank" rel="noopener">
+              Quero meu site
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
 
-          <!-- Card Dashboards -->
-          <article class="sv-card sv-card--dash reveal">
+        <!-- ═══ PAINEL 3 — RPA & Automação ═══ -->
+        <div class="story-panel story-panel--3">
+          <div class="sp-header">
+            <div class="sp-num">03</div>
+            <div class="sp-icon" aria-hidden="true">⚡</div>
+          </div>
+          <div class="sp-title">RPA & Automação</div>
+          <div class="sp-desc">Cada hora que sua equipe gasta copiando dados, preenchendo planilhas ou abrindo portais é dinheiro desperdiçado. Um robô faz isso em segundos, sem erro.</div>
 
-            <div class="sv-card__visual sv-card__visual--dash" aria-hidden="true">
-              <div class="dash-chart">
-                <div class="dash-bars">
-                  <div class="dash-bar" style="--h:55%"><div class="dash-bar__fill"></div></div>
-                  <div class="dash-bar" style="--h:80%"><div class="dash-bar__fill"></div></div>
-                  <div class="dash-bar" style="--h:40%"><div class="dash-bar__fill"></div></div>
-                  <div class="dash-bar" style="--h:92%"><div class="dash-bar__fill dash-bar__fill--accent"></div></div>
-                  <div class="dash-bar" style="--h:68%"><div class="dash-bar__fill"></div></div>
-                  <div class="dash-bar" style="--h:75%"><div class="dash-bar__fill"></div></div>
-                </div>
-                <div class="dash-kpis">
-                  <div class="dash-kpi">
-                    <span class="dash-kpi__val">↑ 34%</span>
-                    <span class="dash-kpi__label">Conversão</span>
-                  </div>
-                  <div class="dash-kpi">
-                    <span class="dash-kpi__val">12 KPIs</span>
-                    <span class="dash-kpi__label">Ao vivo</span>
-                  </div>
-                </div>
-                <div class="dash-line-chart">
-                  <svg viewBox="0 0 120 40" preserveAspectRatio="none" fill="none">
-                    <defs>
-                      <linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#ff6a00" stop-opacity=".25"/>
-                        <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                    <path class="dash-area" d="M0 35 C20 30 30 10 50 15 S80 25 90 8 L120 5 L120 40 L0 40Z" fill="url(#dashGrad)"/>
-                    <path class="dash-line-path" d="M0 35 C20 30 30 10 50 15 S80 25 90 8 L120 5" stroke="#ff6a00" stroke-width="2" stroke-linecap="round"/>
-                    <circle class="dash-dot-anim" cx="120" cy="5" r="3" fill="#ff6a00"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="sv-card__visual-glow"></div>
+          <div class="sp-metrics">
+            <div class="sp-metric">
+              <div class="sp-metric__label">Redução de tempo operacional</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:85%"></div></div>
+              <div class="sp-metric__val">-85%</div>
             </div>
-
-            <div class="sv-card__body">
-              <div class="sv-card__tag"><span class="sv-card__tag-dot"></span>Dashboards Interativos</div>
-              <h3 class="sv-card__title">Dados que<br>viram decisão</h3>
-              <p class="sv-card__desc">Painéis com dados claros para acompanhar vendas, operação, metas e indicadores em tempo real.</p>
-              <div class="sv-card__chips">
-                <span class="sv-chip">Streamlit</span>
-                <span class="sv-chip">Plotly</span>
-                <span class="sv-chip">Export PDF/Excel</span>
-              </div>
-              <a class="sv-card__cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20um%20dashboard%20interativo%20com%20a%20RPAWorks.%20Pode%20me%20contar%20mais%20e%20passar%20os%20planos?" target="_blank" rel="noopener">Quero um dashboard
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+            <div class="sp-metric">
+              <div class="sp-metric__label">Eliminação de erros humanos</div>
+              <div class="sp-metric__bar"><div class="sp-metric__fill" style="--pct:99%"></div></div>
+              <div class="sp-metric__val">99%</div>
             </div>
-          </article>
+          </div>
 
-        </div><!-- /sv-bento -->
+          <div class="sp-list">
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Automação web: portais, logins, formulários</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Planilhas: consolidação, limpeza, relatórios</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Logs, alertas e monitoramento contínuo</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Relatórios automáticos em PDF/Excel</div>
+          </div>
+
+          <div class="sp-footer">
+            <div class="sp-chips">
+              <span class="sp-chip">Playwright</span>
+              <span class="sp-chip">Selenium</span>
+              <span class="sp-chip">Python</span>
+              <span class="sp-chip">Logs & alertas</span>
+            </div>
+            <a class="sp-cta" href="https://wa.me/5511961219986?text=Olá!%20Tenho%20interesse%20em%20automação%20/%20RPA%20com%20a%20RPAWorks." target="_blank" rel="noopener">
+              Quero automatizar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ═══ PAINEL 4 — Combo / CTA ═══ -->
+        <div class="story-panel story-panel--4">
+          <div class="sp-header">
+            <div class="sp-num">04 · Tudo junto</div>
+            <div class="sp-icon" aria-hidden="true">🚀</div>
+          </div>
+          <div class="sp-title">Design + Site + Automação</div>
+          <div class="sp-desc">Um combo integrado custa menos, entrega mais rápido e funciona melhor do que contratar três fornecedores separados. Sua empresa completa, de uma vez.</div>
+
+          <div class="sp-combo-stats">
+            <div class="sp-combo-stat">
+              <div class="sp-combo-stat__val">48h</div>
+              <div class="sp-combo-stat__label">pra protótipo</div>
+            </div>
+            <div class="sp-combo-stat">
+              <div class="sp-combo-stat__val">+12</div>
+              <div class="sp-combo-stat__label">projetos entregues</div>
+            </div>
+            <div class="sp-combo-stat">
+              <div class="sp-combo-stat__val">24h</div>
+              <div class="sp-combo-stat__label">suporte incluso</div>
+            </div>
+          </div>
+
+          <div class="sp-list">
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Diagnóstico gratuito sem compromisso</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Você aprova antes de pagar os 70% finais</div>
+            <div class="sp-list__item"><span class="sp-list__dot"></span>Desconto especial no combo completo</div>
+          </div>
+
+          <div class="sp-footer sp-footer--combo">
+            <a class="sp-cta sp-cta--big" href="https://wa.me/5511961219986?text=Olá!%20Quero%20montar%20um%20combo%20personalizado%20(Design%20+%20Site%20+%20Automação)%20com%20a%20RPAWorks." target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Montar meu combo agora
+            </a>
+            <p class="sp-trust">⚡ Resposta em até 1h · Sem compromisso</p>
+          </div>
+        </div>
+
+        <!-- Barra de progresso -->
+        <div class="story-progress" aria-hidden="true">
+          <div class="story-progress__bar">
+            <div class="story-progress__fill"></div>
+          </div>
+          <span class="story-progress__label">0%</span>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div class="story-scroll-hint" aria-hidden="true">
+          <span></span>
+          role para ver
+        </div>
+
       </div>
     </section>
+    <!-- ═══ FIM SCROLL STORY ═══ -->
+
+    <!-- ═══ SERVIÇOS ═══ -->
+
 
     <!-- ═══ PORTFÓLIO ═══ -->
-    <section class="section portfolio-section" id="portfolio">
-      <div class="container">
-        <div class="section__head reveal">
-          <div class="sv-head__eyebrow">
+    <section class="section portfolio-section" id="portfolio" aria-label="Portfólio RPAWorks">
+      <div class="portfolio-pin">
+        <div class="container portfolio-shell">
+          <div class="portfolio-kicker reveal">
             <span class="sv-head__dot"></span>
-            Portfólio
+            Portfólio selecionado
           </div>
-          <h2>Trabalhos que <em>falam por si</em></h2>
-          <p class="lead">Projetos reais entregues para empresas que queriam parecer maiores e vender mais.</p>
+
+          <div class="portfolio-showcase-head reveal">
+            <div>
+              <h2>Cases que <em>vendem</em> a ideia</h2>
+              <p class="lead">Sites, identidades e automações entregues para quem precisava de resultado, não de promessa.</p>
+            </div>
+
+            <div class="portfolio-counter" aria-hidden="true">
+              <span class="portfolio-counter__current">01</span>
+              <span class="portfolio-counter__divider"></span>
+              <span class="portfolio-counter__total">06</span>
+            </div>
+          </div>
         </div>
 
-        <div class="portfolio-grid reveal">
-          <a class="portfolio-item" href="https://consultoriojuri.netlify.app/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/Le.png" alt="Site Clínica" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">Landing Page</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
-          <a class="portfolio-item" href="https://rafahacessorios.netlify.app/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/Raf.png" alt="Site Artic" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">Institucional</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
-          <a class="portfolio-item" href="https://dfbpromotion.com.br/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/DFB.png" alt="Site Nosferatos" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">E-commerce</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
-          <a class="portfolio-item" href="https://desinghaus.netlify.app/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/HAUS.png" alt="Site Design" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">Landing Page</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
-          <a class="portfolio-item" href="https://gentle-faun-36a88b.netlify.app/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/Concreto.png" alt="Site Estética" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">Loja</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
-          <a class="portfolio-item" href="https://milena-prot2.onrender.com/" target="_blank" rel="noopener">
-            <div class="portfolio-item__img">
-              <img src="./assets/img/portfolio/Milenaw.png" alt="Site Milena" loading="lazy"/>
-            </div>
-            <div class="portfolio-item__overlay">
-              <span class="portfolio-item__tag">Landing Page</span>
-              <span class="portfolio-item__cta">Ver projeto →</span>
-            </div>
-          </a>
+        <div class="portfolio-viewport" aria-label="Projetos em destaque">
+          <div class="portfolio-track">
+            <a class="portfolio-card" href="https://consultoriojuri.netlify.app/" target="_blank" rel="noopener" data-project="LEX" data-index="01">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/Le.png" alt="Projeto LEX Consultoria" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">01 / 06</span>
+                <h3>LEX Consultoria</h3>
+                <p>Página jurídica com linguagem de autoridade e CTA direto para captação.</p>
+                <div class="portfolio-card__footer">
+                  <span>Landing Page</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+
+            <a class="portfolio-card" href="https://rafahacessorios.netlify.app/" target="_blank" rel="noopener" data-project="Rafah" data-index="02">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/Raf.png" alt="Projeto Rafah Acessórios" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">02 / 06</span>
+                <h3>Rafah Acessórios</h3>
+                <p>Loja de acessórios com navegação fluida e visual que eleva o produto.</p>
+                <div class="portfolio-card__footer">
+                  <span>Institucional</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+
+            <a class="portfolio-card" href="https://dfbpromotion.com.br/" target="_blank" rel="noopener" data-project="DFB" data-index="03">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/DFB.png" alt="Projeto DFB Promotion" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">03 / 06</span>
+                <h3>DFB Promotion</h3>
+                <p>Catálogo com identidade esportiva forte, categorias e navegação eficiente.</p>
+                <div class="portfolio-card__footer">
+                  <span>Catálogo esportivo</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+
+            <a class="portfolio-card" href="https://desinghaus.netlify.app/" target="_blank" rel="noopener" data-project="HAUS" data-index="04">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/HAUS.png" alt="Projeto HAUS Design" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">04 / 06</span>
+                <h3>HAUS Design</h3>
+                <p>Portfólio com direção de arte limpa e apresentação que convence.</p>
+                <div class="portfolio-card__footer">
+                  <span>Portfólio</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+
+            <a class="portfolio-card" href="https://gentle-faun-36a88b.netlify.app/" target="_blank" rel="noopener" data-project="CONCRETO" data-index="05">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/Concreto.png" alt="Projeto CONCRETO Store" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">05 / 06</span>
+                <h3>CONCRETO</h3>
+                <p>E-commerce com estrutura de venda sólida e foco no produto.</p>
+                <div class="portfolio-card__footer">
+                  <span>E-commerce</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+
+            <a class="portfolio-card" href="https://milena-prot2.onrender.com/" target="_blank" rel="noopener" data-project="Milena" data-index="06">
+              <div class="portfolio-card__media">
+                <img src="./assets/img/portfolio/Milenaw.png" alt="Projeto Milena Esperandio" loading="lazy"/>
+              </div>
+              <div class="portfolio-card__content">
+                <span class="portfolio-card__count">06 / 06</span>
+                <h3>Milena Esperandio</h3>
+                <p>Página de advocacia com tom confiável e estrutura voltada a conversão.</p>
+                <div class="portfolio-card__footer">
+                  <span>Landing Page</span>
+                  <strong>Ver projeto</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="container portfolio-progress-wrap" aria-hidden="true">
+          <div class="portfolio-progress">
+            <span class="portfolio-progress__fill"></span>
+          </div>
+          <p>arraste para ver os cases</p>
         </div>
       </div>
     </section>
@@ -958,7 +1020,11 @@
   })();
   </script>
 
+  <!-- GSAP + ScrollTrigger (carregados síncronos para garantir ordem) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
+  <script src="scroll-story.js"></script>
   <!-- Contador do card de desconto -->
   <script src="portfolio-catalog.js"></script>
   <script>
@@ -1090,5 +1156,6 @@
     resetTimer();
   })();
   </script>
+  <script src="portfolio-horizontal-fix.js"></script>
 </body>
 </html>

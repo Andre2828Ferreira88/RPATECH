@@ -15,7 +15,7 @@ const CAT_PROJECTS = [
     desc: "Site institucional com design 2026 — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://rpaworks.com.br",
-    img: "assets/img/portfolio/rpaworks-thumb.jpg",
+    img: "assets/portfolio/rpaworks-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
   {
@@ -24,7 +24,7 @@ const CAT_PROJECTS = [
     desc: "Painel interativo com KPIs em tempo real, filtros dinâmicos e export PDF/Excel. Desenvolvido em Python + Plotly.",
     category: "dashboard",
     url: "https://portdashone.netlify.app/",
-    img: "assets/img/portfolio/dashboard-bi-thumb.jpg",
+    img: "assets/portfolio/dashboard-bi-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/3b82f6/ffffff?text=Dashboard+BI"
   },
   {
@@ -33,7 +33,7 @@ const CAT_PROJECTS = [
     desc: "Site para Desing's — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://desingpersonalizze.netlify.app/",
-    img: "assets/img/portfolio/Desing.png",
+    img: "assets/portfolio/Desing.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
 
@@ -43,7 +43,7 @@ const CAT_PROJECTS = [
     desc: "Site para Vendedor — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://rafahacessorios.netlify.app/",
-    img: "assets/img/portfolio/Rafa.png",
+    img: "assets/portfolio/Rafa.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
 
@@ -53,7 +53,7 @@ const CAT_PROJECTS = [
     desc: "Site para Tatuador — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://tattoport.netlify.app/",
-    img: "assets/img/portfolio/Artic.png",
+    img: "assets/portfolio/Artic.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
 
@@ -63,7 +63,7 @@ const CAT_PROJECTS = [
     desc: "Site para Consultoria — landing page de alta conversão com animações, chatbot e integração WhatsApp.",
     category: "site",
     url: "https://consultoriojuri.netlify.app/",
-    img: "assets/img/portfolio/Lex.png",
+    img: "assets/portfolio/Lex.png",
     imgFallback: "https://placehold.co/800x450/ff6a00/ffffff?text=RPAWorks+Site"
   },
   {
@@ -72,7 +72,7 @@ const CAT_PROJECTS = [
     desc: "Automação de leitura de notas fiscais, preenchimento de ERP e geração de relatório diário via e-mail.",
     category: "rpa",
     url: "#",
-    img: "assets/img/portfolio/rpa-nfe-thumb.jpg",
+    img: "assets/portfolio/rpa-nfe-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/10b981/ffffff?text=RPA+NF-e"
   },
   {
@@ -81,7 +81,7 @@ const CAT_PROJECTS = [
     desc: "Site para um tatuador Japones com agendamento online, galeria de resultados.",
     category: "site",
     url: "https://sumietattoo.netlify.app/",
-    img: "assets/img/portfolio/clinica-thumb.jpg",
+    img: "assets/portfolio/clinica-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   {
@@ -90,7 +90,7 @@ const CAT_PROJECTS = [
     desc: "Análise de funil de vendas, ranking de produtos e mapa de calor regional. Integração com Google Sheets.",
     category: "dashboard",
     url: "#",
-    img: "assets/img/portfolio/dashboard-vendas-thumb.jpg",
+    img: "assets/portfolio/dashboard-vendas-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/6366f1/ffffff?text=Dashboard+Vendas"
   },
 
@@ -100,7 +100,7 @@ const CAT_PROJECTS = [
     desc: "Site para um tatuador com portifolio online, galeria de resultados.",
     category: "site",
     url: "https://nick-tatto.netlify.app/",
-    img: "assets/img/portfolio/NickTatto.jpg",
+    img: "assets/portfolio/NickTatto.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   {
@@ -109,7 +109,7 @@ const CAT_PROJECTS = [
     desc: "RPA que consolida horas, calcula adicionais e gera o arquivo de remessa bancária automaticamente.",
     category: "rpa",
     url: "#",
-    img: "assets/img/portfolio/rpa-folha-thumb.jpg",
+    img: "assets/portfolio/rpa-folha-thumb.jpg",
     imgFallback: "https://placehold.co/800x450/059669/ffffff?text=RPA+Folha"
   },
 
@@ -119,7 +119,7 @@ const CAT_PROJECTS = [
     desc: "Site para Corretores com portifolio online, galeria de resultados e bot.",
     category: "site",
     url: "https://nosferatos.netlify.app/",
-    img: "assets/img/portfolio/Nosferatos.png",
+    img: "assets/portfolio/Nosferatos.png",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
        {
@@ -128,7 +128,7 @@ const CAT_PROJECTS = [
     desc: "Site para Clinicas com portifolio online, galeria de resultados e bot.",
     category: "site",
     url: "https://styleclin-barueri.netlify.app/",
-    img: "assets/img/portfolio/Estetica.png",
+    img: "assets/portfolio/Estetica.png",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
 
@@ -138,7 +138,7 @@ const CAT_PROJECTS = [
     desc: "Site para Barbeiros com portifolio online, galeria de resultados e preços.",
     category: "site",
     url: "https://barbeariayurijuannini.onrender.com/",
-    img: "assets/img/portfolio/Yuri.jpg",
+    img: "assets/portfolio/Yuri.jpg",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
            {
@@ -147,7 +147,7 @@ const CAT_PROJECTS = [
     desc: "Site para Advogados com ChatBot online, galeria de resultados e Contatos.",
     category: "site",
     url: "https://milena-prot2.onrender.com/",
-    img: "assets/img/portfolio/Milena.png",
+    img: "assets/portfolio/Milena.png",
     imgFallback: "https://placehold.co/800x450/f97316/ffffff?text=Cl%C3%ADnica+Est%C3%A9tica"
   },
   
@@ -183,7 +183,7 @@ function catRenderCards(container) {
   if (!emptyEl) {
     emptyEl = document.createElement("div");
     emptyEl.className = "cat-empty";
-    emptyEl.innerHTML = `<span class="cat-empty__icon">🔍</span><p class="cat-empty__text">Nenhum projeto nessa categoria ainda — em breve!</p>`;
+    emptyEl.innerHTML = `<span class="cat-empty__icon">•</span><p class="cat-empty__text">Nenhum projeto nessa categoria ainda — em breve.</p>`;
     container.appendChild(emptyEl);
   }
   emptyEl.classList.toggle("is-visible", filtered.length === 0);
@@ -387,7 +387,7 @@ function catBuildDOM() {
 // Procura o link "Portfólio" na nav e sobrescreve o comportamento
 function catBindNavLink() {
   // seleciona todos os links de nav que apontam para #portfolio
-  const links = document.querySelectorAll('a[href="#portfolio"], a[href="#catalogo"]');
+  const links = document.querySelectorAll('a[href="#catalogo"]');
   links.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
