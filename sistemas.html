@@ -328,76 +328,8 @@
       *, *::before, *::after { transition: none !important; }
     }
   </style>
-  <script data-rpa-analytics>
-(function () {
-  "use strict";
-
-  var location = window.location;
-  var localHost = /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[?::1\]?)$/i;
-  if (!/^https?:$/.test(location.protocol) || localHost.test(location.hostname)) return;
-  if (window.__rpaAnalyticsLoaded) return;
-  window.__rpaAnalyticsLoaded = true;
-
-  // Projeto já configurado na RPAWorks. Os arquivos funcionam no domínio e no Netlify.
-  var clarityProject = "vm0yrwne22";
-  var googleAdsId = "AW-17970541017";
-  var googleAdsConversion = "AW-17970541017/luboCLnQm_0bENnjgvlC";
-  var parts = location.pathname.split("/").filter(Boolean);
-  var filename = (parts.pop() || "index").replace(/\.html$/i, "").toLowerCase();
-  var pageNames = { index: "home", site: "landing_site", sistemas: "landing_sistemas" };
-  var page = pageNames[filename] || "outra_pagina";
-
-  window.clarity = window.clarity || function () {
-    (window.clarity.q = window.clarity.q || []).push(arguments);
-  };
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-  window.clarity("set", "pagina_rpaworks", page);
-  window.clarity("event", "visita_" + page);
-  window.gtag("js", new Date());
-  window.gtag("config", googleAdsId);
-
-  function loadTag(id, src) {
-    if (document.getElementById(id)) return;
-    var script = document.createElement("script");
-    script.id = id;
-    script.async = true;
-    script.src = src;
-    document.head.appendChild(script);
-  }
-
-  // Carregamento assíncrono desde o head, sem esperar as imagens terminarem.
-  loadTag("rpa-clarity-tag", "https://www.clarity.ms/tag/" + clarityProject);
-  loadTag("rpa-google-tag", "https://www.googletagmanager.com/gtag/js?id=" + googleAdsId);
-
-  document.addEventListener("click", function (event) {
-    var target = event.target;
-    if (!target) return;
-    if (typeof target.closest !== "function") target = target.parentElement;
-    if (!target || typeof target.closest !== "function") return;
-    var element = target.closest("[data-rpa-event], a[data-whatsapp], a[href^='https://wa.me/'], a[href^='https://api.whatsapp.com/']");
-    if (!element) return;
-
-    var href = element.getAttribute("href") || "";
-    var isWhatsApp = element.hasAttribute("data-whatsapp") || /^https:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href);
-    var name = element.getAttribute("data-rpa-event") || (isWhatsApp ? "whatsapp_outro" : "clique_link");
-    if (!/^[a-z][a-z0-9_]{0,63}$/.test(name)) return;
-
-    // Somente nomes fixos de ações. Não envia textos digitados, mensagens ou URLs de contato.
-    window.clarity("event", page + "_" + name);
-    window.clarity("set", "elemento_clicado", name);
-    if (isWhatsApp) {
-      window.clarity("event", "whatsapp_click");
-      window.gtag("event", "conversion", {
-        send_to: googleAdsConversion,
-        transport_type: "beacon"
-      });
-    }
-    // O link continua abrindo normalmente; não há preventDefault nem espera pelo rastreamento.
-  }, true);
-}());
-  </script>
+  <script defer src="assets/js/rpaworks-analytics-config.js"></script>
+  <script defer src="assets/js/rpaworks-analytics.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
