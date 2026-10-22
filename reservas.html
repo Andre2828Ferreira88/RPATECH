@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ed6023'/%3E%3Cpath d='M24 19 11 32l13 13m16-26 13 13-13 13M36 15l-8 34' stroke='%23101510' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <title>Sistema de reservas para restaurantes, buffets e eventos | RPAWorks</title>
+  <meta name="description" content="Organize solicitações, datas e grupos em um sistema de reservas sob medida. Experimente uma demonstração interativa e converse com a RPAWorks.">
+  <link rel="canonical" href="https://www.rpaworks.com.br/reservas.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RPAWorks">
+  <meta property="og:title" content="Sistema de reservas para restaurantes, buffets e eventos | RPAWorks">
+  <meta property="og:description" content="Organize solicitações, datas e grupos em um sistema de reservas sob medida. Experimente uma demonstração interativa e converse com a RPAWorks.">
+  <meta property="og:url" content="https://www.rpaworks.com.br/reservas.html">
+  <meta property="og:image" content="https://www.rpaworks.com.br/assets/img/portfolio/rpaworks-thumb.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/rpaworks-ui.css">
+  <link rel="stylesheet" href="assets/css/reservas.css">
+  <script defer src="assets/js/rpaworks-analytics-config.js"></script>
+  <script defer src="assets/js/rpaworks-analytics.js"></script>
+  <script defer src="assets/js/reservas-model.js"></script>
+  <script defer src="assets/js/reservas-demo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <main class="page-frame" id="conteudo">
+    <section class="reserva-shell" aria-labelledby="reserve-title">
+      <header class="rpa-header ">
+      <a class="rpa-brand" href="index.html" aria-label="RPAWorks, início"><span>RPA</span>Works</a>
+      <nav class="rpa-nav" aria-label="Soluções RPAWorks"><a href="site.html" data-rpa-event="menu_site">Sites</a><a href="sistemas.html" data-rpa-event="menu_sistemas">Sistemas</a><a href="reservas.html" aria-current="page" data-rpa-event="menu_reservas">Reservas</a></nav>
+      <a class="rpa-button rpa-button--whatsapp rpa-button--small" href="https://wa.me/5511961219986?text=Ol%C3%A1%21%20Vim%20pelo%20an%C3%BAncio%20da%20RPAWorks%20e%20gostaria%20de%20conhecer%20um%20sistema%20de%20reservas%20para%20meu%20restaurante%2C%20buffet%20ou%20espa%C3%A7o%20de%20eventos." target="_blank" rel="noopener noreferrer" data-whatsapp data-rpa-event="whatsapp_cabecalho"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.4 7.2L3.5 20l1.1-4.2a8.3 8.3 0 1 1 15.7-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.2 7.4 1.1-.1 1.1 2.5-.9 1.1c.6 1.2 1.5 2.1 2.8 2.7l1-.9 2.5 1.1-.1 1.2c-.1.8-.9 1.4-1.7 1.3-3.7-.5-6.4-3.2-7-6.9-.1-.8.4-1.5 1.2-1.7Z" fill="currentColor"/></svg><span>WhatsApp</span></a>
+    </header>
+      <div class="reserve-hero">
+        <div class="reserve-copy">
+          <p class="eyebrow">Restaurantes · Buffets · Espaços para eventos</p>
+          <h1 id="reserve-title">Cada reserva.<br><span>No lugar certo.</span></h1>
+          <p class="hero-description">Data, horário, grupo e confirmação ainda se perdem nas conversas? Reúna suas solicitações em um sistema feito para a rotina do seu estabelecimento.</p>
+          <div class="hero-actions">
+            <a class="rpa-button rpa-button--whatsapp" href="https://wa.me/5511961219986?text=Ol%C3%A1%21%20Vim%20pelo%20an%C3%BAncio%20da%20RPAWorks%20e%20gostaria%20de%20conhecer%20um%20sistema%20de%20reservas%20para%20meu%20restaurante%2C%20buffet%20ou%20espa%C3%A7o%20de%20eventos." target="_blank" rel="noopener noreferrer" data-whatsapp data-rpa-event="whatsapp_principal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.4 7.2L3.5 20l1.1-4.2a8.3 8.3 0 1 1 15.7-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.2 7.4 1.1-.1 1.1 2.5-.9 1.1c.6 1.2 1.5 2.1 2.8 2.7l1-.9 2.5 1.1-.1 1.2c-.1.8-.9 1.4-1.7 1.3-3.7-.5-6.4-3.2-7-6.9-.1-.8.4-1.5 1.2-1.7Z" fill="currentColor"/></svg><span>Quero organizar minhas reservas</span></a>
+            <a class="demo-link" href="#demonstracao" data-rpa-event="abrir_demonstracao_reservas">Experimentar a demonstração <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <p class="hero-note">Desenvolvimento personalizado. Atendimento direto com a RPAWorks.</p>
+        </div>
+        <aside class="offer-note" aria-labelledby="offer-title">
+          <p class="eyebrow">Uma operação mais organizada</p>
+          <h2 id="offer-title">Do pedido à<br>confirmação.</h2>
+          <ol class="workflow"><li><span>01</span> Registre a solicitação</li><li><span>02</span> Consulte a agenda</li><li><span>03</span> Confirme manualmente</li><li><span>04</span> Acompanhe cada reserva</li></ol>
+          <div class="offer-price"><p>Implantação a partir de <strong>R$ 2.490</strong></p><p>Manutenção de referência: R$ 149/mês.</p><p class="price-note">Escopo, manutenção e condições definidos em proposta. Recursos adicionais são orçados separadamente.</p></div>
+        </aside>
+      </div>
+
+      <div class="demo-section" id="demonstracao">
+        <div class="demo-section-heading"><div><p class="eyebrow">Antes de conversar, experimente</p><h2>Teste o fluxo de uma reserva.</h2></div><p>Cadastre um pedido, abra os detalhes e teste uma confirmação manual.</p></div>
+        <p class="prototype-notice"><span class="prototype-label">Protótipo interativo</span> Dados fictícios e alterações locais. Não representa um sistema já implantado em cliente.</p>
+        <p id="demo-loading" class="demo-loading">Ative o JavaScript para experimentar o painel de reservas. Você também pode solicitar uma apresentação pelo WhatsApp.</p>
+        <div id="reservas-app" class="reservation-app clarity-mask" data-rpa-demo data-clarity-mask="true" hidden>
+          <div class="app-heading"><div class="app-identity"><span class="app-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 3v4m8-4v4M4 11h16m-11 5h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><p class="app-overline">RPAWorks / demonstração</p><h3>Central de reservas</h3></div></div><button class="app-button app-button--primary" id="demo-new" type="button"><span aria-hidden="true">+</span> Nova solicitação</button></div>
+          <div class="app-tools"><div class="view-switch" role="group" aria-label="Visualização das reservas"><button id="demo-view-agenda" type="button" aria-pressed="true">Agenda</button><button id="demo-view-pedidos" type="button" aria-pressed="false">Pedidos</button></div><button type="button" class="reset-button" id="demo-reset">Reiniciar demonstração</button></div>
+          <div class="app-filters">
+            <label>Data<input id="demo-date" type="date" min="2000-01-01" max="2100-12-31"></label>
+            <label>Turno<select id="demo-shift"><option value="">Todos os turnos</option><option value="almoco">Almoço</option><option value="jantar">Jantar</option><option value="evento">Evento</option></select></label>
+            <label>Status<select id="demo-status"><option value="">Todos os status</option><option value="pendente">Pendente</option><option value="confirmada">Confirmada</option><option value="cancelada">Cancelada</option></select></label>
+            <label class="search-filter">Buscar pedido<input id="demo-search" type="search" maxlength="80" placeholder="Nome ou código" autocomplete="off"></label>
+          </div>
+          <div class="filter-shortcuts"><button type="button" id="demo-today">Hoje</button><button type="button" id="demo-all-dates">Ver todas as datas</button><p>Contagens referentes aos filtros selecionados.</p></div>
+          <dl class="app-summary"><div><dt>Pendentes</dt><dd id="demo-pending-count">0</dd></div><div><dt>Confirmadas</dt><dd id="demo-confirmed-count">0</dd></div><div><dt>Canceladas</dt><dd id="demo-canceled-count">0</dd></div><div><dt>Pessoas previstas <small>sem canceladas</small></dt><dd id="demo-people-count">0</dd></div></dl>
+          <div class="demo-workspace" id="demo-workspace">
+            <div class="calendar-panel" id="demo-agenda" aria-labelledby="demo-month">
+              <div class="calendar-heading"><h3 id="demo-month"></h3><div><button id="demo-prev-month" type="button" aria-label="Mês anterior">‹</button><button id="demo-next-month" type="button" aria-label="Próximo mês">›</button></div></div>
+              <div class="calendar-week" aria-hidden="true"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span><span>D</span></div>
+              <div class="calendar-days" id="demo-calendar-days" role="group" aria-label="Escolha uma data no calendário"></div>
+              <p class="calendar-note">Os números indicam solicitações. A disponibilidade e a capacidade são verificadas pela sua equipe.</p>
+            </div>
+            <div class="reservation-list-panel"><div class="reservation-list-heading"><h3 id="demo-list-title">Solicitações</h3><p id="demo-result-count" role="status" aria-live="polite"></p></div><ul class="reservation-list" id="demo-reservations"></ul><div class="empty-state" id="demo-empty" hidden><h4>Nenhum pedido neste recorte.</h4><p>Escolha outra data, ajuste os filtros ou crie uma solicitação de teste.</p></div></div>
+          </div>
+          <div class="app-footnote"><p>Use apenas dados fictícios. As alterações duram enquanto esta página estiver aberta.</p><p>Nenhuma confirmação ou mensagem é enviada automaticamente.</p></div>
+          <p id="demo-announcement" class="demo-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </div>
+
+      <div class="scope-row"><details class="scope-details"><summary>O que faz parte da versão inicial <span aria-hidden="true">+</span></summary><div class="scope-content"><div><h3>O essencial para organizar</h3><ul><li>Cadastro com nome, contato, data, horário, pessoas e observações.</li><li>Calendário por data e turno e painel com filtros de status.</li><li>Confirmação e cancelamento manuais.</li><li>Edição de informações e remarcação.</li><li>Botão para abrir o WhatsApp do solicitante, sem envio automático.</li></ul></div><div><h3>Recursos avaliados à parte</h3><p>Automações de mensagens, chatbot, inteligência artificial, pagamentos, integrações com caixa ou ERP, mapa de mesas, regras avançadas de capacidade, várias unidades e permissões por funcionário não fazem parte do pacote inicial.</p></div></div></details><div class="scope-contact"><p>A demonstração é um ponto de partida.<br><strong>O sistema final segue o seu processo.</strong></p><a class="rpa-button rpa-button--whatsapp" href="https://wa.me/5511961219986?text=Ol%C3%A1%21%20Vim%20pelo%20an%C3%BAncio%20da%20RPAWorks%20e%20gostaria%20de%20conhecer%20um%20sistema%20de%20reservas%20para%20meu%20restaurante%2C%20buffet%20ou%20espa%C3%A7o%20de%20eventos." target="_blank" rel="noopener noreferrer" data-whatsapp data-rpa-event="whatsapp_escopo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.4 7.2L3.5 20l1.1-4.2a8.3 8.3 0 1 1 15.7-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.2 7.4 1.1-.1 1.1 2.5-.9 1.1c.6 1.2 1.5 2.1 2.8 2.7l1-.9 2.5 1.1-.1 1.2c-.1.8-.9 1.4-1.7 1.3-3.7-.5-6.4-3.2-7-6.9-.1-.8.4-1.5 1.2-1.7Z" fill="currentColor"/></svg><span>Conversar sobre meu estabelecimento</span></a></div></div>
+    </section>
+    <footer class="rpa-footer"><p>© 2026 RPAWorks. Design e desenvolvimento sob medida.</p><nav aria-label="Contatos RPAWorks"><a href="mailto:contato@rpaworks.com.br" data-rpa-event="contato_email">contato@rpaworks.com.br</a><a href="https://www.instagram.com/rpaworks_/" target="_blank" rel="noopener noreferrer" data-rpa-event="contato_instagram">Instagram ↗</a></nav></footer>
+  </main>
+
+  <dialog id="reservation-dialog" class="reservation-dialog clarity-mask" data-rpa-demo data-clarity-mask="true" aria-labelledby="reservation-title" aria-describedby="dialog-prototype-note">
+    <div class="dialog-heading"><div><p class="app-overline">Demonstração RPAWorks</p><h2 id="reservation-title">Nova solicitação</h2></div><button id="reservation-close" class="icon-button" type="button" aria-label="Fechar janela"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
+    <p class="dialog-note" id="dialog-prototype-note">Use dados fictícios. Nada é enviado ao estabelecimento.</p>
+    <form id="reservation-form" autocomplete="off">
+      <div class="reservation-fields">
+        <label class="field-full" for="reserve-name">Nome ou grupo *<input id="reserve-name" name="name" required minlength="2" maxlength="80" placeholder="Ex.: Grupo de teste"></label>
+        <label class="field-full" for="reserve-phone">Telefone de teste com DDD <span class="field-optional">opcional</span><input id="reserve-phone" name="phone" type="tel" maxlength="22" inputmode="tel" placeholder="Informe apenas um número sob seu controle" aria-describedby="phone-help"></label>
+        <p class="field-help field-full" id="phone-help">Os exemplos não usam contatos reais. O telefone só será usado se você abrir o botão de WhatsApp.</p>
+        <label for="reserve-date">Data *<input id="reserve-date" name="date" type="date" required min="2000-01-01" max="2100-12-31"></label>
+        <label for="reserve-time">Horário *<input id="reserve-time" name="time" type="time" required></label>
+        <label for="reserve-people">Pessoas *<input id="reserve-people" name="people" type="number" min="1" max="5000" step="1" required inputmode="numeric"></label>
+        <label for="reserve-shift">Turno *<select id="reserve-shift" name="shift" required><option value="almoco">Almoço</option><option value="jantar">Jantar</option><option value="evento">Evento</option></select></label>
+        <label class="field-full" for="reserve-status">Status *<select id="reserve-status" name="status" required><option value="pendente">Pendente</option><option value="confirmada">Confirmada manualmente</option><option value="cancelada">Cancelada</option></select></label>
+        <label class="field-full" for="reserve-notes">Observações<textarea id="reserve-notes" name="notes" rows="3" maxlength="500" placeholder="Detalhes fictícios para testar o fluxo"></textarea></label>
+      </div>
+      <p id="reservation-error" class="form-error" role="alert" tabindex="-1"></p>
+      <div class="dialog-actions"><button type="submit" class="app-button app-button--primary">Salvar nesta demonstração</button><button id="reservation-dismiss" type="button" class="app-button">Voltar</button></div>
+    </form>
+    <div id="reservation-details" hidden><div class="detail-person"><h3 id="detail-name"></h3><span id="detail-status" class="reservation-status"></span></div><dl class="detail-grid"><div><dt>Data e horário</dt><dd id="detail-date"></dd></div><div><dt>Turno</dt><dd id="detail-shift"></dd></div><div><dt>Quantidade</dt><dd id="detail-people"></dd></div><div><dt>Contato de teste</dt><dd id="detail-phone"></dd></div></dl><div class="detail-observations"><h4>Observações</h4><p id="detail-notes"></p></div><div class="dialog-actions"><button id="demo-edit" class="app-button app-button--primary" type="button">Editar / remarcar</button><button id="demo-confirm" class="app-button" type="button">Confirmar manualmente</button><button id="demo-cancel" class="app-button" type="button">Marcar como cancelada</button></div><p id="detail-feedback" class="detail-feedback" role="status" aria-live="polite"></p><div class="detail-contact"><a id="detail-whatsapp" class="rpa-button rpa-button--whatsapp" target="_blank" rel="noopener noreferrer" hidden><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.4 7.2L3.5 20l1.1-4.2a8.3 8.3 0 1 1 15.7-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.2 7.4 1.1-.1 1.1 2.5-.9 1.1c.6 1.2 1.5 2.1 2.8 2.7l1-.9 2.5 1.1-.1 1.2c-.1.8-.9 1.4-1.7 1.3-3.7-.5-6.4-3.2-7-6.9-.1-.8.4-1.5 1.2-1.7Z" fill="currentColor"/></svg><span>Abrir WhatsApp do contato de teste</span></a><p id="detail-contact-note"></p></div></div>
+  </dialog>
+</body>
+</html>

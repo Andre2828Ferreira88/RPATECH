@@ -1,3 +1,5 @@
+> Histórico da refatoração da página Sites. Para a atualização de 22/10/2026, com a nova página Reservas, a home e os cabeçalhos padronizados, consulte `LEIA-ME-RESERVAS.md`.
+
 # RPAWorks — atualização da landing page de sites
 
 A atualização parte do ZIP original enviado em 14/10/2026. A página de Sistemas continua com o mesmo HTML visível, CSS, imagens e composição. A home também mantém seu layout.

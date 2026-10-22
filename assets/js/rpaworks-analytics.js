@@ -9,7 +9,7 @@
 
   var parts = location.pathname.split("/").filter(Boolean);
   var filename = (parts.pop() || "index").replace(/\.html$/i, "").toLowerCase();
-  var names = { index: "home", site: "landing_site", sistemas: "landing_sistemas" };
+  var names = { index: "home", site: "landing_site", sistemas: "landing_sistemas", reservas: "landing_reservas" };
   var page = Object.prototype.hasOwnProperty.call(names, filename) ? names[filename] : "outra_pagina";
   var clarityId = /^[a-z0-9]{5,32}$/i.test(config.clarityProjectId || "") ? config.clarityProjectId : "";
   var adsId = /^AW-\d+$/.test(config.googleAdsId || "") ? config.googleAdsId : "";
@@ -93,6 +93,8 @@
     if (!target) return;
     if (typeof target.closest !== "function") target = target.parentElement;
     if (!target || typeof target.closest !== "function") return;
+    // Ações e contatos de teste da demo não representam intenção comercial.
+    if (target.closest("[data-rpa-demo]")) return;
     var element = target.closest("[data-rpa-event], a[data-whatsapp], a[href^='https://wa.me/'], a[href^='https://api.whatsapp.com/']");
     if (!element) return;
     var href = element.getAttribute("href") || "";
