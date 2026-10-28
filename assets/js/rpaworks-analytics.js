@@ -9,7 +9,7 @@
 
   var parts = location.pathname.split("/").filter(Boolean);
   var filename = (parts.pop() || "index").replace(/\.html$/i, "").toLowerCase();
-  var names = { index: "home", site: "landing_site", sistemas: "landing_sistemas", reservas: "landing_reservas" };
+  var names = { index: "home", site: "landing_site", sistemas: "landing_sistemas", reservas: "landing_reservas", agendamentos: "landing_agendamentos" };
   var page = Object.prototype.hasOwnProperty.call(names, filename) ? names[filename] : "outra_pagina";
   var clarityId = /^[a-z0-9]{5,32}$/i.test(config.clarityProjectId || "") ? config.clarityProjectId : "";
   var adsId = /^AW-\d+$/.test(config.googleAdsId || "") ? config.googleAdsId : "";
